@@ -30,13 +30,13 @@ class PlayerSeasonContainer
     render() {
         return (
             <div>
-                <table id="PlayerSeason" className="ui striped table">
+                <table id="PlayerSeason" className="">
                     <thead>
                         <tr>
                             <th>Player</th>
                             <th>Pos</th>
                             <th>Age</th>
-                            <th>Team</th>
+                            <th>Tm</th>
                             <th>G</th>
                             <th>MP</th>
                             <th>FG</th>

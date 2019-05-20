@@ -9,7 +9,7 @@ class PlayerSeasonRow extends React.Component {
                 <td>{this.props.player_season.player.name}</td>
                 <td>{this.props.player_season.player.position}</td>
                 <td>{age}</td>
-                <td>{this.props.player_season.team.name}</td>
+                <td>{this.props.player_season.team.code}</td>
                 <td>{games}</td>
                 <td>{mp_per_g}</td>
                 <td>{fg_per_g}</td>
@@ -28,7 +28,7 @@ class PlayerSeasonRow extends React.Component {
                 <td>{orb_per_g}</td>
                 <td>{drb_per_g}</td>
                 <td>{trb_per_g}</td>
-                <td>{ast_per_g}}</td>
+                <td>{ast_per_g}</td>
                 <td>{stl_per_g}</td>
                 <td>{blk_per_g}</td>
                 <td>{tov_per_g}</td>
