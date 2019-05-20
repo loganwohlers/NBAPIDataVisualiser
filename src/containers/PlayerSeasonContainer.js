@@ -1,6 +1,8 @@
 import React from 'react';
+import PlayerSeasonRow from '../components/PlayerSeasonRow';
 
-class MainContainer extends React.Component {
+class PlayerSeasonContainer
+    extends React.Component {
 
     constructor() {
         super()
@@ -9,25 +11,19 @@ class MainContainer extends React.Component {
         }
     }
 
-    componentDidMount() {
-        fetch('http://localhost:3000/player_seasons')
-            .then(res => res.json())
-            .then(player_seasons => {
-                this.setState({
-                    player_seasons
-                })
-            })
-    }
-    // <ol>
-    //     {this.state.players.map(pl => {
-    //         return <li>{pl.name} : {pl.position}</li>
-    //     })}
-    // </ol>
-
+    // componentDidMount() {
+    //     fetch('http://localhost:3000/player_seasons')
+    //         .then(res => res.json())
+    //         .then(player_seasons => {
+    //             this.setState({
+    //                 player_seasons
+    //             })
+    //         })
+    // }
     render() {
         return (
             <div>
-                <table className="ui selectable celled table">
+                <table id="PlayerSeason" className="ui striped table">
                     <thead>
                         <tr>
                             <th>Player</th>
@@ -91,6 +87,7 @@ class MainContainer extends React.Component {
                             <td>PF</td>
                             <td>PTS</td>
                         </tr>
+                        <PlayerSeasonRow />
                     </tbody>
                 </table>
             </div>
@@ -100,4 +97,4 @@ class MainContainer extends React.Component {
 }
 
 
-export default MainContainer
+export default PlayerSeasonContainer
