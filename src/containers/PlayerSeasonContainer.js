@@ -11,15 +11,19 @@ class PlayerSeasonContainer
         }
     }
 
-    // componentDidMount() {
-    //     fetch('http://localhost:3000/player_seasons')
-    //         .then(res => res.json())
-    //         .then(player_seasons => {
-    //             this.setState({
-    //                 player_seasons
-    //             })
-    //         })
-    // }
+    componentDidMount() {
+        fetch('http://localhost:3000/player_seasons')
+            .then(res => res.json())
+            .then(seasons => {
+                let player_seasons = seasons.filter(ps => {
+                    return ps.age
+                })
+
+                this.setState({
+                    player_seasons
+                })
+            })
+    }
     render() {
         return (
             <div>
