@@ -38,8 +38,13 @@ class PlayerSeasonContainer
         })
         return (
             <div>
-                <SearchBar onSearchChange={this.onSearchChange} />
-                <PlayerSeasonTable playerSeasons={filteredPlayers} />
+                {this.state.playerSeasons.length === 0 ?
+                    <div>LOADING...</div> :
+                    <div>
+                        <SearchBar onSearchChange={this.onSearchChange} />
+                        <PlayerSeasonTable playerSeasons={filteredPlayers} />
+                    </div>
+                }
             </div>
         )
     }
