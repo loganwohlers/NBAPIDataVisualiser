@@ -17,14 +17,14 @@ class PlayerSeasonRow extends React.Component {
                 <td>{fg_pct}</td>
                 <td>{fg3_per_g}</td>
                 <td>{fg3a_per_g}</td>
-                <td>{fg3_pct}</td>
+                <td>{fg3_pct || '.000'}</td>
                 <td>{fg2_per_g}</td>
                 <td>{fg2a_per_g}</td>
-                <td>{fg2_pct}</td>
+                <td>{fg2_pct || '.000'}</td>
                 <td>{efg_pct}</td>
                 <td>{ft_per_g}</td>
                 <td>{fta_per_g}</td>
-                <td>{ft_pct}</td>
+                <td>{ft_pct || '.000'}</td>
                 <td>{orb_per_g}</td>
                 <td>{drb_per_g}</td>
                 <td>{trb_per_g}</td>
