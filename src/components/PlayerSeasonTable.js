@@ -6,6 +6,7 @@ class PlayerSeasonTable
 
     render() {
         return (
+
             <table id="PlayerSeason" className="">
                 <thead>
                     <tr>
