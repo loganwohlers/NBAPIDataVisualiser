@@ -24,6 +24,9 @@ class PlayerSeasonContainer
                 })
             })
     }
+
+
+
     render() {
         return (
             <div>
@@ -35,7 +38,6 @@ class PlayerSeasonContainer
                             <th>Age</th>
                             <th>Team</th>
                             <th>G</th>
-                            <th>GS</th>
                             <th>MP</th>
                             <th>FG</th>
                             <th>FGA</th>
@@ -49,6 +51,7 @@ class PlayerSeasonContainer
                             <th>eFG%</th>
                             <th>FT</th>
                             <th>FTA</th>
+                            <th>FT%</th>
                             <th>ORB</th>
                             <th>DRB</th>
                             <th>TRB</th>
@@ -61,37 +64,10 @@ class PlayerSeasonContainer
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Player</td>
-                            <td>Pos</td>
-                            <td>Age</td>
-                            <td>Team</td>
-                            <td>G</td>
-                            <td>GS</td>
-                            <td>MP</td>
-                            <td>FG</td>
-                            <td>FGA</td>
-                            <td>FG%</td>
-                            <td>3P</td>
-                            <td>3PA</td>
-                            <td>3P%</td>
-                            <td>2P</td>
-                            <td>2PA</td>
-                            <td>2P%</td>
-                            <td>eFG%</td>
-                            <td>FT</td>
-                            <td>FTA</td>
-                            <td>ORB</td>
-                            <td>DRB</td>
-                            <td>TRB</td>
-                            <td>AST</td>
-                            <td>STL</td>
-                            <td>BLK</td>
-                            <td>TOV</td>
-                            <td>PF</td>
-                            <td>PTS</td>
-                        </tr>
-                        <PlayerSeasonRow />
+                        {this.state.player_seasons.map(ps => {
+                            return <PlayerSeasonRow player_season={ps} />
+                        })}
+
                     </tbody>
                 </table>
             </div>

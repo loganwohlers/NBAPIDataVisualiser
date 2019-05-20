@@ -2,41 +2,38 @@ import React from 'react';
 
 class PlayerSeasonRow extends React.Component {
 
-    constructor(props) {
-        super(props)
-    }
-
     render() {
+        let { age, mp_per_g, fg_per_g, fga_per_g, fg_pct, fg3_per_g, fg3a_per_g, fg3_pct, efg_pct, ft_per_g, fta_per_g, ft_pct, orb_per_g, drb_per_g, trb_per_g, ast_per_g, stl_per_g, blk_per_g, tov_per_g, pts_per_g, games, fg2_per_g, fg2a_per_g, fg2_pct, pf_per_g } = this.props.player_season
         return (
             <tr>
-                <td>Player</td>
-                <td>Pos</td>
-                <td>Age</td>
-                <td>Team</td>
-                <td>G</td>
-                <td>GS</td>
-                <td>MP</td>
-                <td>FG</td>
-                <td>FGA</td>
-                <td>FG%</td>
-                <td>3P</td>
-                <td>3PA</td>
-                <td>3P%</td>
-                <td>2P</td>
-                <td>2PA</td>
-                <td>2P%</td>
-                <td>eFG%</td>
-                <td>FT</td>
-                <td>FTA</td>
-                <td>ORB</td>
-                <td>DRB</td>
-                <td>TRB</td>
-                <td>AST</td>
-                <td>STL</td>
-                <td>BLK</td>
-                <td>TOV</td>
-                <td>PF</td>
-                <td>PTS</td>
+                <td>{this.props.player_season.player.name}</td>
+                <td>{this.props.player_season.player.position}</td>
+                <td>{age}</td>
+                <td>{this.props.player_season.team.name}</td>
+                <td>{games}</td>
+                <td>{mp_per_g}</td>
+                <td>{fg_per_g}</td>
+                <td>{fga_per_g}</td>
+                <td>{fg_pct}</td>
+                <td>{fg3_per_g}</td>
+                <td>{fg3a_per_g}</td>
+                <td>{fg3_pct}</td>
+                <td>{fg2_per_g}</td>
+                <td>{fg2a_per_g}</td>
+                <td>{fg2_pct}</td>
+                <td>{efg_pct}</td>
+                <td>{ft_per_g}</td>
+                <td>{fta_per_g}</td>
+                <td>{ft_pct}</td>
+                <td>{orb_per_g}</td>
+                <td>{drb_per_g}</td>
+                <td>{trb_per_g}</td>
+                <td>{ast_per_g}}</td>
+                <td>{stl_per_g}</td>
+                <td>{blk_per_g}</td>
+                <td>{tov_per_g}</td>
+                <td>{pf_per_g}</td>
+                <td>{pts_per_g}</td>
             </tr>
         )
     }
