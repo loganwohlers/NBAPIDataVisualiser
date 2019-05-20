@@ -5,8 +5,12 @@ class GameRow extends React.Component {
     render() {
         return (
             <tr>
-                <td>{this.props.playerSeason.player.name}</td>
-                <td>{this.props.playerSeason.player.position}</td>
+                <td>{this.props.game.date}</td>
+                <td>{this.props.game.start_time}</td>
+                <td>{this.props.game.home_team.name}</td >
+                <td>{this.props.game.home_pts}</td>
+                <td>{this.props.game.away_team.name}</td>
+                <td>{this.props.game.away_pts}</td>
 
             </tr>
         )
@@ -15,3 +19,4 @@ class GameRow extends React.Component {
 }
 
 export default GameRow
+

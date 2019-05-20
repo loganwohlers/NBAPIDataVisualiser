@@ -33,8 +33,11 @@ class GamesContainer extends React.Component {
         // })
         return (
             <div>
-                <SearchBar />
-                <GameTable playerSeasons={filteredPlayers} />
+                {this.state.seasonGames.length === 0 ?
+                    <div>LOADING... </div>
+                    :
+                    <GameTable seasonGames={this.state.seasonGames} />
+                }
             </div>
         )
     }
