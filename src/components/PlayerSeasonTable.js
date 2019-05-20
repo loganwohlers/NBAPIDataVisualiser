@@ -1,12 +1,8 @@
 import React from 'react';
-import PlayerSeasonRow from '../components/PlayerSeasonRow';
+import PlayerSeasonRow from './PlayerSeasonRow';
 
 class PlayerSeasonTable
     extends React.Component {
-
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         return (
@@ -44,8 +40,8 @@ class PlayerSeasonTable
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.player_seasons.map(ps => {
-                        return <PlayerSeasonRow player_season={ps} />
+                    {this.props.playerSeasons.map((ps, idx) => {
+                        return <PlayerSeasonRow playerSeason={ps} key={idx} />
                     })}
 
                 </tbody>

@@ -3,13 +3,13 @@ import React from 'react';
 class PlayerSeasonRow extends React.Component {
 
     render() {
-        let { age, mp_per_g, fg_per_g, fga_per_g, fg_pct, fg3_per_g, fg3a_per_g, fg3_pct, efg_pct, ft_per_g, fta_per_g, ft_pct, orb_per_g, drb_per_g, trb_per_g, ast_per_g, stl_per_g, blk_per_g, tov_per_g, pts_per_g, games, fg2_per_g, fg2a_per_g, fg2_pct, pf_per_g } = this.props.player_season
+        let { age, mp_per_g, fg_per_g, fga_per_g, fg_pct, fg3_per_g, fg3a_per_g, fg3_pct, efg_pct, ft_per_g, fta_per_g, ft_pct, orb_per_g, drb_per_g, trb_per_g, ast_per_g, stl_per_g, blk_per_g, tov_per_g, pts_per_g, games, fg2_per_g, fg2a_per_g, fg2_pct, pf_per_g } = this.props.playerSeason
         return (
             <tr>
-                <td>{this.props.player_season.player.name}</td>
-                <td>{this.props.player_season.player.position}</td>
+                <td>{this.props.playerSeason.player.name}</td>
+                <td>{this.props.playerSeason.player.position}</td>
                 <td>{age}</td>
-                <td>{this.props.player_season.team.code}</td>
+                <td>{this.props.playerSeason.team.code}</td>
                 <td>{games}</td>
                 <td>{mp_per_g}</td>
                 <td>{fg_per_g}</td>
