@@ -30,14 +30,14 @@ class MainMenu extends React.Component {
         return (
 
             <div>
-                {this.state.currView === '' ?
+                MAIN MENU?
+                {/* {this.state.currView === '' ?
                     <div>
                         <button className="ui primary button"
                             onClick={this.handleChoice}>
                         </button>
 
-                        <button className="ui primary button"
-                            link>
+                        <button className="ui primary button">
                             SEASON
 
                         </button>
@@ -47,7 +47,7 @@ class MainMenu extends React.Component {
 
                     :
                     this.selectedView()
-                }
+                } */}
 
             </div>
         )

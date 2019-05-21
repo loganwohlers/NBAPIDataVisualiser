@@ -20,6 +20,9 @@ class App extends React.Component {
           <div className="container">
             <button><Link to="/seasons">Season Stats</Link></button>
           </div>
+          <div className="container">
+            <button><Link to="/games">Season Schedule</Link></button>
+          </div>
         </div>
 
         <Route path="/" exact={true} component={MainMenu} />
