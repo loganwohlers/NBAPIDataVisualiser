@@ -17,7 +17,7 @@ class GameRow extends React.Component {
                 <td>{this.props.game.away_pts}</td>
 
                 <td>
-                    <Link to={{ pathname: "/gamebox", aboutProps: { game: this.props.game } }} > TEST</Link>
+                    <Link to={{ pathname: "/gamebox", aboutProps: { game: this.props.game } }} > Box Score</Link>
                 </td>
             </tr>
         )

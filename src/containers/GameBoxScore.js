@@ -39,20 +39,24 @@ class GameBoxScore extends React.Component {
     }
 
     render() {
+        //could display much more game info here-- maybe a whole game header component
         let home = this.props.location.aboutProps.game.home_team.name
         let away = this.props.location.aboutProps.game.away_team.name
+        let date = this.props.location.aboutProps.game.date
         return (
             <div>
                 {!Object.keys(this.state.boxscore).length ?
                     <div>LOADING... </div>
                     :
                     <div>
-                        <h3>{away} at {home}</h3>
+                        <h3>{date}:  {away} at {home}</h3>
 
-                        {away}
+                        <h4>{away}</h4>
                         <BoxScoreTable lines={this.state.boxscore.away} />
+                        <br></br>
+                        <br></br>
 
-                        {home}
+                        <h4>{home}</h4>
                         <BoxScoreTable lines={this.state.boxscore.home} />
                     </div>
                 }
