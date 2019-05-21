@@ -14,6 +14,8 @@ class GameTable extends React.Component {
                         <th>Pts</th>
                         <th>Away</th>
                         <th>Pts</th>
+
+
                     </tr>
 
                 </thead>

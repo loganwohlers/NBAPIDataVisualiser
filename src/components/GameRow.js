@@ -1,9 +1,13 @@
 import React from 'react';
+import GameBoxScore from './GameBoxScore';
+import { withRouter, Link } from 'react-router-dom'
+
 
 class GameRow extends React.Component {
 
     render() {
         return (
+
             <tr>
                 <td>{this.props.game.date}</td>
                 <td>{this.props.game.start_time}</td>
@@ -12,6 +16,9 @@ class GameRow extends React.Component {
                 <td>{this.props.game.away_team.name}</td>
                 <td>{this.props.game.away_pts}</td>
 
+                <td>
+                    <Link to={{ pathname: "/gamebox", aboutProps: { game: this.props.game } }} > TEST</Link>
+                </td>
             </tr>
         )
     }
@@ -20,3 +27,4 @@ class GameRow extends React.Component {
 
 export default GameRow
 
+// {/* <GameBoxScore game={this.props.game} /> */}

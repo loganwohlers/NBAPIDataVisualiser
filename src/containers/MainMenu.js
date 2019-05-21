@@ -35,13 +35,12 @@ class MainMenu extends React.Component {
         return (
 
             <div>
-                <button className="ui primary basic button"><Link to="/seasons">Season Stats</Link></button>
+                <button className="ui primary basic button"><Link to="/seasonavgs">Season Stats</Link></button>
                 <button className="ui primary basic button"><Link to="/games">Season Schedule</Link></button>
             </div>
 
         )
     }
-
 }
 
 export default MainMenu
