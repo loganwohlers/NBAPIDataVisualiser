@@ -3,7 +3,7 @@ import './App.css';
 import MainMenu from './containers/MainMenu'
 import PlayerSeasonContainer from './containers/PlayerSeasonContainer'
 import GamesContainer from './containers/GamesContainer'
-import GameBoxScore from './components/GameBoxScore'
+import GameBoxScore from './containers/GameBoxScore'
 import {
   BrowserRouter as Router,
   Route,

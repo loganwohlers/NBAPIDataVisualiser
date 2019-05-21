@@ -1,5 +1,5 @@
 import React from 'react';
-import GameBoxScore from './GameBoxScore';
+import GameBoxScore from '../containers/GameBoxScore';
 import { withRouter, Link } from 'react-router-dom'
 
 
@@ -27,4 +27,3 @@ class GameRow extends React.Component {
 
 export default GameRow
 
-// {/* <GameBoxScore game={this.props.game} /> */}
