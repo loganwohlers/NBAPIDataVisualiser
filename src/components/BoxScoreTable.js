@@ -3,12 +3,16 @@ import BoxRow from './BoxRow'
 
 class BoxScoreTable extends React.Component {
     render() {
+        let ordered = this.props.lines.sort((a, b) => {
+            let aa = parseInt(a.mp) || -1
+            let bb = parseInt(b.mp) || -1
+            return bb - aa
+        })
         return (
             <table id="Games" className="">
                 <thead>
                     <tr>
                         <th>Player</th>
-                        <th>MP</th>
                         <th>MP</th>
                         <th>FG</th>
                         <th>FGA</th>
@@ -33,7 +37,7 @@ class BoxScoreTable extends React.Component {
 
                 </thead>
                 <tbody>
-                    {this.props.lines.map((li, idx) => {
+                    {ordered.map((li, idx) => {
                         return <BoxRow line={li} key={idx} />
                     })}
 

@@ -6,7 +6,7 @@ class GameBoxScore extends React.Component {
     constructor() {
         super()
         this.state = {
-            boxscore: []
+            boxscore: {}
         }
     }
 
@@ -14,9 +14,8 @@ class GameBoxScore extends React.Component {
     componentDidMount() {
         fetch('http://localhost:3000/games/' + this.props.location.aboutProps.game.id)
             .then(res => res.json())
-            .then(boxscore => {
-                //order boxscore here
-
+            .then(box => {
+                let boxscore = this.filterBoxScore(box)
                 this.setState({
                     boxscore
                 })
@@ -24,16 +23,38 @@ class GameBoxScore extends React.Component {
 
     }
 
-    filterBoxScore() {
+    filterBoxScore = (boxscore) => {
+        let team_filtered = { home: [], away: [] }
+        let home = this.props.location.aboutProps.game.home_team.name
+        boxscore.forEach(game => {
+            game.player_season.team === home ?
+                team_filtered.home.push(game)
+                :
+                team_filtered.away.push(game)
+        })
+        console.log(team_filtered)
+        return team_filtered
+
+
     }
 
     render() {
+        let home = this.props.location.aboutProps.game.home_team.name
+        let away = this.props.location.aboutProps.game.away_team.name
         return (
             <div>
-                {this.state.boxscore.length === 0 ?
+                {!Object.keys(this.state.boxscore).length ?
                     <div>LOADING... </div>
                     :
-                    <BoxScoreTable lines={this.state.boxscore} />
+                    <div>
+                        <h3>{away} at {home}</h3>
+
+                        {away}
+                        <BoxScoreTable lines={this.state.boxscore.away} />
+
+                        {home}
+                        <BoxScoreTable lines={this.state.boxscore.home} />
+                    </div>
                 }
             </div>
         )
