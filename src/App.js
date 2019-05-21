@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
 import MainMenu from './containers/MainMenu'
+import PlayerSeasonContainer from './containers/PlayerSeasonContainer'
+import GamesContainer from './containers/GamesContainer'
+
 import {
   BrowserRouter as Router,
   Route,
@@ -9,19 +12,19 @@ import {
   Redirect
 } from 'react-router-dom'
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <Router>
         <div className="App">
           <div className="container">
+            <button><Link to="/seasons">Season Stats</Link></button>
           </div>
         </div>
 
-
-        <Route path="/hello" component={MainMenu} />
-        <Route path="/about" component={MainMenu} />
-        <Route path="/books" component={MainMenu} />
+        <Route path="/" exact={true} component={MainMenu} />
+        <Route path="/seasons" component={PlayerSeasonContainer} />
+        <Route path="/games" component={GamesContainer} />
 
       </Router>
     )

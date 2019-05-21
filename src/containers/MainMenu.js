@@ -28,19 +28,18 @@ class MainMenu extends React.Component {
     render() {
 
         return (
+
             <div>
                 {this.state.currView === '' ?
                     <div>
                         <button className="ui primary button"
                             onClick={this.handleChoice}>
-                                STATS
-                            
                         </button>
 
                         <button className="ui primary button"
-                            onClick={this.handleChoice}>
-                                SEASON
-                                
+                            link>
+                            SEASON
+
                         </button>
 
 
