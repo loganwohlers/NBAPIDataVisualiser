@@ -16,20 +16,6 @@ class MainMenu extends React.Component {
         }
     }
 
-    // selectedView = () => {
-    //     if (this.state.currView === 'STATS') {
-    //         return <PlayerSeasonContainer />
-    //     } else {
-    //         return <GamesContainer />
-    //     }
-    // }
-
-    // handleChoice = (e) => {
-    //     this.setState({
-    //         currView: e.target.innerText
-    //     })
-    // }
-
     render() {
 
         return (
@@ -44,21 +30,3 @@ class MainMenu extends React.Component {
 }
 
 export default MainMenu
-
-// {this.state.currView === '' ?
-//                     <div>
-//                         <button className="ui primary button"
-//                             onClick={this.handleChoice}>
-//                         </button>
-
-//                         <button className="ui primary button">
-//                             SEASON
-
-//                         </button>
-
-
-//                     </div>
-
-//                     :
-//                     this.selectedView()
-//                 } 

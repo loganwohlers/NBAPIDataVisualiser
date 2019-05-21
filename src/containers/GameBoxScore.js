@@ -20,7 +20,6 @@ class GameBoxScore extends React.Component {
                     boxscore
                 })
             })
-
     }
 
     filterBoxScore = (boxscore) => {
@@ -32,10 +31,7 @@ class GameBoxScore extends React.Component {
                 :
                 team_filtered.away.push(game)
         })
-        console.log(team_filtered)
         return team_filtered
-
-
     }
 
     render() {
