@@ -23,7 +23,7 @@ class App extends React.Component {
         </div>
 
         <Route path="/" exact={true} component={MainMenu} />
-        <Route path="/seasonavgs" component={PlayerSeasonContainer} />
+        <Route path="/seasonavgs/:id" component={PlayerSeasonContainer} />
         <Route path="/games" component={GamesContainer} />
         <Route path="/gamebox" component={GameBoxScore} />
         <Route path="/playerseason" component={PlayerDisplay} />

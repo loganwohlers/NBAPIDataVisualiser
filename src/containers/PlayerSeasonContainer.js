@@ -20,9 +20,6 @@ class PlayerSeasonContainer
                 let playerSeasons = seasons.filter(ps => {
                     return ps.age
                 })
-
-                console.log(playerSeasons)
-
                 this.setState({
                     playerSeasons
                 })
@@ -36,6 +33,7 @@ class PlayerSeasonContainer
 
     //search button AND seasontable
     render() {
+        console.log(this.props.match)
         let filteredPlayers = this.state.playerSeasons.filter(ps => {
             return ps.player.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
         })

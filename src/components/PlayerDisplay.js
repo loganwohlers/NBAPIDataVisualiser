@@ -63,6 +63,8 @@ class PlayerDisplay extends React.Component {
 
                     </tbody>
                 </table>
+                <br>
+                </br>
 
                 {this.state.games.length === 0 ?
                     null :

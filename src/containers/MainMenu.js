@@ -1,11 +1,7 @@
 import React from 'react';
 // import PlayerSeasonContainer from './PlayerSeasonContainer';
 // import GamesContainer from './GamesContainer';
-
-import {
-    BrowserRouter as Router,
-    Link
-} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class MainMenu extends React.Component {
 
@@ -17,13 +13,15 @@ class MainMenu extends React.Component {
     }
 
     render() {
-
         return (
 
             <div>
-                <button className="ui primary basic button"><Link to="/seasonavgs">Season Stats</Link></button>
-                <button className="ui primary basic button"><Link to="/games">Season Schedule</Link></button>
-            </div>
+                <button className="ui primary basic button"><Link to={`/seasonavgs/${2018}`}>2018 Season Stats</Link></button>
+                <button className="ui primary basic button"><Link to="/games">2018 Season Schedule</Link></button>
+                <div>
+                    <h2>HOMEPAGE</h2>
+                </div>
+            </div >
 
         )
     }
