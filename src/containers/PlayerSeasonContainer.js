@@ -1,8 +1,8 @@
 import React from 'react';
 import PlayerSeasonTable from '../components/PlayerSeasonTable';
 import SearchBar from '../components/SearchBar'
-class PlayerSeasonContainer
-    extends React.Component {
+
+class PlayerSeasonContainer extends React.Component {
 
     constructor() {
         super()

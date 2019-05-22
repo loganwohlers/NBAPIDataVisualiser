@@ -1,6 +1,4 @@
 import React from 'react';
-// import PlayerSeasonContainer from './PlayerSeasonContainer';
-// import GamesContainer from './GamesContainer';
 import { Link } from 'react-router-dom'
 
 class MainMenu extends React.Component {
@@ -8,19 +6,24 @@ class MainMenu extends React.Component {
     constructor() {
         super()
         this.state = {
-            currView: ''
+            seasons: []
         }
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:3000/seasons')
+            .then(res => res.json())
+            .then(seasons => {
+                this.setState({ seasons })
+            })
     }
 
     render() {
         return (
 
             <div>
-                <button className="ui primary basic button"><Link to={`/seasonavgs/${2018}`}>2018 Season Stats</Link></button>
+                <button className="ui primary basic button"><Link to={`/seasonhome/${2018}`}>2018 Season Stats</Link></button>
                 <button className="ui primary basic button"><Link to="/games">2018 Season Schedule</Link></button>
-                <div>
-                    <h2>HOMEPAGE</h2>
-                </div>
             </div >
 
         )

@@ -4,6 +4,7 @@ import MainMenu from './containers/MainMenu'
 import PlayerSeasonContainer from './containers/PlayerSeasonContainer'
 import GamesContainer from './containers/GamesContainer'
 import GameBoxScore from './containers/GameBoxScore'
+import SeasonLanding from './containers/SeasonLanding'
 import PlayerDisplay from './components/PlayerDisplay'
 
 import {
@@ -23,6 +24,7 @@ class App extends React.Component {
         </div>
 
         <Route path="/" exact={true} component={MainMenu} />
+        <Route path="/seasonhome/:year" component={SeasonLanding} />
         <Route path="/seasonavgs/:year" component={PlayerSeasonContainer} />
         <Route path="/games" component={GamesContainer} />
         <Route path="/gamebox" component={GameBoxScore} />
