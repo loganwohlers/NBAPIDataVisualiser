@@ -1,7 +1,25 @@
 import React from 'react';
 import PlayerSeasonRow from './PlayerSeasonRow'
+import PersonalBoxTable from './PersonalBoxTable';
 
 class PlayerDisplay extends React.Component {
+
+    constructor() {
+        super()
+        this.state = {
+            games: []
+        }
+    }
+
+    //get last 10 boxscores
+    componentDidMount() {
+        fetch('http://localhost:3000/player_seasons/' + this.props.location.aboutProps.playerseason.id)
+            .then(res => res.json())
+            .then(games => {
+                this.setState({ games })
+            })
+    }
+
 
     render() {
         return (
@@ -42,8 +60,15 @@ class PlayerDisplay extends React.Component {
                     </thead>
                     <tbody>
                         <PlayerSeasonRow playerSeason={this.props.location.aboutProps.playerseason} />
+
                     </tbody>
                 </table>
+
+                {this.state.games.length === 0 ?
+                    null :
+                    <PersonalBoxTable lines={this.state.games} />
+                }
+
 
             </div>
         )
@@ -51,5 +76,6 @@ class PlayerDisplay extends React.Component {
 
     }
 }
+
 
 export default PlayerDisplay
