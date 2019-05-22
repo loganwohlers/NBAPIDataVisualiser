@@ -5,10 +5,10 @@ class SeasonLanding extends React.Component {
         return (
             <div>
 
-                LANDING ON SEASON:X
+                LANDING ON SEASON: {this.props.match.params.year}
 
-                 {/* <button className="ui primary basic button"><Link to={`/seasonavgs/${2018}`}>2018 Season Stats</Link></button>
-                <button className="ui primary basic button"><Link to="/games">2018 Season Schedule</Link></button> */}
+                <button className="ui primary basic button"><Link to={`/seasonavgs/${this.props.match.params.year}`}>2018 Season Stats</Link></button>
+                <button className="ui primary basic button"><Link to="/games">2018 Season Schedule</Link></button>
 
 
             </div >

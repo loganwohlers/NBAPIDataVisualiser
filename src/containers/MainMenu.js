@@ -22,8 +22,11 @@ class MainMenu extends React.Component {
         return (
 
             <div>
-                <button className="ui primary basic button"><Link to={`/seasonhome/${2018}`}>2018 Season Stats</Link></button>
-                <button className="ui primary basic button"><Link to="/games">2018 Season Schedule</Link></button>
+                <ul>
+                    {this.state.seasons.map((season, idx) => {
+                        return <li key={idx}><Link to={`/seasonhome/${season.year}`}>2018 Season </Link></li>
+                    })}
+                </ul>
             </div >
 
         )
