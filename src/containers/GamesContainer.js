@@ -11,7 +11,8 @@ class GamesContainer extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/games')
+        //need to pass in the yr here
+        fetch(`http://localhost:3000/seasons/${this.props.match.params.year}?games=true`)
             .then(res => res.json())
             .then(seasonGames => {
                 this.setState({
@@ -19,11 +20,6 @@ class GamesContainer extends React.Component {
                 })
             })
     }
-
-    //could let them search by date?
-    // onSearchChange = (e) => {
-    //     this.setState({ searchTerm: e.target.value })
-    // }
 
 
     //search button AND seasontable

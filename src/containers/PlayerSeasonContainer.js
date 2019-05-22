@@ -14,7 +14,7 @@ class PlayerSeasonContainer extends React.Component {
 
     componentDidMount() {
         //we query for season#show- which returns all of it's player_seasons
-        fetch(`http://localhost:3000/seasons/${this.props.match.params.year}`)
+        fetch(`http://localhost:3000/seasons/${this.props.match.params.year}?stats=true`)
             .then(res => res.json())
             .then(seasons => {
                 let playerSeasons = seasons.filter(ps => {

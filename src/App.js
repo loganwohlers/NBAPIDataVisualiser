@@ -26,7 +26,7 @@ class App extends React.Component {
         <Route path="/" exact={true} component={MainMenu} />
         <Route path="/seasonhome/:year" component={SeasonLanding} />
         <Route path="/seasonavgs/:year" component={PlayerSeasonContainer} />
-        <Route path="/games" component={GamesContainer} />
+        <Route path="/games/:year" component={GamesContainer} />
         <Route path="/gamebox" component={GameBoxScore} />
         <Route path="/playerseason" component={PlayerDisplay} />
 
