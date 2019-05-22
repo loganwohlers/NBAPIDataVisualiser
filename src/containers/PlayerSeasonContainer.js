@@ -16,9 +16,12 @@ class PlayerSeasonContainer
         fetch('http://localhost:3000/player_seasons')
             .then(res => res.json())
             .then(seasons => {
+                //filtering blank seasons out
                 let playerSeasons = seasons.filter(ps => {
                     return ps.age
                 })
+
+                console.log(playerSeasons)
 
                 this.setState({
                     playerSeasons

@@ -66,7 +66,10 @@ class PlayerDisplay extends React.Component {
 
                 {this.state.games.length === 0 ?
                     null :
-                    <PersonalBoxTable lines={this.state.games} />
+                    <div>
+                        <h3>Last 10 Games</h3>
+                        <PersonalBoxTable lines={this.state.games} />
+                    </div>
                 }
 
 
