@@ -8,22 +8,25 @@ class PlayerSeasonContainer
         super()
         this.state = {
             playerSeasons: [],
+            searchTerm: ''
         }
     }
 
     componentDidMount() {
-        //fetch to all player seasons in a year
+        //we query for season#show- which returns all of it's player_seasons
         fetch(`http://localhost:3000/seasons/${this.props.match.params.year}`)
             .then(res => res.json())
             .then(seasons => {
-                console.log(seasons)
-                //filtering blank seasons out
-                // let playerSeasons = seasons.filter(ps => {
-                //     return ps.age
-                // })
-                // this.setState({
-                //     playerSeasons
-                // })
+                let playerSeasons = seasons.filter(ps => {
+                    //filtering blank seasons out(players who didn't finish on a roster)
+                    return ps.age
+                })
+
+                console.log(playerSeasons)
+
+                this.setState({
+                    playerSeasons
+                })
             })
     }
 
@@ -34,20 +37,20 @@ class PlayerSeasonContainer
 
     //search button AND seasontable
     render() {
-        console.log(this.props.match)
         let filteredPlayers = this.state.playerSeasons.filter(ps => {
             return ps.player.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
         })
         return (
             <div>
-                {this.state.playerSeasons.length === 0 ?
-                    <div>LOADING...</div> :
-                    <div>
-                        <SearchBar onSearchChange={this.onSearchChange} />
-                        <PlayerSeasonTable playerSeasons={filteredPlayers} />
-                    </div>
+                {
+                    this.state.playerSeasons.length === 0 ?
+                        <div>LOADING...</div> :
+                        <div>
+                            <SearchBar onSearchChange={this.onSearchChange} />
+                            <PlayerSeasonTable playerSeasons={filteredPlayers} />
+                        </div>
                 }
-            </div>
+            </div >
         )
     }
 
