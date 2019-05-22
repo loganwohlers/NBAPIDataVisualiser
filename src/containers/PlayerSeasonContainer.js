@@ -8,21 +8,22 @@ class PlayerSeasonContainer
         super()
         this.state = {
             playerSeasons: [],
-            searchTerm: ''
         }
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/player_seasons')
+        //fetch to all player seasons in a year
+        fetch(`http://localhost:3000/seasons/${this.props.match.params.year}`)
             .then(res => res.json())
             .then(seasons => {
+                console.log(seasons)
                 //filtering blank seasons out
-                let playerSeasons = seasons.filter(ps => {
-                    return ps.age
-                })
-                this.setState({
-                    playerSeasons
-                })
+                // let playerSeasons = seasons.filter(ps => {
+                //     return ps.age
+                // })
+                // this.setState({
+                //     playerSeasons
+                // })
             })
     }
 
