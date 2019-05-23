@@ -11,6 +11,7 @@ class PlayerDisplay extends React.Component {
         }
     }
 
+    //THIS ID CAN JUST COME FROM URL
     //get last 10 boxscores
     componentDidMount() {
         fetch('http://localhost:3000/player_seasons/' + this.props.location.aboutProps.playerseason.id)
@@ -22,6 +23,7 @@ class PlayerDisplay extends React.Component {
 
 
     render() {
+        console.log(this.props)
         return (
             <div>
                 <h1>SEASON AVERAGES:</h1>

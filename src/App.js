@@ -11,9 +11,7 @@ import {
   BrowserRouter as Router,
   Route,
   withRouter,
-  Link,
-  Switch,
-  Redirect
+  Switch
 } from 'react-router-dom'
 
 class App extends React.Component {
@@ -27,8 +25,8 @@ class App extends React.Component {
         <Route path="/seasonhome/:year" component={SeasonLanding} />
         <Route path="/seasonavgs/:year" component={PlayerSeasonContainer} />
         <Route path="/games/:year" component={GamesContainer} />
-        <Route path="/gamebox" component={GameBoxScore} />
-        <Route path="/playerseason" component={PlayerDisplay} />
+        <Route path="/gamebox/:id" component={GameBoxScore} />
+        <Route path="/playerseason/:id" component={PlayerDisplay} />
 
       </Router>
     )

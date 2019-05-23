@@ -1,6 +1,5 @@
 import React from 'react';
-import GameBoxScore from '../containers/GameBoxScore';
-import { withRouter, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 class GameRow extends React.Component {
@@ -17,7 +16,7 @@ class GameRow extends React.Component {
                 <td>{this.props.game.away_pts}</td>
 
                 <td>
-                    <Link to={{ pathname: "/gamebox", aboutProps: { game: this.props.game } }} > Box Score</Link>
+                    <Link to={{ pathname: `/gamebox/${this.props.game.id}`, aboutProps: { game: this.props.game } }} > Box Score</Link>
                 </td>
             </tr>
         )

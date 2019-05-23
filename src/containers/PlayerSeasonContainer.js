@@ -13,7 +13,7 @@ class PlayerSeasonContainer extends React.Component {
     }
 
     componentDidMount() {
-        //we query for season#show- which returns all of it's player_seasons
+        //season yr + stats gets us all player_lines for a given season
         fetch(`http://localhost:3000/seasons/${this.props.match.params.year}?stats=true`)
             .then(res => res.json())
             .then(seasons => {
@@ -22,7 +22,6 @@ class PlayerSeasonContainer extends React.Component {
                     return ps.age
                 })
 
-                console.log(playerSeasons)
 
                 this.setState({
                     playerSeasons

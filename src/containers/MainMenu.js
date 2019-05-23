@@ -18,13 +18,15 @@ class MainMenu extends React.Component {
             })
     }
 
+
     render() {
         return (
 
             <div>
                 <ul>
                     {this.state.seasons.map((season, idx) => {
-                        return <li key={idx}><Link to={`/seasonhome/${season.year}`}>2018 Season </Link></li>
+                        return <li key={idx}><Link to={`/seasonhome/${season.year}`}>
+                            {`${season.year - 1}-${season.year} Season`} </Link></li>
                     })}
                 </ul>
             </div >

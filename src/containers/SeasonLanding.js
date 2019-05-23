@@ -6,12 +6,12 @@ class SeasonLanding extends React.Component {
         return (
             <div>
 
-                LANDING ON SEASON: {yr}
+                <h2>{yr} SEASON LANDING PAGE</h2>
 
                 <hr></hr>
 
-                <button className="ui primary basic button"><Link to={`/seasonavgs/${yr}`}>2018 Season Stats</Link></button>
-                <button className="ui primary basic button"><Link to={`/games/${yr}`}>2018 Season Schedule</Link></button>
+                <button className="ui primary basic button"><Link to={`/seasonavgs/${yr}`}>{yr} Season Stats</Link></button>
+                <button className="ui primary basic button"><Link to={`/games/${yr}`}>{yr} Season Schedule</Link></button>
 
 
             </div >

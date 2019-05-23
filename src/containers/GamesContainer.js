@@ -11,7 +11,7 @@ class GamesContainer extends React.Component {
     }
 
     componentDidMount() {
-        //need to pass in the yr here
+        //passes yr + games in string query to get back all games in season for this yr
         fetch(`http://localhost:3000/seasons/${this.props.match.params.year}?games=true`)
             .then(res => res.json())
             .then(seasonGames => {
