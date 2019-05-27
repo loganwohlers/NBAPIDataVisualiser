@@ -2,7 +2,6 @@ import React from 'react';
 import PlayerSeasonTable from '../components/PlayerSeasonTable';
 import SearchBar from '../components/SearchBar'
 import { connect } from 'react-redux'
-import { fetchAllPlayerSeasons } from '../actions'
 
 class PlayerSeasonContainer extends React.Component {
 
@@ -11,10 +10,6 @@ class PlayerSeasonContainer extends React.Component {
         this.state = {
             searchTerm: ''
         }
-    }
-
-    componentDidMount() {
-        this.props.fetchAllPlayerSeasons()
     }
 
     onSearchChange = (e) => {
@@ -27,15 +22,10 @@ class PlayerSeasonContainer extends React.Component {
         })
         return (
             <div>
-                {
-                    this.props.playerSeasons.length === 0 ?
-                        <div>LOADING...</div> :
-                        <div>
-                            <SearchBar onSearchChange={this.onSearchChange} />
-                            <PlayerSeasonTable playerSeasons={filteredPlayers} />
-                        </div>
-                }
-            </div >
+                <SearchBar onSearchChange={this.onSearchChange} />
+                <PlayerSeasonTable playerSeasons={filteredPlayers} />
+            </div>
+
         )
     }
 
@@ -46,6 +36,6 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { fetchAllPlayerSeasons })(PlayerSeasonContainer)
+export default connect(mapStateToProps)(PlayerSeasonContainer)
 
 
