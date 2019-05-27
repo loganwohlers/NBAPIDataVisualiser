@@ -13,6 +13,7 @@ class SeasonLanding extends React.Component {
     }
 
     render() {
+        debugger
         const yr = this.props.season
         let ready = (this.props.playerSeasons.length !== 0 && this.props.seasonGames.length !== 0)
         return (
