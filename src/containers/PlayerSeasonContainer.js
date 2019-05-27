@@ -11,35 +11,18 @@ class PlayerSeasonContainer extends React.Component {
     constructor() {
         super()
         this.state = {
-            playerSeasons: [],
             searchTerm: ''
         }
     }
 
     componentDidMount() {
         this.props.fetchAllPlayerSeasons()
-        // //season yr + stats gets us all player_lines for a given season
-        // fetch(`http://localhost:3000/seasons/${this.props.match.params.year}?stats=true`)
-        //     .then(res => res.json())
-        //     .then(seasons => {
-        //         let playerSeasons = seasons.filter(ps => {
-        //             //filtering blank seasons out(players who didn't finish on a roster)
-        //             return ps.age
-        //         })
-
-
-        //         this.setState({
-        //             playerSeasons
-        //         })
-        //     })
     }
 
     onSearchChange = (e) => {
         this.setState({ searchTerm: e.target.value })
     }
 
-
-    //search button AND seasontable
     render() {
         let filteredPlayers = this.props.playerSeasons.filter(ps => {
             return ps.player.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())

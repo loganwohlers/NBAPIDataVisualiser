@@ -23,7 +23,6 @@ class PlayerDisplay extends React.Component {
 
 
     render() {
-        console.log(this.props)
         return (
             <div>
                 <h1>SEASON AVERAGES:</h1>

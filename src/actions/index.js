@@ -31,6 +31,11 @@ export const fetchOnePlayerSeason = () => {
 }
 
 export const fetchSeasonGames = () => {
+    return async (dispatch, getState) => {
+        let yr = getState().currSeason
+        const response = await railsData.get('/seasons/' + yr + '?games=true')
+        dispatch({ type: 'FETCH_SEASON_GAMES', payload: response.data })
+    }
 
 }
 

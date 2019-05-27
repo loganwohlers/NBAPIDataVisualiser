@@ -2,12 +2,10 @@ import React from 'react';
 import PlayerSeasonRow from './PlayerSeasonRow';
 
 
-class PlayerSeasonTable
-    extends React.Component {
+class PlayerSeasonTable extends React.Component {
 
     render() {
         return (
-
             <table id="PlayerSeason" className="">
                 <thead>
                     <tr>
