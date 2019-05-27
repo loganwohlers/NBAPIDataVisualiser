@@ -4,12 +4,14 @@ import allSeasonsReducer from './allSeasonsReducer'
 import currentSeasonReducer from './currentSeasonReducer'
 import allPlayerSeasonsReducer from './allPlayerSeasonsReducer'
 import seasonGamesReducer from './seasonGamesReducer'
-import currentPlayerStats from './currentPlayerStats'
+import currentPlayerSeasonReducer from './currentPlayerSeasonReducer'
+import currentGameReducer from './currentGameReducer'
 
 export default combineReducers({
     allSeasons: allSeasonsReducer,
     currSeason: currentSeasonReducer,
     playerSeasons: allPlayerSeasonsReducer,
     seasonGames: seasonGamesReducer,
-    currPlayerSeason: currentPlayerStats
+    currPlayerSeason: currentPlayerSeasonReducer,
+    currGame: currentGameReducer
 })

@@ -6,13 +6,9 @@ import { fetchOnePlayerSeason } from '../actions'
 
 class PlayerDisplay extends React.Component {
 
-
-
-    //get last 10 boxscores--  player season show includes their games
     componentDidMount() {
         this.props.fetchOnePlayerSeason()
     }
-
 
     render() {
         return (
@@ -52,26 +48,21 @@ class PlayerDisplay extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <PlayerSeasonRow playerSeason={this.props.currPlayerSeason} />
-
+                        <PlayerSeasonRow id={this.props.currPlayerSeason.id} />
                     </tbody>
                 </table>
                 <br>
                 </br>
 
-                {this.state.games.length === 0 ?
-                    null :
+                {this.props.currPlayerSeason.games ?
                     <div>
                         <h3>Last 10 Games</h3>
-                        <PersonalBoxTable lines={this.state.games} />
-                    </div>
+                        <PersonalBoxTable lines={this.props.currPlayerSeason.games} />
+                    </div> :
+                    <div>Loading</div>
                 }
-
-
             </div>
         )
-
-
     }
 }
 

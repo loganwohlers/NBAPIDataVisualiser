@@ -16,6 +16,24 @@ export const setSeason = (year) => {
     )
 }
 
+export const setPlayerSeason = (player) => {
+    return (
+        {
+            type: 'SET_PLAYER_SEASON',
+            payload: player
+        }
+    )
+}
+
+export const setGame = (game) => {
+    return (
+        {
+            type: 'SET_GAME',
+            payload: game
+        }
+    )
+}
+
 export const requestPlayerSeasons = () => {
     return {
         type: 'REQUEST_PLAYER_SEASONS'
@@ -65,7 +83,7 @@ export const fetchSeasonGames = () => {
 
 export const fetchOnePlayerSeason = () => {
     return async (dispatch, getState) => {
-        let id = getState().currPlayer.id
+        let id = getState().currPlayerSeason.id
         const response = await railsData.get('/player_seasons/' + id)
         dispatch({ type: 'FETCH_ONE_PLAYER_SEASON', payload: response.data })
     }

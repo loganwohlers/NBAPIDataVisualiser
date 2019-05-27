@@ -3,6 +3,7 @@ import BoxRow from './BoxRow'
 
 class BoxScoreTable extends React.Component {
     render() {
+        //table ordered by minutes played
         let ordered = this.props.lines.sort((a, b) => {
             let aa = parseInt(a.mp) || -1
             let bb = parseInt(b.mp) || -1
