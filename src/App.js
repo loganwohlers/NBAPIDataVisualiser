@@ -7,33 +7,28 @@ import GameBoxScore from './containers/GameBoxScore'
 import SeasonLanding from './containers/SeasonLanding'
 import PlayerDisplay from './components/PlayerDisplay'
 
-import {
-  BrowserRouter as Router,
-  Route,
-  withRouter,
-  Switch
-} from 'react-router-dom'
+import { BrowserRouter, Route, withRouter, } from 'react-router-dom'
 
 
 class App extends React.Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-        </div>
-
-        <Route path="/" exact={true} component={MainMenu} />
-        <Route path="/seasonhome/:year" component={SeasonLanding} />
-        <Route path="/seasonavgs/:year" component={PlayerSeasonContainer} />
-        <Route path="/games/:year" component={GamesContainer} />
-        <Route path="/gamebox/:id" component={GameBoxScore} />
-        <Route path="/playerseason/:id" component={PlayerDisplay} />
-
-      </Router>
+      <div className="App">
+        <BrowserRouter>
+          <div>
+            <Route path="/" exact={true} component={MainMenu} />
+            <Route path="/seasonhome/:year" component={SeasonLanding} />
+            <Route path="/seasonavgs/:year" component={PlayerSeasonContainer} />
+            <Route path="/games/:year" component={GamesContainer} />
+            <Route path="/gamebox/:id" component={GameBoxScore} />
+            <Route path="/playerseason/:id" component={PlayerDisplay} />
+          </div>
+        </BrowserRouter>
+      </div>
     )
   }
 }
 
-export default withRouter(App);
+export default App;
 
 
