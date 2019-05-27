@@ -91,6 +91,11 @@ export const fetchOnePlayerSeason = () => {
 }
 
 export const fetchGameBoxScore = () => {
+    return async (dispatch, getState) => {
+        let id = getState().currGame.id
+        const response = await railsData.get('/games/' + id)
+        dispatch({ type: 'FETCH_GAME_BOX_SCORE', payload: response.data })
+    }
 
 }
 

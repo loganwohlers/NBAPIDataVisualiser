@@ -1,5 +1,7 @@
 import React from 'react';
 import GameRow from './GameRow';
+import { connect } from 'react-redux'
+
 
 class GameTable extends React.Component {
 
@@ -14,22 +16,21 @@ class GameTable extends React.Component {
                         <th>Pts</th>
                         <th>Away</th>
                         <th>Pts</th>
-
-
                     </tr>
-
                 </thead>
-                <tbody>
-                    {this.props.seasonGames.map(gm => {
-                        return <GameRow game={gm} key={gm.id} />
-                    })}
 
+                <tbody>
+                    {this.props.seasonGames.data.map(gm => {
+                        return <GameRow id={gm.id} key={gm.id} />
+                    })}
                 </tbody>
             </table>
         )
-
-
     }
 }
 
-export default GameTable
+const mapStatetoProps = (state) => {
+    return { seasonGames: state.seasonGames }
+}
+
+export default connect(mapStatetoProps)(GameTable)

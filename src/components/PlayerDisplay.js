@@ -14,6 +14,7 @@ class PlayerDisplay extends React.Component {
     render() {
         return (
             <div>
+                <h2>Season Averages: </h2>
                 <PlayerDisplayTable playerSeason={this.props.currPlayerSeason} />
                 <br>
                 </br>
