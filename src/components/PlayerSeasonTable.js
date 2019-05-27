@@ -1,8 +1,6 @@
 import React from 'react';
 import PlayerSeasonRow from './PlayerSeasonRow';
 
-
-
 class PlayerSeasonTable extends React.Component {
 
     render() {
