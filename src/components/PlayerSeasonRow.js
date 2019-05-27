@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { fetchOnePlayerSeason } from '../actions'
+
 
 
 class PlayerSeasonRow extends React.Component {
@@ -11,7 +10,7 @@ class PlayerSeasonRow extends React.Component {
         return (
 
             <tr>
-                <td onClick={this.props.fetchOnePlayerSeason(id)}><Link to={{ pathname: `/playerseason/${id}`, aboutProps: { playerseason: this.props.playerSeason } }} > {this.props.playerSeason.player.name} </Link></td>
+                <td ><Link to={{ pathname: `/playerseason/${id}`, aboutProps: { playerseason: this.props.playerSeason } }} > {this.props.playerSeason.player.name} </Link></td>
                 <td>{this.props.playerSeason.player.position}</td>
                 <td>{age}</td>
                 <td>{this.props.playerSeason.team.code}</td>
@@ -45,9 +44,4 @@ class PlayerSeasonRow extends React.Component {
 
 }
 
-const mapStateToProps = (state, ownProps) => {
-
-}
-
-
-export default connect(mapStateToProps, { fetchOnePlayerSeason })(PlayerSeasonRow)
+export default PlayerSeasonRow
