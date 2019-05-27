@@ -6,8 +6,6 @@ import { fetchAllPlayerSeasons } from '../actions'
 
 class PlayerSeasonContainer extends React.Component {
 
-    // onClick = { this.props.fetchAllPlayerSeasons }
-
     constructor() {
         super()
         this.state = {

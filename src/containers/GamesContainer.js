@@ -21,11 +21,9 @@ class GamesContainer extends React.Component {
             </div>
         )
     }
-
 }
 const mapStatetoProps = (state) => {
     return { seasonGames: state.seasonGames }
 }
-
 
 export default connect(mapStatetoProps, { fetchSeasonGames })(GamesContainer)

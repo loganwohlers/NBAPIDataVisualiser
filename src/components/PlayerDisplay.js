@@ -1,24 +1,16 @@
 import React from 'react';
 import PlayerSeasonRow from './PlayerSeasonRow'
 import PersonalBoxTable from './PersonalBoxTable';
+import { connect } from 'react-redux'
+import { fetchOnePlayerSeason } from '../actions'
 
 class PlayerDisplay extends React.Component {
 
-    constructor() {
-        super()
-        this.state = {
-            games: []
-        }
-    }
 
-    //THIS ID CAN JUST COME FROM URL
-    //get last 10 boxscores
+
+    //get last 10 boxscores--  player season show includes their games
     componentDidMount() {
-        fetch('http://localhost:3000/player_seasons/' + this.props.location.aboutProps.playerseason.id)
-            .then(res => res.json())
-            .then(games => {
-                this.setState({ games })
-            })
+        this.props.fetchOnePlayerSeason()
     }
 
 
@@ -60,7 +52,7 @@ class PlayerDisplay extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <PlayerSeasonRow playerSeason={this.props.location.aboutProps.playerseason} />
+                        <PlayerSeasonRow playerSeason={this.props.currPlayerSeason} />
 
                     </tbody>
                 </table>
@@ -83,5 +75,9 @@ class PlayerDisplay extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return { currPlayerSeason: state.currPlayerSeason }
+}
 
-export default PlayerDisplay
+
+export default connect(mapStateToProps, { fetchOnePlayerSeason })(PlayerDisplay)

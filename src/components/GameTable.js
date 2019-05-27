@@ -20,8 +20,8 @@ class GameTable extends React.Component {
 
                 </thead>
                 <tbody>
-                    {this.props.seasonGames.map((gm, idx) => {
-                        return <GameRow game={gm} key={idx} />
+                    {this.props.seasonGames.map(gm => {
+                        return <GameRow game={gm} key={gm.id} />
                     })}
 
                 </tbody>

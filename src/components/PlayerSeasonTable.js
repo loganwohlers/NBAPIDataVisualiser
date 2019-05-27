@@ -41,7 +41,7 @@ class PlayerSeasonTable extends React.Component {
                 </thead>
                 <tbody>
                     {this.props.playerSeasons.map((ps, idx) => {
-                        return <PlayerSeasonRow playerSeason={ps} key={idx} />
+                        return <PlayerSeasonRow p={ps} key={idx} />
                     })}
 
                 </tbody>

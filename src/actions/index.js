@@ -25,8 +25,12 @@ export const fetchAllPlayerSeasons = () => {
     }
 }
 
-//this can just be the ID since we'll have fetched their season by this point?
 export const fetchOnePlayerSeason = () => {
+    return async (dispatch, getState) => {
+        let id = getState().currPlayer.id
+        const response = await railsData.get('/player_seasons/' + id)
+        dispatch({ type: 'FETCH_ONE_PLAYER_SEASON', payload: response.data })
+    }
 
 }
 
