@@ -7,7 +7,6 @@ export default (
 ) => {
     switch (action.type) {
         case 'REQUEST_PLAYER_SEASONS':
-            console.log('requesting?')
             return Object.assign({}, state, {
                 isFetching: true,
             })

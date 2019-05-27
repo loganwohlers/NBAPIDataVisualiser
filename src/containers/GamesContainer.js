@@ -7,7 +7,7 @@ class GamesContainer extends React.Component {
     render() {
         return (
             <div>
-                <GameTable seasonGames={this.props.seasonGames} />
+                <GameTable seasonGames={this.props.seasonGames.data} />
             </div>
         )
     }

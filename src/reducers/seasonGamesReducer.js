@@ -1,7 +1,20 @@
-export default (state = [], action) => {
+export default (
+    state = {
+        data: [],
+        isFetching: false
+    },
+    action
+) => {
     switch (action.type) {
-        case 'FETCH_SEASON_GAMES':
-            return action.payload
+        case 'REQUEST_SEASON_GAMES':
+            return Object.assign({}, state, {
+                isFetching: true,
+            })
+        case 'RECEIVED_SEASON_GAMES':
+            return Object.assign({}, state, {
+                isFetching: false,
+                data: action.payload
+            })
         default:
             return state
     }

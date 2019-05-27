@@ -17,7 +17,7 @@ class PlayerSeasonContainer extends React.Component {
     }
 
     render() {
-        let filteredPlayers = this.props.playerSeasons.filter(ps => {
+        let filteredPlayers = this.props.playerSeasons.data.filter(ps => {
             return ps.player.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
         })
         return (
