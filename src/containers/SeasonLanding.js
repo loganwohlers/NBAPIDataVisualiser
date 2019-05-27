@@ -13,9 +13,9 @@ class SeasonLanding extends React.Component {
     }
 
     render() {
-        debugger
         const yr = this.props.season
-        let ready = (this.props.playerSeasons.length !== 0 && this.props.seasonGames.length !== 0)
+        let ready = (this.props.playerSeasons.data.length !== 0 && this.props.seasonGames.length !== 0)
+        console.log(this.props)
         return (
             <div>
                 <h2>{yr} SEASON LANDING PAGE</h2>

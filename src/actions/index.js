@@ -16,12 +16,30 @@ export const setSeason = (year) => {
     )
 }
 
+export const requestPlayerSeasons = () => {
+    return {
+        type: 'REQUEST_PLAYER_SEASONS'
+    }
+}
+
+//use this to feed into reducer
+export const receivedPlayerSeasons = (data) => {
+    return {
+        type: 'RECEIVED_PLAYER_SEASONS',
+        payload: data
+    }
+}
+
+
 // we want to use getState to get our currSeason and then send it in fetch for stats
 export const fetchAllPlayerSeasons = () => {
     return async (dispatch, getState) => {
+        console.log('about to fetch')
+        dispatch(requestPlayerSeasons())
         let yr = getState().currSeason
         const response = await railsData.get('/seasons/' + yr + '?stats=true')
-        dispatch({ type: 'FETCH_PLAYER_SEASONS', payload: response.data })
+        console.log('fetched')
+        dispatch(receivedPlayerSeasons(response.data))
     }
 }
 
