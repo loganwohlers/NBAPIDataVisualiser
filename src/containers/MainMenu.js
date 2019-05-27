@@ -30,7 +30,7 @@ class MainMenu extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { seasons: state.seasons }
+    return { seasons: state.allSeasons }
 }
 
 export default connect(mapStateToProps, { fetchSeasons, setSeason })(MainMenu)

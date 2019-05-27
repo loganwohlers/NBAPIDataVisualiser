@@ -4,6 +4,8 @@ import SearchBar from '../components/SearchBar'
 
 class PlayerSeasonContainer extends React.Component {
 
+    // onClick = { this.props.fetchAllPlayerSeasons }
+
     constructor() {
         super()
         this.state = {

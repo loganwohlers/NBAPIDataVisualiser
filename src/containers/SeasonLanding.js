@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { fetchAllPlayerSeasons } from '../actions'
+
 class SeasonLanding extends React.Component {
     render() {
-        const yr = this.props.match.params.year
+        const yr = this.props.season
         return (
             <div>
 
@@ -10,7 +13,7 @@ class SeasonLanding extends React.Component {
 
                 <hr></hr>
 
-                <button className="ui primary basic button"><Link to={`/seasonavgs/${yr}`}>{yr} Season Stats</Link></button>
+                <button className="ui primary basic button" ><Link to={`/seasonavgs/${yr}`}>{yr} Season Stats</Link></button>
                 <button className="ui primary basic button"><Link to={`/games/${yr}`}>{yr} Season Schedule</Link></button>
 
 
@@ -20,5 +23,9 @@ class SeasonLanding extends React.Component {
 
 }
 
+const mapStateToProps = (state) => {
+    return { season: state.currSeason }
+}
 
-export default SeasonLanding
+
+export default connect(mapStateToProps, { fetchAllPlayerSeasons })(SeasonLanding)

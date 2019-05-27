@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import allSeasonsReducer from './allSeasonsReducer'
 import currentSeasonReducer from './currentSeasonReducer'
+import allPlayerSeasonsReducer from './allPlayerSeasonsReducer'
 
 export default combineReducers({
-    seasons: allSeasonsReducer,
-    season: currentSeasonReducer
+    allSeasons: allSeasonsReducer,
+    currSeason: currentSeasonReducer,
+    playerSeasons: allPlayerSeasonsReducer
 })
