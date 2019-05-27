@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { fetchAllPlayerSeasons } from '../actions'
 
 class SeasonLanding extends React.Component {
     render() {
@@ -28,4 +27,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { fetchAllPlayerSeasons })(SeasonLanding)
+export default connect(mapStateToProps)(SeasonLanding)
