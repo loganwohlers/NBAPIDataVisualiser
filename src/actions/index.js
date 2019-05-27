@@ -19,6 +19,7 @@ export const setSeason = (year) => {
 // we want to use getState to get our currSeason and then send it in fetch for stats
 export const fetchAllPlayerSeasons = () => {
     return async (dispatch, getState) => {
+        console.log('playerseasons')
         let yr = getState().currSeason
         const response = await railsData.get('/seasons/' + yr + '?stats=true')
         dispatch({ type: 'FETCH_PLAYER_SEASONS', payload: response.data })
@@ -36,6 +37,7 @@ export const fetchOnePlayerSeason = () => {
 
 export const fetchSeasonGames = () => {
     return async (dispatch, getState) => {
+        console.log('games')
         let yr = getState().currSeason
         const response = await railsData.get('/seasons/' + yr + '?games=true')
         dispatch({ type: 'FETCH_SEASON_GAMES', payload: response.data })
