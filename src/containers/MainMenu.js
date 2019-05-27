@@ -1,21 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { fetchSeasons } from '../actions'
 
 class MainMenu extends React.Component {
 
-    constructor() {
-        super()
-        this.state = {
-            seasons: []
-        }
-    }
+
 
     componentDidMount() {
-        fetch('http://localhost:3000/seasons')
-            .then(res => res.json())
-            .then(seasons => {
-                this.setState({ seasons })
-            })
+        this.props.fetchSeasons()
+        // fetch('http://localhost:3000/seasons')
+        //     .then(res => res.json())
+        //     .then(seasons => {
+        //         this.setState({ seasons })
+        //     })
     }
 
 
@@ -24,7 +22,7 @@ class MainMenu extends React.Component {
 
             <div>
                 <ul>
-                    {this.state.seasons.map((season, idx) => {
+                    {this.props.seasons.map((season, idx) => {
                         return <li key={idx}><Link to={`/seasonhome/${season.year}`}>
                             {`${season.year - 1}-${season.year} Season`} </Link></li>
                     })}
@@ -35,4 +33,8 @@ class MainMenu extends React.Component {
     }
 }
 
-export default MainMenu
+const mapStateToProps = (state) => {
+    return { seasons: state.seasons }
+}
+
+export default connect(mapStateToProps, { fetchSeasons })(MainMenu)
