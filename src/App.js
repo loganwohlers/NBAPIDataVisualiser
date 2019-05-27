@@ -7,7 +7,7 @@ import GameBoxScore from './containers/GameBoxScore'
 import SeasonLanding from './containers/SeasonLanding'
 import PlayerDisplay from './components/PlayerDisplay'
 
-import { BrowserRouter, Route, withRouter, } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 
 class App extends React.Component {
