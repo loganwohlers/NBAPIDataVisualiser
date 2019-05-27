@@ -1,11 +1,10 @@
-import RailsData from '../apis/RailsData'
+import railsData from '../apis/railsData'
 
 export const fetchSeasons = () => {
     return async (dispatch, getState) => {
-        console.log("ACTION?")
-        debugger
-        const response = await RailsData.get('/seasons')
+        let response = await railsData.get('/seasons')
         dispatch({ type: 'FETCH_ALL_SEASONS', payload: response.data })
+        debugger
     }
 
 }
