@@ -1,6 +1,5 @@
 import React from 'react';
-import PlayerDisplay from '../components/PlayerDisplay';
-import { withRouter, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class PlayerSeasonRow extends React.Component {
 

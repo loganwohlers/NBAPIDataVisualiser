@@ -4,7 +4,6 @@ export const fetchSeasons = () => {
     return async (dispatch, getState) => {
         let response = await railsData.get('/seasons')
         dispatch({ type: 'FETCH_ALL_SEASONS', payload: response.data })
-        debugger
     }
 
 }
