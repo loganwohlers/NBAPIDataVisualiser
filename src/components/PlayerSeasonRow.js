@@ -5,7 +5,7 @@ import { setPlayer } from '../actions'
 
 class PlayerSeasonRow extends React.Component {
     render() {
-        let { age, mp_per_g, fg_per_g, fga_per_g, fg_pct, fg3_per_g, fg3a_per_g, fg3_pct, efg_pct, ft_per_g, fta_per_g, ft_pct, orb_per_g, drb_per_g, trb_per_g, ast_per_g, stl_per_g, blk_per_g, tov_per_g, pts_per_g, gp, fg2_per_g, fg2a_per_g, fg2_pct, pf_per_g } = this.props.playerSeason
+        let { age, mp_per_g, fg_per_g, fga_per_g, fg_pct, fg3_per_g, fg3a_per_g, fg3_pct, efg_pct, ft_per_g, fta_per_g, ft_pct, orb_per_g, drb_per_g, trb_per_g, ast_per_g, stl_per_g, blk_per_g, tov_per_g, pts_per_g, gp, fg2_per_g, fg2a_per_g, fg2_pct, pf_per_g, position } = this.props.playerSeason
 
         let name = this.props.playerSeason.player.name
         let id = this.props.playerSeason.player.id
@@ -17,8 +17,7 @@ class PlayerSeasonRow extends React.Component {
                         {name}
                     </Link>
                 </td>
-
-                <td>{this.props.playerSeason.player.position}</td>
+                <td>{position}</td>
                 <td>{age}</td>
                 <td>{this.props.playerSeason.team.code}</td>
                 <td>{gp}</td>

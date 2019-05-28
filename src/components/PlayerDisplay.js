@@ -14,19 +14,13 @@ class PlayerDisplay extends React.Component {
     render() {
         return (
             <div>
-                {this.props.player.name}
-                {/* <h2>Season Averages: </h2>
-                <PlayerDisplayTable playerSeason={this.props.currPlayerSeason} />
+                <h2>{this.props.player.name}</h2>
+                <h2>Season Averages: </h2>
+                <PlayerDisplayTable player={this.props.player} />
                 <br>
                 </br>
-                {
-                    this.props.currPlayerSeason.games ?
-                        <div>
-                            <h3>Last 10 Games</h3>
-                            <PersonalBoxTable lines={this.props.currPlayerSeason.games} />
-                        </div> :
-                        <div>Loading</div> */}
-                {/* } */}
+
+
             </div >
         )
     }
@@ -38,3 +32,11 @@ const mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps, { fetchPlayer })(PlayerDisplay)
+
+
+                //     this.props.currPlayerSeason.games ?
+                //         <div>
+                //             <h3>Last 10 Games</h3>
+                //             <PersonalBoxTable lines={this.props.currPlayerSeason.games} />
+                //         </div> :
+                //         <div>Loading</div>

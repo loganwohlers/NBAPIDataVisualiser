@@ -74,7 +74,6 @@ export const fetchAllSeasonDataIfNeeded = () => {
         if (shouldFetchData(getState())) {
             await dispatch(fetchAllPlayerSeasons())
             await dispatch(fetchSeasonGames())
-
         }
     }
 }
@@ -91,7 +90,6 @@ export const receivedSeasonGames = (data) => {
         payload: data
     }
 }
-
 
 export const fetchPlayer = () => {
     return async (dispatch, getState) => {

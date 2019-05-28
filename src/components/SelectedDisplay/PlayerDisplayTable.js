@@ -1,11 +1,6 @@
 import React from 'react'
 
-const PlayerDisplayTable = ({ player }) => {
-
-    // let { age, mp_per_g, fg_per_g, fga_per_g, fg_pct, fg3_per_g, fg3a_per_g, fg3_pct, efg_pct, ft_per_g, fta_per_g, ft_pct, orb_per_g, drb_per_g, trb_per_g, ast_per_g, stl_per_g, blk_per_g, tov_per_g, pts_per_g, fg2_per_g, fg2a_per_g, fg2_pct, pf_per_g, gp } = playerSeason
-
-    // let name = playerSeason.player.name
-
+const PlayerDisplayTable = (props) => {
     return (
         <table id="PlayerSeason" className="">
             <thead>
@@ -41,40 +36,52 @@ const PlayerDisplayTable = ({ player }) => {
                 </tr>
             </thead>
             <tbody>
-                {/* <tr>
-                    <td >
-                        {name}
-                    </td>
-                    <td>{playerSeason.player.position}</td>
-                    <td>{age}</td>
-                    <td>{playerSeason.team.code}</td>
-                    <td>{gp}</td>
-                    <td>{mp_per_g}</td>
-                    <td>{fg_per_g}</td>
-                    <td>{fga_per_g}</td>
-                    <td>{fg_pct}</td>
-                    <td>{fg3_per_g}</td>
-                    <td>{fg3a_per_g}</td>
-                    <td>{fg3_pct || '.000'}</td>
-                    <td>{fg2_per_g}</td>
-                    <td>{fg2a_per_g}</td>
-                    <td>{fg2_pct || '.000'}</td>
-                    <td>{efg_pct}</td>
-                    <td>{ft_per_g}</td>
-                    <td>{fta_per_g}</td>
-                    <td>{ft_pct || '.000'}</td>
-                    <td>{orb_per_g}</td>
-                    <td>{drb_per_g}</td>
-                    <td>{trb_per_g}</td>
-                    <td>{ast_per_g}</td>
-                    <td>{stl_per_g}</td>
-                    <td>{blk_per_g}</td>
-                    <td>{tov_per_g}</td>
-                    <td>{pf_per_g}</td>
-                    <td>{pts_per_g}</td>
-                </tr> */}
+                {props.player.player_seasons.map(ps => {
+                    return (
+                        <tr key={ps.id}>
+                            <td>{props.player.name}</td>
+                            <td>{ps.position}</td>
+                            <td>{ps.age}</td>
+                            <td>{ps.team}</td>
+                            <td>{ps.gp}</td>
+                            <td>{ps.mp_per_g}</td>
+                            <td>{ps.fg_per_g}</td>
+                            <td>{ps.fga_per_g}</td>
+                            <td>{ps.fg_pct}</td>
+                            <td>{ps.fg3_per_g}</td>
+                            <td>{ps.fg3a_per_g}</td>
+                            <td>{ps.fg3_pct || '.000'}</td>
+                            <td>{ps.fg2_per_g}</td>
+                            <td>{ps.fg2a_per_g}</td>
+                            <td>{ps.fg2_pct || '.000'}</td>
+                            <td>{ps.efg_pct}</td>
+                            <td>{ps.ft_per_g}</td>
+                            <td>{ps.fta_per_g}</td>
+                            <td>{ps.ft_pct || '.000'}</td>
+                            <td>{ps.orb_per_g}</td>
+                            <td>{ps.drb_per_g}</td>
+                            <td>{ps.trb_per_g}</td>
+                            <td>{ps.ast_per_g}</td>
+                            <td>{ps.stl_per_g}</td>
+                            <td>{ps.blk_per_g}</td>
+                            <td>{ps.tov_per_g}</td>
+                            <td>{ps.pf_per_g}</td>
+                            <td>{ps.pts_per_g}</td>
+                        </tr>
+                    )
+                })}
+
             </tbody>
+
+
         </table>
     )
 }
 export default PlayerDisplayTable
+
+
+
+
+
+
+
