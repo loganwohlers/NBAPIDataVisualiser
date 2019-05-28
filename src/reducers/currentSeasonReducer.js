@@ -1,13 +1,21 @@
-export default (state = 0, action) => {
+export default (state = {
+    year: 2019,
+    playerSeasons: {
+        data: [],
+        isFetching: false
+    },
+    seasonGames: {
+        data: [],
+        isFetching: false
+    }
+}, action) => {
     switch (action.type) {
         case 'SET_SEASON':
-            return action.payload
+            return { ...state, year: action.payload }
         default:
             return state
     }
 }
-
-
 
         // case 'REQUEST_PLAYER_SEASONS':
         //     return {
