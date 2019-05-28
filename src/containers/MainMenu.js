@@ -22,7 +22,6 @@ class MainMenu extends React.Component {
                                     {`${year - 1}-${year} Season`} </Link>
                             </li>
                         )
-
                     })}
                 </ul>
             </div >
@@ -32,6 +31,7 @@ class MainMenu extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return { seasons: state.allSeasons }
 }
 

@@ -13,7 +13,7 @@ class SeasonLanding extends React.Component {
     }
 
     render() {
-        const yr = this.props.season
+        const yr = this.props.season.year
         let ready = (!(this.props.playerSeasons.data.length === 0 || this.props.seasonGames.data.length === 0) && !(this.props.playerSeasons.isFetching || this.props.seasonGames.isFetching))
         return (
             <div>

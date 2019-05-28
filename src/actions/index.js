@@ -43,7 +43,7 @@ export const receivedPlayerSeasons = (data) => {
 
 export const fetchAllPlayerSeasons = () => {
     return async (dispatch, getState) => {
-        let yr = getState().currSeason
+        let yr = getState().currSeason.year
         dispatch(requestPlayerSeasons(yr))
         const response = await railsData.get('/seasons/' + yr + '?stats=true')
         dispatch(receivedPlayerSeasons(response.data))
@@ -102,7 +102,7 @@ export const receivedSeasonGames = (data) => {
 export const fetchSeasonGames = () => {
     return async (dispatch, getState) => {
         dispatch(requestSeasonGames())
-        let yr = getState().currSeason
+        let yr = getState().currSeason.year
         const response = await railsData.get('/seasons/' + yr + '?games=true')
         dispatch(receivedSeasonGames(response.data))
     }
