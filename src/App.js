@@ -21,7 +21,7 @@ class App extends React.Component {
             <Route path="/seasonavgs/:year" component={PlayerSeasonContainer} />
             <Route path="/games/:year" component={GamesContainer} />
             <Route path="/gamebox/:id" component={GameBoxScore} />
-            <Route path="/playerseason/:id" component={PlayerDisplay} />
+            <Route path="/player/:id" component={PlayerDisplay} />
           </div>
         </BrowserRouter>
       </div>

@@ -9,10 +9,10 @@ export const setSeason = (year) => {
     )
 }
 
-export const setPlayerSeason = (player) => {
+export const setPlayer = (player) => {
     return (
         {
-            type: 'SET_PLAYER_SEASON',
+            type: 'SET_PLAYER',
             payload: player
         }
     )
@@ -79,34 +79,6 @@ export const fetchAllSeasonDataIfNeeded = () => {
     }
 }
 
-
-//something like-- check if the yr of the currently loaded data is equal to the state selected season-- if NOT fetch- otherwise false
-// const shouldFetchData = (state) => {
-//really want state.currentSeason.games here-- checking first one
-//     const game = state.seasonGames[0]
-//     if (!games) {
-//         return true
-//     } else if (games[0].season.year === state.season) {
-//         return false
-//     } else {
-//         return true
-//     }
-// }
-
-//start of nested set-up
-
-// let initial = {}
-// for (let i = 0; i < response.data.length; i++) {
-//     initial[response.data[i].year] = {
-//         id: response.data[i].id,
-//         seasonFetched: false,
-//         isFetching: false,
-//         seasonGames: [],
-//         playerSeasons: []
-//     }
-// }
-
-
 export const requestSeasonGames = () => {
     return {
         type: 'REQUEST_SEASON_GAMES'
@@ -121,11 +93,11 @@ export const receivedSeasonGames = (data) => {
 }
 
 
-export const fetchOnePlayerSeason = () => {
+export const fetchPlayer = () => {
     return async (dispatch, getState) => {
-        let id = getState().currPlayerSeason.id
-        const response = await railsData.get('/player_seasons/' + id)
-        dispatch({ type: 'FETCH_ONE_PLAYER_SEASON', payload: response.data })
+        let id = getState().currPlayer.id
+        const response = await railsData.get('/players/' + id)
+        dispatch({ type: 'FETCH_PLAYER', payload: response.data })
     }
 }
 

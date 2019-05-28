@@ -1,10 +1,10 @@
 import React from 'react'
 
-const PlayerDisplayTable = ({ playerSeason }) => {
+const PlayerDisplayTable = ({ player }) => {
 
-    let { age, mp_per_g, fg_per_g, fga_per_g, fg_pct, fg3_per_g, fg3a_per_g, fg3_pct, efg_pct, ft_per_g, fta_per_g, ft_pct, orb_per_g, drb_per_g, trb_per_g, ast_per_g, stl_per_g, blk_per_g, tov_per_g, pts_per_g, fg2_per_g, fg2a_per_g, fg2_pct, pf_per_g, gp } = playerSeason
+    // let { age, mp_per_g, fg_per_g, fga_per_g, fg_pct, fg3_per_g, fg3a_per_g, fg3_pct, efg_pct, ft_per_g, fta_per_g, ft_pct, orb_per_g, drb_per_g, trb_per_g, ast_per_g, stl_per_g, blk_per_g, tov_per_g, pts_per_g, fg2_per_g, fg2a_per_g, fg2_pct, pf_per_g, gp } = playerSeason
 
-    let name = playerSeason.player.name
+    // let name = playerSeason.player.name
 
     return (
         <table id="PlayerSeason" className="">
@@ -41,7 +41,7 @@ const PlayerDisplayTable = ({ playerSeason }) => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                {/* <tr>
                     <td >
                         {name}
                     </td>
@@ -72,7 +72,7 @@ const PlayerDisplayTable = ({ playerSeason }) => {
                     <td>{tov_per_g}</td>
                     <td>{pf_per_g}</td>
                     <td>{pts_per_g}</td>
-                </tr>
+                </tr> */}
             </tbody>
         </table>
     )

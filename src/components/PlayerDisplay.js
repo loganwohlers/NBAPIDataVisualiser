@@ -3,18 +3,19 @@ import PersonalBoxTable from './PersonalBoxTable';
 import PlayerDisplayTable from './SelectedDisplay/PlayerDisplayTable'
 
 import { connect } from 'react-redux'
-import { fetchOnePlayerSeason } from '../actions'
+import { fetchPlayer } from '../actions'
 
 class PlayerDisplay extends React.Component {
 
     componentDidMount() {
-        this.props.fetchOnePlayerSeason()
+        this.props.fetchPlayer()
     }
 
     render() {
         return (
             <div>
-                <h2>Season Averages: </h2>
+                {this.props.player.name}
+                {/* <h2>Season Averages: </h2>
                 <PlayerDisplayTable playerSeason={this.props.currPlayerSeason} />
                 <br>
                 </br>
@@ -24,16 +25,16 @@ class PlayerDisplay extends React.Component {
                             <h3>Last 10 Games</h3>
                             <PersonalBoxTable lines={this.props.currPlayerSeason.games} />
                         </div> :
-                        <div>Loading</div>
-                }
+                        <div>Loading</div> */}
+                {/* } */}
             </div >
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    return { currPlayerSeason: state.currPlayerSeason }
+    return { player: state.currPlayer }
 }
 
 
-export default connect(mapStateToProps, { fetchOnePlayerSeason })(PlayerDisplay)
+export default connect(mapStateToProps, { fetchPlayer })(PlayerDisplay)
