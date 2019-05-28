@@ -50,6 +50,36 @@ export const fetchAllPlayerSeasons = () => {
     }
 }
 
+export const fetchSeasonGames = () => {
+    return async (dispatch, getState) => {
+        let yr = getState().currSeason.year
+        dispatch(requestSeasonGames())
+        const response = await railsData.get('/seasons/' + yr + '?games=true')
+        dispatch(receivedSeasonGames(response.data))
+    }
+}
+
+const shouldFetchData = (state) => {
+    const ps1 = state.currSeason.playerSeasons.data[0]
+    const sg1 = state.currSeason.seasonGames.data[0]
+    const year = state.currSeason.year
+    if (!ps1 || !sg1) {
+        return true
+    }
+    return !(ps1.season.year === year || sg1.season.year === year)
+}
+
+export const fetchAllSeasonDataIfNeeded = () => {
+    return async (dispatch, getState) => {
+        if (shouldFetchData(getState())) {
+            await dispatch(fetchAllPlayerSeasons())
+            await dispatch(fetchSeasonGames())
+
+        }
+    }
+}
+
+
 //something like-- check if the yr of the currently loaded data is equal to the state selected season-- if NOT fetch- otherwise false
 // const shouldFetchData = (state) => {
 //really want state.currentSeason.games here-- checking first one
@@ -76,15 +106,6 @@ export const fetchAllPlayerSeasons = () => {
 //     }
 // }
 
-//one fn to that incorporates shouldFetch 
-// export const fetchAllSeasonData = () => {
-//     return async (dispatch, getState) => {
-//         dispatch(requestPlayerSeasons())
-//         let yr = getState().currSeason
-//         const response = await railsData.get('/seasons/' + yr + '?stats=true')
-//         dispatch(receivedPlayerSeasons(response.data))
-//     }
-// }
 
 export const requestSeasonGames = () => {
     return {
@@ -99,14 +120,6 @@ export const receivedSeasonGames = (data) => {
     }
 }
 
-export const fetchSeasonGames = () => {
-    return async (dispatch, getState) => {
-        dispatch(requestSeasonGames())
-        let yr = getState().currSeason.year
-        const response = await railsData.get('/seasons/' + yr + '?games=true')
-        dispatch(receivedSeasonGames(response.data))
-    }
-}
 
 export const fetchOnePlayerSeason = () => {
     return async (dispatch, getState) => {

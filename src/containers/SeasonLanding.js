@@ -1,15 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { fetchAllPlayerSeasons } from '../actions'
-import { fetchSeasonGames } from '../actions'
+import { fetchAllSeasonDataIfNeeded } from '../actions'
 
 class SeasonLanding extends React.Component {
 
     componentDidMount() {
-        //could be a combined action--"prep season"
-        this.props.fetchAllPlayerSeasons()
-        this.props.fetchSeasonGames()
+        this.props.fetchAllSeasonDataIfNeeded()
     }
 
     render() {
@@ -37,10 +34,11 @@ class SeasonLanding extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
         season: state.currSeason,
     }
 }
 
 
-export default connect(mapStateToProps, { fetchAllPlayerSeasons, fetchSeasonGames })(SeasonLanding)
+export default connect(mapStateToProps, { fetchAllSeasonDataIfNeeded })(SeasonLanding)
