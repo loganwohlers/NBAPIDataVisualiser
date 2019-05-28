@@ -1,23 +1,5 @@
 import railsData from '../apis/railsData'
 
-export const fetchSeasons = () => {
-    return async (dispatch, getState) => {
-        let response = await railsData.get('/seasons')
-        let initial = {}
-        for (let i = 0; i < response.data.length; i++) {
-            initial[response.data[i].year] = {
-                id: response.data[i].id,
-                seasonFetched: false,
-                isFetching: false,
-                seasonGames: [],
-                playerSeasons: []
-            }
-        }
-        dispatch({ type: 'FETCH_ALL_SEASONS', payload: initial })
-    }
-
-}
-
 export const setSeason = (year) => {
     return (
         {
@@ -68,14 +50,41 @@ export const fetchAllPlayerSeasons = () => {
     }
 }
 
-export const fetchAllSeasonData = () => {
-    return async (dispatch, getState) => {
-        dispatch(requestPlayerSeasons())
-        let yr = getState().currSeason
-        const response = await railsData.get('/seasons/' + yr + '?stats=true')
-        dispatch(receivedPlayerSeasons(response.data))
-    }
-}
+//something like-- check if the yr of the currently loaded data is equal to the state selected season-- if NOT fetch- otherwise false
+// const shouldFetchData = (state) => {
+//really want state.currentSeason.games here-- checking first one
+//     const game = state.seasonGames[0]
+//     if (!games) {
+//         return true
+//     } else if (games[0].season.year === state.season) {
+//         return false
+//     } else {
+//         return true
+//     }
+// }
+
+//start of nested set-up
+
+// let initial = {}
+// for (let i = 0; i < response.data.length; i++) {
+//     initial[response.data[i].year] = {
+//         id: response.data[i].id,
+//         seasonFetched: false,
+//         isFetching: false,
+//         seasonGames: [],
+//         playerSeasons: []
+//     }
+// }
+
+//one fn to that incorporates shouldFetch 
+// export const fetchAllSeasonData = () => {
+//     return async (dispatch, getState) => {
+//         dispatch(requestPlayerSeasons())
+//         let yr = getState().currSeason
+//         const response = await railsData.get('/seasons/' + yr + '?stats=true')
+//         dispatch(receivedPlayerSeasons(response.data))
+//     }
+// }
 
 export const requestSeasonGames = () => {
     return {

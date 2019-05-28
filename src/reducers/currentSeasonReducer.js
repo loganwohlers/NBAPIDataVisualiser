@@ -7,3 +7,14 @@ export default (state = 0, action) => {
     }
 }
 
+
+
+        // case 'REQUEST_PLAYER_SEASONS':
+        //     return {
+        //         ...state,
+        //         [action.year]: {
+        //             ...state[action.year],
+        //             isFetching: true
+        //         }
+        //     }
+
