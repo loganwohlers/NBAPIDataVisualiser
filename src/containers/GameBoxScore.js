@@ -28,6 +28,7 @@ class GameBoxScore extends React.Component {
         let home = this.props.currGame.home_team.name
         let away = this.props.currGame.away_team.name
         let date = this.props.currGame.date
+        let convertedDate = (date.substring(4, 6) + '/' + date.substring(6, 8) + '/' + date.substring(0, 4))
 
         let boxscore = this.props.currGame.boxscore
         let filtered
@@ -37,7 +38,7 @@ class GameBoxScore extends React.Component {
             <div>
                 {filtered ?
                     <div>
-                        <h3>{date}:  {away} at {home}</h3>
+                        <h3>{convertedDate}:  {away} at {home}</h3>
 
                         <h4>{away}</h4>
                         <BoxScoreTable lines={filtered.away} />

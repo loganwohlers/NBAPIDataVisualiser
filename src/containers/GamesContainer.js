@@ -6,6 +6,7 @@ class GamesContainer extends React.Component {
     render() {
         return (
             <div>
+                <h2>SEASON SCHEDULE</h2>
                 <GameTable />
             </div>
         )
