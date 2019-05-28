@@ -7,12 +7,12 @@ export const fetchSeasons = () => {
         for (let i = 0; i < response.data.length; i++) {
             initial[response.data[i].year] = {
                 id: response.data[i].id,
-                fetched: false,
+                seasonFetched: false,
+                isFetching: false,
                 seasonGames: [],
                 playerSeasons: []
             }
         }
-        console.log(initial)
         dispatch({ type: 'FETCH_ALL_SEASONS', payload: initial })
     }
 
@@ -45,9 +45,10 @@ export const setGame = (game) => {
     )
 }
 
-export const requestPlayerSeasons = () => {
+export const requestPlayerSeasons = (year) => {
     return {
-        type: 'REQUEST_PLAYER_SEASONS'
+        type: 'REQUEST_PLAYER_SEASONS',
+        year
     }
 }
 
@@ -58,8 +59,16 @@ export const receivedPlayerSeasons = (data) => {
     }
 }
 
-// we want to use getState to get our currSeason and then send it in fetch for stats
 export const fetchAllPlayerSeasons = () => {
+    return async (dispatch, getState) => {
+        let yr = getState().currSeason
+        dispatch(requestPlayerSeasons(yr))
+        const response = await railsData.get('/seasons/' + yr + '?stats=true')
+        dispatch(receivedPlayerSeasons(response.data))
+    }
+}
+
+export const fetchAllSeasonData = () => {
     return async (dispatch, getState) => {
         dispatch(requestPlayerSeasons())
         let yr = getState().currSeason
@@ -81,7 +90,6 @@ export const receivedSeasonGames = (data) => {
     }
 }
 
-
 export const fetchSeasonGames = () => {
     return async (dispatch, getState) => {
         dispatch(requestSeasonGames())
@@ -89,7 +97,6 @@ export const fetchSeasonGames = () => {
         const response = await railsData.get('/seasons/' + yr + '?games=true')
         dispatch(receivedSeasonGames(response.data))
     }
-
 }
 
 export const fetchOnePlayerSeason = () => {
@@ -98,7 +105,6 @@ export const fetchOnePlayerSeason = () => {
         const response = await railsData.get('/player_seasons/' + id)
         dispatch({ type: 'FETCH_ONE_PLAYER_SEASON', payload: response.data })
     }
-
 }
 
 export const fetchGameBoxScore = () => {
@@ -107,7 +113,6 @@ export const fetchGameBoxScore = () => {
         const response = await railsData.get('/games/' + id)
         dispatch({ type: 'FETCH_GAME_BOX_SCORE', payload: response.data })
     }
-
 }
 
 

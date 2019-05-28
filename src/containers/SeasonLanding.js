@@ -35,6 +35,7 @@ class SeasonLanding extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
         season: state.currSeason,
         playerSeasons: state.playerSeasons,

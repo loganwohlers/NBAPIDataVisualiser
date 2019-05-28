@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchSeasons, setSeason } from '../actions'
 
+import giannis from '../assets/giannis.jpg'
+import harden from '../assets/harden.jpg'
+
 class MainMenu extends React.Component {
 
     componentDidMount() {
@@ -12,6 +15,8 @@ class MainMenu extends React.Component {
     render() {
         return (
             <div>
+                <img className='homePage' style={{ width: 300, height: 300 }} src={giannis} alt='' />
+                <img className='homePage' style={{ width: 300, height: 300 }} src={harden} alt='' />
                 <ul>
                     {Object.keys(this.props.seasons).map(season => {
                         let year = parseInt(season)
@@ -23,20 +28,6 @@ class MainMenu extends React.Component {
                         )
 
                     })}
-
-
-
-
-
-
-                    {/* {this.props.seasons.map((season, idx) => {
-                        return (
-                            <li key={idx} onClick={() => this.props.setSeason(season.year)} >
-                                <Link to={`/seasonhome/${season.year}`}>
-                                    {`${season.year - 1}-${season.year} Season`} </Link>
-                            </li>
-                        )
-                    })} */}
                 </ul>
             </div >
 
