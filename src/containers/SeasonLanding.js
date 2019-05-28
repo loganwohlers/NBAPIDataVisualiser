@@ -14,7 +14,9 @@ class SeasonLanding extends React.Component {
 
     render() {
         const yr = this.props.season.year
-        let ready = (!(this.props.playerSeasons.data.length === 0 || this.props.seasonGames.data.length === 0) && !(this.props.playerSeasons.isFetching || this.props.seasonGames.isFetching))
+        const playerSeasons = this.props.season.playerSeasons
+        const seasonGames = this.props.season.seasonGames
+        let ready = (!(playerSeasons.data === 0 || seasonGames.data === 0) && !(playerSeasons.isFetching || seasonGames.isFetching))
         return (
             <div>
                 <h2>{yr} SEASON LANDING PAGE</h2>
@@ -35,11 +37,8 @@ class SeasonLanding extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         season: state.currSeason,
-        playerSeasons: state.playerSeasons,
-        seasonGames: state.seasonGames
     }
 }
 

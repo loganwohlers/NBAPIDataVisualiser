@@ -51,7 +51,7 @@ class PlayerSeasonRow extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        playerSeason: state.playerSeasons.data.find((ps) => {
+        playerSeason: state.currSeason.playerSeasons.data.find((ps) => {
             return ps.id === ownProps.id
         })
     }
