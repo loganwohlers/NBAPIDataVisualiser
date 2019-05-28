@@ -3,8 +3,19 @@ import railsData from '../apis/railsData'
 export const fetchSeasons = () => {
     return async (dispatch, getState) => {
         let response = await railsData.get('/seasons')
-        dispatch({ type: 'FETCH_ALL_SEASONS', payload: response.data })
+        let initial = {}
+        for (let i = 0; i < response.data.length; i++) {
+            initial[response.data[i].year] = {
+                id: response.data[i].id,
+                fetched: false,
+                seasonGames: [],
+                playerSeasons: []
+            }
+        }
+        console.log(initial)
+        dispatch({ type: 'FETCH_ALL_SEASONS', payload: initial })
     }
+
 }
 
 export const setSeason = (year) => {

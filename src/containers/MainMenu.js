@@ -11,17 +11,32 @@ class MainMenu extends React.Component {
 
     render() {
         return (
-
             <div>
                 <ul>
-                    {this.props.seasons.map((season, idx) => {
+                    {Object.keys(this.props.seasons).map(season => {
+                        let year = parseInt(season)
+                        return (
+                            <li key={season} onClick={() => this.props.setSeason(year)} >
+                                <Link to={`/seasonhome/${year}`}>
+                                    {`${year - 1}-${year} Season`} </Link>
+                            </li>
+                        )
+
+                    })}
+
+
+
+
+
+
+                    {/* {this.props.seasons.map((season, idx) => {
                         return (
                             <li key={idx} onClick={() => this.props.setSeason(season.year)} >
                                 <Link to={`/seasonhome/${season.year}`}>
                                     {`${season.year - 1}-${season.year} Season`} </Link>
                             </li>
                         )
-                    })}
+                    })} */}
                 </ul>
             </div >
 

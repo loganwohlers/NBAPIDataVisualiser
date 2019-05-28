@@ -25,16 +25,13 @@ class PlayerSeasonContainer extends React.Component {
                 <SearchBar onSearchChange={this.onSearchChange} />
                 <PlayerSeasonTable playerSeasons={filteredPlayers} />
             </div>
-
         )
     }
-
 }
 
 const mapStateToProps = (state) => {
     return { playerSeasons: state.playerSeasons }
 }
-
 
 export default connect(mapStateToProps)(PlayerSeasonContainer)
 
