@@ -30,7 +30,7 @@ class GameTable extends React.Component {
 }
 
 const mapStatetoProps = (state) => {
-    return { seasonGames: state.seasonGames }
+    return { seasonGames: state.currSeason.seasonGames }
 }
 
 export default connect(mapStatetoProps)(GameTable)

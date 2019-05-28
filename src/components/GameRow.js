@@ -26,7 +26,7 @@ class GameRow extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        game: state.seasonGames.data.find((sg) => {
+        game: state.currSeason.seasonGames.data.find((sg) => {
             return sg.id === ownProps.id
         })
     }
