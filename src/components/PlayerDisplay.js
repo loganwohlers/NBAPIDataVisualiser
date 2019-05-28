@@ -15,12 +15,15 @@ class PlayerDisplay extends React.Component {
         return (
             <div>
                 <h2>{this.props.player.name}</h2>
+                <h4>Player Info Here (teams, seasons, positions, etc):</h4>
+
                 <h2>Season Averages: </h2>
-                <PlayerDisplayTable player={this.props.player} />
+                {this.props.player.data ?
+                    <PlayerDisplayTable player={this.props.player} />
+                    : null}
+
                 <br>
                 </br>
-
-
             </div >
         )
     }

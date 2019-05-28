@@ -5,7 +5,7 @@ const PlayerDisplayTable = (props) => {
         <table id="PlayerSeason" className="">
             <thead>
                 <tr>
-                    <th>Player</th>
+                    <th>Season</th>
                     <th>Pos</th>
                     <th>Age</th>
                     <th>Tm</th>
@@ -36,10 +36,10 @@ const PlayerDisplayTable = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {props.player.player_seasons.map(ps => {
+                {props.player.data.player_seasons.map(ps => {
                     return (
                         <tr key={ps.id}>
-                            <td>{props.player.name}</td>
+                            <td>{ps.year}</td>
                             <td>{ps.position}</td>
                             <td>{ps.age}</td>
                             <td>{ps.team}</td>
