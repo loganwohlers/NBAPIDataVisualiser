@@ -6,7 +6,6 @@ import { fetchGameBoxScore } from '../actions'
 
 class GameBoxScore extends React.Component {
 
-    //fetch w/ game in aboutProps
     componentDidMount() {
         this.props.fetchGameBoxScore()
     }
