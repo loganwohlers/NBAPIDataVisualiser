@@ -29,8 +29,8 @@ class PlayerDisplay extends React.Component {
                     <div>
                         <PlayerDisplayTable player={this.props.player} />
                         <h3>Last 10 Games</h3>
+                        <PracticeVictory lines={this.getRelaventGames().reverse()} />
                         <PersonalBoxTable lines={this.getRelaventGames()} />
-                        <PracticeVictory lines={this.getRelaventGames()} />
                     </div>
                     :
                     <div>

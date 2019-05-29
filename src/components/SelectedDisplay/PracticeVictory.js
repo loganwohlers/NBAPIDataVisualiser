@@ -17,10 +17,18 @@ class PlayerStatsVictory extends React.Component {
     mapLinestoVictory() {
         // debugger
         let mappedLines = this.props.lines.map(g => {
+            let xx = this.readableDate(g.date)
+            let yy
+            if (g.dnp) {
+                yy = 0
+                xx += ' (DNP)'
+            } else {
+                yy = parseInt(g[this.state.selected])
+            }
             return (
                 {
-                    x: this.readableDate(g.date),
-                    y: parseInt(g[this.state.selected])
+                    x: xx,
+                    y: yy
                 }
             )
         })
@@ -74,14 +82,15 @@ class PlayerStatsVictory extends React.Component {
                     />
                     <VictoryAxis dependentAxis
                         style={{
-                            tickLabels: { angle: -50 },
+                            tickLabels: { angle: 0 },
                             axisLabel: { padding: 50 }
                         }} />
 
                     <VictoryAxis independentAxis
                         style={{
-                            tickLabels: { angle: -50 },
-                            axisLabel: { padding: 50 }
+                            axisLabel: { padding: 200 },
+                            tickLabels: { fontSize: 10, padding: 1, angle: 50, verticalAnchor: 'middle', textAnchor: 'start' }
+
                         }}
                     />
                 </VictoryChart >
