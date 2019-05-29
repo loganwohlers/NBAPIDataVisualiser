@@ -1,5 +1,13 @@
 import React from 'react'
-import { VictoryChart, VictoryLine, VictoryAxis, VictoryLabel, VictoryTheme } from 'victory';
+import {
+    VictoryChart,
+    VictoryLine,
+    VictoryAxis,
+    VictoryLabel,
+    VictoryTheme,
+    VictoryTooltip,
+    VictoryVoronoiContainer
+} from 'victory';
 
 class PlayerStatsVictory extends React.Component {
     constructor() {
@@ -15,20 +23,24 @@ class PlayerStatsVictory extends React.Component {
     }
 
     mapLinestoVictory() {
-        // debugger
+        let count = 0
         let mappedLines = this.props.lines.map(g => {
             let xx = this.readableDate(g.date)
             let yy
+            let label = this.readableDate(g.date)
             if (g.dnp) {
                 yy = 0
+                label += ' (DNP)'
                 xx += ' (DNP)'
             } else {
                 yy = parseInt(g[this.state.selected])
             }
+            count++;
             return (
                 {
-                    x: xx,
-                    y: yy
+                    x: count,
+                    y: yy,
+                    label: label
                 }
             )
         })
@@ -66,9 +78,12 @@ class PlayerStatsVictory extends React.Component {
                     <div onClick={(e) => this.onMenuClick(e)} className="item">BLK</div>
                     <div onClick={(e) => this.onMenuClick(e)} className="item">PLUS_MINUS</div>
                 </div>
-                <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.material}>
+                <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.material}
+                    containerComponent={<VictoryVoronoiContainer />}>
+
                     <VictoryLabel text="Last 10 Games" x={225} y={30} textAnchor="middle" />
                     <VictoryLine
+                        labelComponent={<VictoryTooltip />}
                         style={{
                             data: { stroke: "#c43a31" },
                             parent: { border: "1px solid #ccc" }
@@ -87,6 +102,7 @@ class PlayerStatsVictory extends React.Component {
                         }} />
 
                     <VictoryAxis independentAxis
+                        tickFormat={() => ''}
                         style={{
                             axisLabel: { padding: 200 },
                             tickLabels: { fontSize: 10, padding: 1, angle: 50, verticalAnchor: 'middle', textAnchor: 'start' }
@@ -102,4 +118,6 @@ class PlayerStatsVictory extends React.Component {
 
 }
 export default PlayerStatsVictory
+
+
 
