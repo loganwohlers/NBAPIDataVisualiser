@@ -1,7 +1,7 @@
 import React from 'react';
 import PersonalBoxTable from './PersonalBoxTable';
 import PlayerDisplayTable from './SelectedDisplay/PlayerDisplayTable'
-import PlayerStatsVictory from './SelectedDisplay/PlayerStatsVictory'
+import PracticeVictory from './SelectedDisplay/PracticeVictory'
 
 import { connect } from 'react-redux'
 import { fetchPlayer } from '../actions'
@@ -30,7 +30,7 @@ class PlayerDisplay extends React.Component {
                         <PlayerDisplayTable player={this.props.player} />
                         <h3>Last 10 Games</h3>
                         <PersonalBoxTable lines={this.getRelaventGames()} />
-                        <PlayerStatsVictory lines={this.getRelaventGames()} />
+                        <PracticeVictory lines={this.getRelaventGames()} />
                     </div>
                     :
                     <div>

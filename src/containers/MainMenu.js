@@ -11,7 +11,7 @@ class MainMenu extends React.Component {
 
     render() {
         return (
-            <div className='main container'>
+            <div className='ui container'>
                 <PracticeVictory lines={lamarcus} />
 
                 {this.props.seasons.map((season, idx) => {
@@ -19,8 +19,11 @@ class MainMenu extends React.Component {
                     return (
                         <div className='ui card' key={idx} onClick={() => this.props.setSeason(year)} >
                             <Link to={`/seasonhome/${year}`}>
-                                <img className='image' style={{ width: 300, height: 300 }} src={season.image} alt='' />
-                                {`${year - 1}-${year} Season`} </Link>
+                                <div className="image">
+                                    <img src={season.image} alt='' />
+                                    {`${year - 1}-${year} Season`}
+                                </div>
+                            </Link>
 
                         </div>
                     )
