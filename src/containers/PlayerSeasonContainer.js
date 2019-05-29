@@ -18,13 +18,18 @@ class PlayerSeasonContainer extends React.Component {
 
     render() {
 
+
         let filteredPlayers = this.props.season.playerSeasons.data.filter(ps => {
             return ps.player.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
         })
         return (
-            <div>
-                <SearchBar onSearchChange={this.onSearchChange} />
-                <PlayerSeasonTable playerSeasons={filteredPlayers} />
+            <div className="ui container center aligned">
+                {/* <div className='ui container center aligned'> */}
+                <SearchBar className='ui segment' onSearchChange={this.onSearchChange} />
+                {/* </div> */}
+
+                <PlayerSeasonTable className='ui segment' playerSeasons={filteredPlayers} />
+
             </div>
         )
     }
@@ -38,3 +43,13 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(PlayerSeasonContainer)
 
 
+//     < div className = "ui container"
+// style = {{
+//     height: '100%',
+//         width: '100%',
+//             margin: '20px',
+//                 overflowX: 'scroll',
+//                     display: 'flex',
+//                         justifyContent: 'center'
+// }}>
+//      </div >

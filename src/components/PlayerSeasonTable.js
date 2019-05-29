@@ -2,11 +2,13 @@ import React from 'react';
 import PlayerSeasonRow from './PlayerSeasonRow';
 
 class PlayerSeasonTable extends React.Component {
+    // className = "ui selectable inverted table"
 
     render() {
         return (
-            <div className='ui container'>
-                <table id="PlayerSeason" className="ui selectable inverted table">
+            <div className="ui container center aligned">
+                <table id="PlayerSeason" className="ui celled table"
+                    style={{ tableLayout: 'fixed' }} >
                     <thead >
                         <tr>
                             <th>Player</th>

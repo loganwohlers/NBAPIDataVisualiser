@@ -10,28 +10,27 @@ const lamarcus = [{ "id": 339369, "player_season_id": 9892, "mp": "35:56", "fg":
 
 const abrines = [{ "id": 356256, "player_season_id": 9885, "mp": "13:47", "fg": "2", "fga": "6", "fg_pct": ".333", "fg3": "1", "fg3a": "5", "fg3_pct": ".200", "ft": "0", "fta": "0", "ft_pct": "", "orb": "0", "drb": "1", "trb": "1", "ast": "2", "stl": "1", "blk": "0", "tov": "0", "pf": "0", "pts": "5", "plus_minus": "0", "created_at": "2019-05-28T19:47:24.337Z", "updated_at": "2019-05-28T19:47:24.337Z", "dnp": false, "game_id": 15175, "date": "20181212", "home_team": "NOP", "away_team": "OKC" }, { "id": 355931, "player_season_id": 9885, "mp": "18:54", "fg": "0", "fga": "1", "fg_pct": ".000", "fg3": "0", "fg3a": "1", "fg3_pct": ".000", "ft": "0", "fta": "0", "ft_pct": "", "orb": "0", "drb": "0", "trb": "0", "ast": "0", "stl": "0", "blk": "0", "tov": "1", "pf": "0", "pts": "0", "plus_minus": "-1", "created_at": "2019-05-28T19:47:17.997Z", "updated_at": "2019-05-28T19:47:17.997Z", "dnp": false, "game_id": 15188, "date": "20181214", "home_team": "DEN", "away_team": "OKC" }, { "id": 355719, "player_season_id": 9885, "mp": "20:10", "fg": "2", "fga": "4", "fg_pct": ".500", "fg3": "0", "fg3a": "2", "fg3_pct": ".000", "ft": "2", "fta": "2", "ft_pct": "1.000", "orb": "0", "drb": "4", "trb": "4", "ast": "0", "stl": "0", "blk": "0", "tov": "0", "pf": "0", "pts": "6", "plus_minus": "+7", "created_at": "2019-05-28T19:47:14.135Z", "updated_at": "2019-05-28T19:47:14.135Z", "dnp": false, "game_id": 15196, "date": "20181215", "home_team": "OKC", "away_team": "LAC" }, { "id": 346260, "player_season_id": 9885, "mp": null, "fg": null, "fga": null, "fg_pct": null, "fg3": null, "fg3a": null, "fg3_pct": null, "ft": null, "fta": null, "ft_pct": null, "orb": null, "drb": null, "trb": null, "ast": null, "stl": null, "blk": null, "tov": null, "pf": null, "pts": null, "plus_minus": null, "created_at": "2019-05-28T19:44:19.002Z", "updated_at": "2019-05-28T19:44:19.002Z", "dnp": true, "game_id": 15462, "date": "20190121", "home_team": "NYK", "away_team": "OKC" }, { "id": 346119, "player_season_id": 9885, "mp": null, "fg": null, "fga": null, "fg_pct": null, "fg3": null, "fg3a": null, "fg3_pct": null, "ft": null, "fta": null, "ft_pct": null, "orb": null, "drb": null, "trb": null, "ast": null, "stl": null, "blk": null, "tov": null, "pf": null, "pts": null, "plus_minus": null, "created_at": "2019-05-28T19:44:16.624Z", "updated_at": "2019-05-28T19:44:16.624Z", "dnp": true, "game_id": 15467, "date": "20190122", "home_team": "OKC", "away_team": "POR" }, { "id": 345771, "player_season_id": 9885, "mp": null, "fg": null, "fga": null, "fg_pct": null, "fg3": null, "fg3a": null, "fg3_pct": null, "ft": null, "fta": null, "ft_pct": null, "orb": null, "drb": null, "trb": null, "ast": null, "stl": null, "blk": null, "tov": null, "pf": null, "pts": null, "plus_minus": null, "created_at": "2019-05-28T19:44:10.358Z", "updated_at": "2019-05-28T19:44:10.358Z", "dnp": true, "game_id": 15481, "date": "20190124", "home_team": "OKC", "away_team": "NOP" }, { "id": 345135, "player_season_id": 9885, "mp": "5:46", "fg": "1", "fga": "2", "fg_pct": ".500", "fg3": "1", "fg3a": "2", "fg3_pct": ".500", "ft": "0", "fta": "0", "ft_pct": "", "orb": "0", "drb": "1", "trb": "1", "ast": "0", "stl": "0", "blk": "0", "tov": "0", "pf": "1", "pts": "3", "plus_minus": "+4", "created_at": "2019-05-28T19:43:58.165Z", "updated_at": "2019-05-28T19:43:58.165Z", "dnp": false, "game_id": 15518, "date": "20190129", "home_team": "ORL", "away_team": "OKC" }, { "id": 344686, "player_season_id": 9885, "mp": "9:21", "fg": "0", "fga": "2", "fg_pct": ".000", "fg3": "0", "fg3a": "1", "fg3_pct": ".000", "ft": "0", "fta": "0", "ft_pct": "", "orb": "0", "drb": "0", "trb": "0", "ast": "0", "stl": "0", "blk": "0", "tov": "0", "pf": "1", "pts": "0", "plus_minus": "-8", "created_at": "2019-05-28T19:43:50.231Z", "updated_at": "2019-05-28T19:43:50.231Z", "dnp": false, "game_id": 15536, "date": "20190201", "home_team": "MIA", "away_team": "OKC" }, { "id": 344315, "player_season_id": 9885, "mp": null, "fg": null, "fga": null, "fg_pct": null, "fg3": null, "fg3a": null, "fg3_pct": null, "ft": null, "fta": null, "ft_pct": null, "orb": null, "drb": null, "trb": null, "ast": null, "stl": null, "blk": null, "tov": null, "pf": null, "pts": null, "plus_minus": null, "created_at": "2019-05-28T19:43:43.934Z", "updated_at": "2019-05-28T19:43:43.934Z", "dnp": true, "game_id": 15551, "date": "20190203", "home_team": "BOS", "away_team": "OKC" }, { "id": 343951, "player_season_id": 9885, "mp": null, "fg": null, "fga": null, "fg_pct": null, "fg3": null, "fg3a": null, "fg3_pct": null, "ft": null, "fta": null, "ft_pct": null, "orb": null, "drb": null, "trb": null, "ast": null, "stl": null, "blk": null, "tov": null, "pf": null, "pts": null, "plus_minus": null, "created_at": "2019-05-28T19:43:37.559Z", "updated_at": "2019-05-28T19:43:37.559Z", "dnp": true, "game_id": 15565, "date": "20190205", "home_team": "OKC", "away_team": "ORL" }]
 
+{/* <PracticeVictory lines={lamarcus.reverse()} />
+<PracticeVictory lines={abrines.reverse()} /> */}
 
-const comparison = [lamarcus, abrines]
+// const comparison = [lamarcus, abrines]
 
 class MainMenu extends React.Component {
     render() {
         return (
             <div className='ui container'>
-                <PracticeVictory lines={lamarcus.reverse()} />
-                <PracticeVictory lines={abrines.reverse()} />
 
                 {this.props.seasons.map((season, idx) => {
                     let year = season.year
                     return (
-                        <div className='ui card' key={idx} onClick={() => this.props.setSeason(year)} >
-                            <Link to={`/seasonhome/${year}`}>
+                        <Link to={`/seasonhome/${year}`}>
+                            <div className='ui card' key={idx} onClick={() => this.props.setSeason(year)} >
                                 <div className="image">
                                     <img src={season.image} alt='' />
                                     {`${year - 1}-${year} Season`}
                                 </div>
-                            </Link>
-
-                        </div>
+                            </div>
+                        </Link>
                     )
                 })}
 
