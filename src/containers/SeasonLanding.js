@@ -24,7 +24,7 @@ class SeasonLanding extends React.Component {
                 {ready ?
                     <div>
                         <button className="ui primary basic button" ><Link to={`/seasonavgs/${yr}`}>{yr} Season Stats</Link></button>
-                        <button className="ui primary basic button"><Link to={`/games/${yr}`}>{yr} Season Schedule</Link></button>
+                        <button className="ui primary basic button"><Link to={`/games/${yr}`}>Schedule / Boxscores</Link></button>
                     </div> :
                     <div className="ui container center aligned">
                         <div className="ui item centered">

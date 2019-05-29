@@ -81,13 +81,18 @@ class PlayerStatsVictory extends React.Component {
                 <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.material}
                     containerComponent={<VictoryVoronoiContainer />}>
 
-                    <VictoryLabel text={`Last 10 Games ${this.state.selected.toUpperCase()}`} x={225} y={30} textAnchor="middle" />
+                    {/* need to make this diff color- style not working */}
+                    <VictoryLabel text={`Last 10 Games ${this.state.selected.toUpperCase()}`} x={225} y={30} textAnchor="middle"
+                        style={{
+                            data: { color: 'red' }
+                        }} />
+
                     <VictoryLine
                         labelComponent={<VictoryTooltip />}
                         //smooth out lines
                         // interpolation="natural"
                         style={{
-                            data: { stroke: "black" },
+                            data: { stroke: "blue" },
                             parent: { border: "1px solid #ccc" }
                         }}
                         animate={{

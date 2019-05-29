@@ -40,12 +40,11 @@ class GameBoxScore extends React.Component {
                     <div>
                         <h3>{convertedDate}:  {away} at {home}</h3>
 
-                        <h4>{away}</h4>
+                        <h2>{away}</h2>
                         <BoxScoreTable lines={filtered.away} />
                         <br></br>
-                        <br></br>
 
-                        <h4>{home}</h4>
+                        <h2>{home}</h2>
                         <BoxScoreTable lines={filtered.home} />
                     </div>
                     :

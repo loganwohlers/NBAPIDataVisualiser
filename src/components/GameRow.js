@@ -10,8 +10,6 @@ class GameRow extends React.Component {
     render() {
         let { id, date, start_time, home_team, home_pts, away_team, away_pts } = this.props.game
 
-        // 20190410
-
         let convertedDate = (date.substring(4, 6) + '/' + date.substring(6, 8) + '/' + date.substring(0, 4))
         return (
             <Table.Row>

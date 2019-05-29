@@ -20,16 +20,17 @@ class PlayerDisplay extends React.Component {
     render() {
         //get the relavent games here
         return (
-            <div>
-                <h2>{this.props.player.name}</h2>
+            <div className="ui container center">
+                <h2 className="playerShowcase">{this.props.player.name}</h2>
                 <h4>Player Info Here (teams, seasons, positions, etc)</h4>
 
                 <h2>Season Averages: </h2>
                 {this.props.player.data ?
                     <div>
                         <PlayerDisplayTable player={this.props.player} />
-                        <h3>Last 10 Games</h3>
+                        <br></br>
                         <PracticeVictory lines={this.getRelaventGames().reverse()} />
+                        <h2 className="ui item centered">Last 10 Games</h2>
                         <PersonalBoxTable lines={this.getRelaventGames()} />
                     </div>
                     :
@@ -38,9 +39,6 @@ class PlayerDisplay extends React.Component {
                     </div>
 
                 }
-
-                < br >
-                </br>
             </div >
         )
     }

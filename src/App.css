@@ -1,5 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Gugi");
+
+* {
+  font-family: "Gugi", cursive;
+}
+
+body {
+  color: rgb(193, 193, 193);
+  background-color: rgba(0, 0, 0, 0.879);
+}
 .searchBar {
   justify-content: center;
+}
+
+.playerShowcase {
+  color: rgb(33, 33, 235);
 }
 
 #test {

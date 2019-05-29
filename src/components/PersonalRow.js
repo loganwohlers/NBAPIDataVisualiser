@@ -7,11 +7,12 @@ class PersonalRow extends React.Component {
         let { mp, fg, fga, fg_pct, fg3, fg3a, fg3_pct, ft, fta, ft_pct, orb, drb, trb, ast, stl, blk, tov, pts, plus_minus, pf, dnp } = this.props.line
 
         let date = this.props.line.date
+        let convertedDate = (date.substring(4, 6) + '/' + date.substring(6, 8) + '/' + date.substring(0, 4))
 
         return (
             dnp ?
                 <Table.Row>
-                    <TableCell>{date}</TableCell>
+                    <TableCell>{convertedDate}</TableCell>
                     <TableCell>DNP</TableCell>
                     <TableCell>/</TableCell>
                     <TableCell>/</TableCell>
@@ -36,7 +37,7 @@ class PersonalRow extends React.Component {
                 </Table.Row>
                 :
                 < Table.Row >
-                    <TableCell>{date}</TableCell>
+                    <TableCell>{convertedDate}</TableCell>
                     <TableCell>{mp}</TableCell>
                     <TableCell>{fg}</TableCell>
                     <TableCell>{fga}</TableCell>
@@ -60,7 +61,6 @@ class PersonalRow extends React.Component {
                 </Table.Row >
         )
     }
-
 }
 
 
