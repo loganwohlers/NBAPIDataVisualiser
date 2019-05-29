@@ -1,9 +1,9 @@
 import React from 'react'
 import { VictoryChart, VictoryLine, VictoryAxis } from 'victory';
 
+
+
 class PlayerStatsVictory extends React.Component {
-
-
     mapLinestoVictory() {
         let chartData = this.props.lines.map(g => {
             return (
