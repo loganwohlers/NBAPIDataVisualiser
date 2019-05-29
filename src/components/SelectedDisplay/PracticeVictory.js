@@ -1,11 +1,9 @@
 import React from 'react'
 import { VictoryChart, VictoryLine, VictoryAxis } from 'victory';
 
-
-
 class PlayerStatsVictory extends React.Component {
     mapLinestoVictory() {
-        let chartData = this.props.lines.map(g => {
+        let chartData = this.props.lines.reverse().map(g => {
             return (
                 {
                     x: this.readableDate(g.date),
@@ -24,7 +22,7 @@ class PlayerStatsVictory extends React.Component {
     }
 
     readableDate = (date) => {
-        return (date.substring(4, 6) + '/' + date.substring(6, 8) + '/' + date.substring(0, 4))
+        return (date.substring(4, 6) + '/' + date.substring(6, 8))
     }
 
 
@@ -40,7 +38,7 @@ class PlayerStatsVictory extends React.Component {
                     }}
                     data={this.mapLinestoVictory()}
                 />
-                <VictoryAxis tickValues={this.getDates()} />
+                <VictoryAxis tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} width={500} />
             </VictoryChart >
         )
 

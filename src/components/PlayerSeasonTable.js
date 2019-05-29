@@ -6,7 +6,7 @@ class PlayerSeasonTable extends React.Component {
     render() {
         return (
             <table id="PlayerSeason" className="">
-                <thead>
+                <thead className="ui selectable inverted table">
                     <tr>
                         <th>Player</th>
                         <th>Pos</th>
