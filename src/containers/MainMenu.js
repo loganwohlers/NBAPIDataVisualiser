@@ -12,7 +12,7 @@ class MainMenu extends React.Component {
     render() {
         return (
             <div className='ui container'>
-                <PracticeVictory lines={lamarcus} />
+                <PracticeVictory lines={lamarcus.reverse()} />
 
                 {this.props.seasons.map((season, idx) => {
                     let year = season.year

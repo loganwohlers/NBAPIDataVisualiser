@@ -2,16 +2,28 @@ import React from 'react'
 import { VictoryChart, VictoryLine, VictoryAxis, VictoryLabel, VictoryTheme } from 'victory';
 
 class PlayerStatsVictory extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            selected: 'pts',
+            mappedLines: []
+        }
+    }
+
+    componentDidMount() {
+        this.mapLinestoVictory()
+    }
+
     mapLinestoVictory() {
-        let chartData = this.props.lines.reverse().map(g => {
+        let mappedLines = this.props.lines.map(g => {
             return (
                 {
                     x: this.readableDate(g.date),
-                    y: parseInt(g.pts || 0)
+                    y: parseInt(g[this.state.selected])
                 }
             )
         })
-        return chartData
+        this.setState({ mappedLines })
     }
 
     getDates = () => {
@@ -24,26 +36,25 @@ class PlayerStatsVictory extends React.Component {
     readableDate = (date) => {
         return (date.substring(4, 6) + '/' + date.substring(6, 8))
     }
-    // <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
-    // <VictoryLabel text="Angled labels" x={225} y={30} textAnchor="middle" />
-    // <VictoryAxis dependentAxis
-    // style={{ tickLabels: { angle: -60 } }}
-    // tickFormat={[
-    //     "first label",
-    //     "second label",
-    //     "third label",
-    //     "forth label",
-    //     "fifth label"
-    // ]}
-    // // />
 
-
+    onMenuClick = (e) => {
+        let selected = e.target.innerText.toLowerCase()
+        this.setState({ selected }, () => {
+            this.mapLinestoVictory()
+        })
+    }
 
     render() {
         console.log(this.props.lines)
+        console.log(this.state)
         return (
             <div className='ui container'>
-                <VictoryChart domainPadding={30} height={300} width={500} theme={VictoryTheme.material}>
+                <div className="ui three item menu">
+                    <div onClick={(e) => this.onMenuClick(e)} className="item">PTS</div>
+                    <div onClick={(e) => this.onMenuClick(e)} className="item">RBS</div>
+                    <div onClick={(e) => this.onMenuClick(e)} className="item">AST</div>
+                </div>
+                <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.material}>
                     <VictoryLabel text="Last 10 Games" x={225} y={30} textAnchor="middle" />
                     <VictoryLine
                         style={{
@@ -55,7 +66,7 @@ class PlayerStatsVictory extends React.Component {
                             onLoad: { duration: 2000 }
                         }}
 
-                        data={this.mapLinestoVictory()}
+                        data={this.state.mappedLines}
                     />
                     <VictoryAxis dependentAxis />
                     <VictoryAxis independentAxis
