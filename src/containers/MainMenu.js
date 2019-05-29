@@ -18,8 +18,6 @@ class MainMenu extends React.Component {
                     let year = season.year
                     return (
                         <div className='ui card' key={idx} onClick={() => this.props.setSeason(year)} >
-
-
                             <Link to={`/seasonhome/${year}`}>
                                 <img className='image' style={{ width: 300, height: 300 }} src={season.image} alt='' />
                                 {`${year - 1}-${year} Season`} </Link>

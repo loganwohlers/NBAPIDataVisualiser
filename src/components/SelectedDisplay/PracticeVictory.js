@@ -1,5 +1,5 @@
 import React from 'react'
-import { VictoryChart, VictoryLine, VictoryAxis } from 'victory';
+import { VictoryChart, VictoryLine, VictoryAxis, VictoryLabel, VictoryTheme } from 'victory';
 
 class PlayerStatsVictory extends React.Component {
     mapLinestoVictory() {
@@ -24,22 +24,50 @@ class PlayerStatsVictory extends React.Component {
     readableDate = (date) => {
         return (date.substring(4, 6) + '/' + date.substring(6, 8))
     }
+    // <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
+    // <VictoryLabel text="Angled labels" x={225} y={30} textAnchor="middle" />
+    // <VictoryAxis dependentAxis
+    // style={{ tickLabels: { angle: -60 } }}
+    // tickFormat={[
+    //     "first label",
+    //     "second label",
+    //     "third label",
+    //     "forth label",
+    //     "fifth label"
+    // ]}
+    // // />
 
 
 
     render() {
         console.log(this.props.lines)
         return (
-            <VictoryChart domainPadding={20}>
-                <VictoryLine
-                    style={{
-                        data: { stroke: "#c43a31" },
-                        parent: { border: "1px solid #ccc" }
-                    }}
-                    data={this.mapLinestoVictory()}
-                />
-                <VictoryAxis tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} width={500} />
-            </VictoryChart >
+            <div className='ui container'>
+                <VictoryChart domainPadding={30} height={300} width={500} theme={VictoryTheme.material}>
+                    <VictoryLabel text="Last 10 Games" x={225} y={30} textAnchor="middle" />
+                    <VictoryLine
+                        style={{
+                            data: { stroke: "#c43a31" },
+                            parent: { border: "1px solid #ccc" }
+                        }}
+                        animate={{
+                            duration: 2000,
+                            onLoad: { duration: 2000 }
+                        }}
+
+                        data={this.mapLinestoVictory()}
+                    />
+                    <VictoryAxis dependentAxis />
+                    <VictoryAxis independentAxis
+                        style={{
+                            tickLabels: { angle: -50 },
+                            axisLabel: { padding: 50 }
+                        }}
+
+
+                    />
+                </VictoryChart >
+            </div>
         )
 
     }
