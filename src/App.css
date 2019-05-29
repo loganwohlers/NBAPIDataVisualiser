@@ -1,3 +1,11 @@
 .searchBar {
   justify-content: center;
 }
+.centered {
+  margin-left: 5%;
+}
+
+#test {
+  width: 100% !important;
+  margin: 1% !important;
+}

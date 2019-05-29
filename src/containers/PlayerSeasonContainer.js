@@ -3,6 +3,8 @@ import PlayerSeasonTable from '../components/PlayerSeasonTable';
 import SearchBar from '../components/SearchBar'
 import { connect } from 'react-redux'
 
+import { Container } from 'semantic-ui-react'
+
 class PlayerSeasonContainer extends React.Component {
 
     constructor() {
@@ -23,11 +25,11 @@ class PlayerSeasonContainer extends React.Component {
             return ps.player.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
         })
         return (
-            <div className="ui container center aligned">
+            <Container id="test" >
                 <SearchBar className='ui segment' onSearchChange={this.onSearchChange} />
                 <PlayerSeasonTable className='ui centered segment' playerSeasons={filteredPlayers} />
+            </Container>
 
-            </div>
         )
     }
 }
