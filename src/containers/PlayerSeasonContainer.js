@@ -25,10 +25,12 @@ class PlayerSeasonContainer extends React.Component {
             return ps.player.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
         })
         return (
-            <Container id="test" >
+            // <Container id="test" >
+            <div>
                 <SearchBar className='ui segment' onSearchChange={this.onSearchChange} />
-                <PlayerSeasonTable className='ui centered segment' playerSeasons={filteredPlayers} />
-            </Container>
+                <PlayerSeasonTable id='PlayerSeason' className='ui centered segment' playerSeasons={filteredPlayers} />
+            </div>
+            // </Container>
 
         )
     }

@@ -69,7 +69,7 @@ class PlayerStatsVictory extends React.Component {
         console.log(this.props.lines)
         console.log(this.state)
         return (
-            <div className='ui container'>
+            <div className='ui container inverted'>
                 <div className="ui six item menu">
                     <div onClick={(e) => this.onMenuClick(e)} className="item">PTS</div>
                     <div onClick={(e) => this.onMenuClick(e)} className="item">TRB</div>

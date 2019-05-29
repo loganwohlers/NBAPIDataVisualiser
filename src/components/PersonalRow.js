@@ -1,4 +1,5 @@
 import React from 'react';
+import { Table, TableCell } from 'semantic-ui-react'
 
 class PersonalRow extends React.Component {
 
@@ -9,54 +10,54 @@ class PersonalRow extends React.Component {
 
         return (
             dnp ?
-                <tr>
-                    <td>{date}</td>
-                    <td>DNP</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td>/</td>
+                <Table.Row>
+                    <TableCell>{date}</TableCell>
+                    <TableCell>DNP</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
+                    <TableCell>/</TableCell>
 
-                </tr>
+                </Table.Row>
                 :
-                < tr >
-                    <td>{date}</td>
-                    <td>{mp}</td>
-                    <td>{fg}</td>
-                    <td>{fga}</td>
-                    <td>{fg_pct || '.000'}</td>
-                    <td>{fg3}</td>
-                    <td>{fg3a}</td>
-                    <td>{fg3_pct || '.000'}</td>
-                    <td>{ft}</td>
-                    <td>{fta}</td>
-                    <td>{ft_pct || '.000'}</td>
-                    <td>{orb}</td>
-                    <td>{drb}</td>
-                    <td>{trb}</td>
-                    <td>{ast}</td>
-                    <td>{stl}</td>
-                    <td>{blk}</td>
-                    <td>{tov}</td>
-                    <td>{pf}</td>
-                    <td>{pts}</td>
-                    <td>{plus_minus}</td >
-                </tr >
+                < Table.Row >
+                    <TableCell>{date}</TableCell>
+                    <TableCell>{mp}</TableCell>
+                    <TableCell>{fg}</TableCell>
+                    <TableCell>{fga}</TableCell>
+                    <TableCell>{fg_pct || '.000'}</TableCell>
+                    <TableCell>{fg3}</TableCell>
+                    <TableCell>{fg3a}</TableCell>
+                    <TableCell>{fg3_pct || '.000'}</TableCell>
+                    <TableCell>{ft}</TableCell>
+                    <TableCell>{fta}</TableCell>
+                    <TableCell>{ft_pct || '.000'}</TableCell>
+                    <TableCell>{orb}</TableCell>
+                    <TableCell>{drb}</TableCell>
+                    <TableCell>{trb}</TableCell>
+                    <TableCell>{ast}</TableCell>
+                    <TableCell>{stl}</TableCell>
+                    <TableCell>{blk}</TableCell>
+                    <TableCell>{tov}</TableCell>
+                    <TableCell>{pf}</TableCell>
+                    <TableCell>{pts}</TableCell>
+                    <TableCell>{plus_minus}</TableCell >
+                </Table.Row >
         )
     }
 

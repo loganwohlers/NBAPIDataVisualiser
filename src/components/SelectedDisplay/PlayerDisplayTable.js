@@ -1,80 +1,82 @@
 import React from 'react'
 
+import { Table, TableCell } from 'semantic-ui-react'
+
 const PlayerDisplayTable = (props) => {
     return (
-        <table id="PlayerSeason" className="">
-            <thead>
-                <tr>
-                    <th>Season</th>
-                    <th>Pos</th>
-                    <th>Age</th>
-                    <th>Tm</th>
-                    <th>G</th>
-                    <th>MP</th>
-                    <th>FG</th>
-                    <th>FGA</th>
-                    <th>FG%</th>
-                    <th>3P</th>
-                    <th>3PA</th>
-                    <th>3P%</th>
-                    <th>2P</th>
-                    <th>2PA</th>
-                    <th>2P%</th>
-                    <th>eFG%</th>
-                    <th>FT</th>
-                    <th>FTA</th>
-                    <th>FT%</th>
-                    <th>ORB</th>
-                    <th>DRB</th>
-                    <th>TRB</th>
-                    <th>AST</th>
-                    <th>STL</th>
-                    <th>BLK</th>
-                    <th>TOV</th>
-                    <th>PF</th>
-                    <th>PTS</th>
-                </tr>
-            </thead>
-            <tbody>
+        <Table id="PlayerSeason" celled inverted selectable className="">
+            <Table.Header>
+                <Table.Row>
+                    <Table.HeaderCell>YR</Table.HeaderCell>
+                    <Table.HeaderCell>POS</Table.HeaderCell>
+                    <Table.HeaderCell>AGE</Table.HeaderCell>
+                    <Table.HeaderCell>TM</Table.HeaderCell>
+                    <Table.HeaderCell>G</Table.HeaderCell>
+                    <Table.HeaderCell>MP</Table.HeaderCell>
+                    <Table.HeaderCell>FG</Table.HeaderCell>
+                    <Table.HeaderCell>FGA</Table.HeaderCell>
+                    <Table.HeaderCell>FG%</Table.HeaderCell>
+                    <Table.HeaderCell>3P</Table.HeaderCell>
+                    <Table.HeaderCell>3PA</Table.HeaderCell>
+                    <Table.HeaderCell>3P%</Table.HeaderCell>
+                    <Table.HeaderCell>2P</Table.HeaderCell>
+                    <Table.HeaderCell>2PA</Table.HeaderCell>
+                    <Table.HeaderCell>2P%</Table.HeaderCell>
+                    <Table.HeaderCell>eFG%</Table.HeaderCell>
+                    <Table.HeaderCell>FT</Table.HeaderCell>
+                    <Table.HeaderCell>FTA</Table.HeaderCell>
+                    <Table.HeaderCell>FT%</Table.HeaderCell>
+                    <Table.HeaderCell>ORB</Table.HeaderCell>
+                    <Table.HeaderCell>DRB</Table.HeaderCell>
+                    <Table.HeaderCell>TRB</Table.HeaderCell>
+                    <Table.HeaderCell>AST</Table.HeaderCell>
+                    <Table.HeaderCell>STL</Table.HeaderCell>
+                    <Table.HeaderCell>BLK</Table.HeaderCell>
+                    <Table.HeaderCell>TOV</Table.HeaderCell>
+                    <Table.HeaderCell>PF</Table.HeaderCell>
+                    <Table.HeaderCell>PTS</Table.HeaderCell>
+                </Table.Row>
+            </Table.Header>
+            <Table.Body>
                 {props.player.data.player_seasons.map(ps => {
                     return (
-                        <tr key={ps.id}>
-                            <td>{ps.year}</td>
-                            <td>{ps.position}</td>
-                            <td>{ps.age}</td>
-                            <td>{ps.team}</td>
-                            <td>{ps.gp}</td>
-                            <td>{ps.mp_per_g}</td>
-                            <td>{ps.fg_per_g}</td>
-                            <td>{ps.fga_per_g}</td>
-                            <td>{ps.fg_pct}</td>
-                            <td>{ps.fg3_per_g}</td>
-                            <td>{ps.fg3a_per_g}</td>
-                            <td>{ps.fg3_pct || '.000'}</td>
-                            <td>{ps.fg2_per_g}</td>
-                            <td>{ps.fg2a_per_g}</td>
-                            <td>{ps.fg2_pct || '.000'}</td>
-                            <td>{ps.efg_pct}</td>
-                            <td>{ps.ft_per_g}</td>
-                            <td>{ps.fta_per_g}</td>
-                            <td>{ps.ft_pct || '.000'}</td>
-                            <td>{ps.orb_per_g}</td>
-                            <td>{ps.drb_per_g}</td>
-                            <td>{ps.trb_per_g}</td>
-                            <td>{ps.ast_per_g}</td>
-                            <td>{ps.stl_per_g}</td>
-                            <td>{ps.blk_per_g}</td>
-                            <td>{ps.tov_per_g}</td>
-                            <td>{ps.pf_per_g}</td>
-                            <td>{ps.pts_per_g}</td>
-                        </tr>
+                        <Table.Row key={ps.id}>
+                            <TableCell>{ps.year}</TableCell>
+                            <TableCell>{ps.position}</TableCell>
+                            <TableCell>{ps.age}</TableCell>
+                            <TableCell>{ps.team}</TableCell>
+                            <TableCell>{ps.gp}</TableCell>
+                            <TableCell>{ps.mp_per_g}</TableCell>
+                            <TableCell>{ps.fg_per_g}</TableCell>
+                            <TableCell>{ps.fga_per_g}</TableCell>
+                            <TableCell>{ps.fg_pct}</TableCell>
+                            <TableCell>{ps.fg3_per_g}</TableCell>
+                            <TableCell>{ps.fg3a_per_g}</TableCell>
+                            <TableCell>{ps.fg3_pct || '.000'}</TableCell>
+                            <TableCell>{ps.fg2_per_g}</TableCell>
+                            <TableCell>{ps.fg2a_per_g}</TableCell>
+                            <TableCell>{ps.fg2_pct || '.000'}</TableCell>
+                            <TableCell>{ps.efg_pct}</TableCell>
+                            <TableCell>{ps.ft_per_g}</TableCell>
+                            <TableCell>{ps.fta_per_g}</TableCell>
+                            <TableCell>{ps.ft_pct || '.000'}</TableCell>
+                            <TableCell>{ps.orb_per_g}</TableCell>
+                            <TableCell>{ps.drb_per_g}</TableCell>
+                            <TableCell>{ps.trb_per_g}</TableCell>
+                            <TableCell>{ps.ast_per_g}</TableCell>
+                            <TableCell>{ps.stl_per_g}</TableCell>
+                            <TableCell>{ps.blk_per_g}</TableCell>
+                            <TableCell>{ps.tov_per_g}</TableCell>
+                            <TableCell>{ps.pf_per_g}</TableCell>
+                            <TableCell>{ps.pts_per_g}</TableCell>
+                        </Table.Row>
                     )
                 })}
 
-            </tbody>
+            </Table.Body>
 
 
-        </table>
+        </Table>
     )
 }
 export default PlayerDisplayTable

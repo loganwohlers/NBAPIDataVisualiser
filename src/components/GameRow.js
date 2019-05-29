@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 import { setGame } from '../actions'
+import { Table, TableCell } from 'semantic-ui-react';
 
 class GameRow extends React.Component {
 
@@ -13,17 +14,17 @@ class GameRow extends React.Component {
 
         let convertedDate = (date.substring(4, 6) + '/' + date.substring(6, 8) + '/' + date.substring(0, 4))
         return (
-            <tr>
-                <td>{convertedDate}</td>
-                <td>{start_time}</td>
-                <td>{home_team.name}</td >
-                <td>{home_pts}</td>
-                <td>{away_team.name}</td>
-                <td>{away_pts}</td>
-                <td>
+            <Table.Row>
+                <TableCell>{convertedDate}</TableCell>
+                <TableCell>{start_time}</TableCell>
+                <TableCell>{home_team.name}</TableCell >
+                <TableCell>{home_pts}</TableCell>
+                <TableCell>{away_team.name}</TableCell>
+                <TableCell>{away_pts}</TableCell>
+                <TableCell>
                     <Link onClick={() => this.props.setGame(this.props.game)} to={`/gamebox/${id}`}> Box Score</Link>
-                </td>
-            </tr>
+                </TableCell>
+            </Table.Row>
         )
     }
 

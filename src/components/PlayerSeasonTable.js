@@ -1,6 +1,6 @@
 import React from 'react';
 import PlayerSeasonRow from './PlayerSeasonRow';
-import { Table, Container } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 
 class PlayerSeasonTable extends React.Component {
     render() {

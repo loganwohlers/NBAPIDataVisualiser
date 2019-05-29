@@ -1,30 +1,38 @@
 import React from 'react';
 import GameRow from './GameRow';
 import { connect } from 'react-redux'
+import { Table } from 'semantic-ui-react'
 
 
 class GameTable extends React.Component {
 
     render() {
         return (
-            <table id="Games" className="">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Start</th>
-                        <th>Home</th>
-                        <th>Pts</th>
-                        <th>Away</th>
-                        <th>Pts</th>
-                    </tr>
-                </thead>
+            <Table id="Games" fullWidth celled inverted selectable textAlign='center'
+                style={{
+                    tableLayout: 'fixed',
+                    maxWidth: '100%',
+                    fontSize: '75%',
+                    whiteSpace: 'nowrap'
+                }}>
+                <Table.Header>
+                    <Table.Row>
+                        <Table.HeaderCell>Date</Table.HeaderCell>
+                        <Table.HeaderCell>Start</Table.HeaderCell>
+                        <Table.HeaderCell>Home</Table.HeaderCell>
+                        <Table.HeaderCell>Pts</Table.HeaderCell>
+                        <Table.HeaderCell>Away</Table.HeaderCell>
+                        <Table.HeaderCell>Pts</Table.HeaderCell>
+                        <Table.HeaderCell>Box</Table.HeaderCell>
+                    </Table.Row>
+                </Table.Header>
 
-                <tbody>
+                <Table.Body>
                     {this.props.seasonGames.data.map(gm => {
                         return <GameRow id={gm.id} key={gm.id} />
                     })}
-                </tbody>
-            </table>
+                </Table.Body>
+            </Table>
         )
     }
 }
