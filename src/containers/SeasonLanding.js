@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchAllSeasonDataIfNeeded } from '../actions'
+import ReactLoading from 'react-loading';
 
 class SeasonLanding extends React.Component {
 
@@ -25,7 +26,12 @@ class SeasonLanding extends React.Component {
                         <button className="ui primary basic button" ><Link to={`/seasonavgs/${yr}`}>{yr} Season Stats</Link></button>
                         <button className="ui primary basic button"><Link to={`/games/${yr}`}>{yr} Season Schedule</Link></button>
                     </div> :
-                    <h3>Loading All Season Data...</h3>
+                    <div className="ui container center aligned">
+                        <div className="ui item centered">
+                            <h3>Loading All Season Data...</h3>
+                            <ReactLoading id='loading' type={'balls'} color={'blue'} height={'50%'} width={'50%'} />
+                        </div>
+                    </div>
                 }
             </div >
         )
