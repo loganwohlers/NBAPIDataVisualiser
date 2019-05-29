@@ -5,8 +5,8 @@ class GamesContainer extends React.Component {
 
     render() {
         return (
-            <div>
-                <h2>SEASON SCHEDULE</h2>
+            <div className='ui container center aligned'>
+                <h2 className="ui centered ">SEASON SCHEDULE</h2>
                 <GameTable />
             </div>
         )

@@ -20,6 +20,7 @@ class MainMenu extends React.Component {
     render() {
         return (
             <div className='ui container center aligned'>
+
                 {this.props.seasons.map((season, idx) => {
                     let year = season.year
                     return (

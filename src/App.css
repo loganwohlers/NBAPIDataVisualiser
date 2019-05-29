@@ -16,6 +16,10 @@ body {
   color: rgb(33, 33, 235);
 }
 
+.landing {
+  margin: 20%;
+}
+
 #test {
   width: 100% !important;
   margin: 0% 2% 0% 0% !important;

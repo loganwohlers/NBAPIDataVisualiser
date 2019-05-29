@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchAllSeasonDataIfNeeded } from '../actions'
 import Loader from 'react-loader-spinner'
+import { Progress } from 'semantic-ui-react'
+
+
+
 
 class SeasonLanding extends React.Component {
 
@@ -19,14 +23,24 @@ class SeasonLanding extends React.Component {
             <div>
                 {ready ?
                     <div>
-                        <button className="ui primary basic button" ><Link to={`/seasonavgs/${yr}`}>{yr} Season Stats</Link></button>
-                        <button className="ui primary basic button"><Link to={`/games/${yr}`}>Schedule / Boxscores</Link></button>
+                        <div className='ui container center aligned landing'>
+                            <div className='ui centered '>
+                                <button className="ui primary basic button"><Link to={`/seasonavgs/${yr}`}> Player Averages</Link></button>
+                            </div>
+                            <br></br>
+                            <div className='ui centered '>
+                                <button className="ui primary basic button"><Link to={`/games/${yr}`}>Schedule / Boxscores</Link></button>
+                            </div>
+
+
+                        </div>
+
+
                     </div> :
                     <div className="ui container center aligned">
                         <div className="ui item centered">
-                            <h3>Loading All Season Data...</h3>
+                            <h3>Loading Season Data...</h3>
                             <Loader type="Ball-Triangle" color="green" height={400} width={400} />
-
                         </div>
                     </div>
                 }
@@ -44,3 +58,7 @@ const mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps, { fetchAllSeasonDataIfNeeded })(SeasonLanding)
+
+
+    // < button className = "ui primary basic button" > 
+    //     <button className="ui primary basic button"><Link to={`/games/${yr}`}>Schedule / Boxscores</Link></button>
