@@ -15,6 +15,7 @@ class PlayerStatsVictory extends React.Component {
     }
 
     mapLinestoVictory() {
+        // debugger
         let mappedLines = this.props.lines.map(g => {
             return (
                 {
@@ -49,10 +50,13 @@ class PlayerStatsVictory extends React.Component {
         console.log(this.state)
         return (
             <div className='ui container'>
-                <div className="ui three item menu">
+                <div className="ui six item menu">
                     <div onClick={(e) => this.onMenuClick(e)} className="item">PTS</div>
-                    <div onClick={(e) => this.onMenuClick(e)} className="item">RBS</div>
+                    <div onClick={(e) => this.onMenuClick(e)} className="item">TRB</div>
                     <div onClick={(e) => this.onMenuClick(e)} className="item">AST</div>
+                    <div onClick={(e) => this.onMenuClick(e)} className="item">STL</div>
+                    <div onClick={(e) => this.onMenuClick(e)} className="item">BLK</div>
+                    <div onClick={(e) => this.onMenuClick(e)} className="item">PLUS_MINUS</div>
                 </div>
                 <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.material}>
                     <VictoryLabel text="Last 10 Games" x={225} y={30} textAnchor="middle" />
@@ -68,14 +72,17 @@ class PlayerStatsVictory extends React.Component {
 
                         data={this.state.mappedLines}
                     />
-                    <VictoryAxis dependentAxis />
+                    <VictoryAxis dependentAxis
+                        style={{
+                            tickLabels: { angle: -50 },
+                            axisLabel: { padding: 50 }
+                        }} />
+
                     <VictoryAxis independentAxis
                         style={{
                             tickLabels: { angle: -50 },
                             axisLabel: { padding: 50 }
                         }}
-
-
                     />
                 </VictoryChart >
             </div>
