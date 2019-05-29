@@ -5,7 +5,7 @@ class PersonalRow extends React.Component {
     render() {
         let { mp, fg, fga, fg_pct, fg3, fg3a, fg3_pct, ft, fta, ft_pct, orb, drb, trb, ast, stl, blk, tov, pts, plus_minus, pf, dnp } = this.props.line
 
-        let date = this.props.line.game.date
+        let date = this.props.line.date
 
         return (
             dnp ?
