@@ -6,7 +6,7 @@
 
 body {
   color: rgb(193, 193, 193);
-  background-color: rgba(0, 0, 0, 0.879);
+  background-color: rgba(0, 0, 0, 0.927) !important;
 }
 .searchBar {
   justify-content: center;

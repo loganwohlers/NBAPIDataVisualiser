@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchAllSeasonDataIfNeeded } from '../actions'
-import ReactLoading from 'react-loading';
+import Loader from 'react-loader-spinner'
 
 class SeasonLanding extends React.Component {
 
@@ -17,10 +17,6 @@ class SeasonLanding extends React.Component {
         let ready = (!(playerSeasons.data === 0 || seasonGames.data === 0) && !(playerSeasons.isFetching || seasonGames.isFetching))
         return (
             <div>
-                <h2>{yr} SEASON LANDING PAGE</h2>
-
-                <hr></hr>
-
                 {ready ?
                     <div>
                         <button className="ui primary basic button" ><Link to={`/seasonavgs/${yr}`}>{yr} Season Stats</Link></button>
@@ -29,7 +25,8 @@ class SeasonLanding extends React.Component {
                     <div className="ui container center aligned">
                         <div className="ui item centered">
                             <h3>Loading All Season Data...</h3>
-                            <ReactLoading id='loading' type={'balls'} color={'blue'} height={'50%'} width={'50%'} />
+                            <Loader type="Ball-Triangle" color="green" height={400} width={400} />
+
                         </div>
                     </div>
                 }
