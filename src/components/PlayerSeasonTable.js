@@ -5,7 +5,7 @@ import { Table, Container } from 'semantic-ui-react'
 class PlayerSeasonTable extends React.Component {
     render() {
         return (
-            <Container>
+            <div>
                 <Table fullWidth celled inverted selectable textAlign='center'
                     style={{
                         tableLayout: 'fixed',
@@ -52,7 +52,7 @@ class PlayerSeasonTable extends React.Component {
 
                     </Table.Body>
                 </Table>
-            </Container >
+            </div>
         )
 
 
