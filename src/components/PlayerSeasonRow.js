@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setPlayer } from '../actions'
+import { Table } from 'semantic-ui-react'
 
 class PlayerSeasonRow extends React.Component {
     render() {
@@ -11,40 +12,40 @@ class PlayerSeasonRow extends React.Component {
         let id = this.props.playerSeason.player.id
 
         return (
-            <tr>
-                <td >
+            <Table.Row>
+                <Table.Cell >
                     <Link onClick={() => this.props.setPlayer(this.props.playerSeason.player)} to={`/player/${id}`}>
                         {name}
                     </Link>
-                </td>
-                <td>{position}</td>
-                <td>{age}</td>
-                <td>{this.props.playerSeason.team.code}</td>
-                <td>{gp}</td>
-                <td>{mp_per_g}</td>
-                <td>{fg_per_g}</td>
-                <td>{fga_per_g}</td>
-                <td>{fg_pct}</td>
-                <td>{fg3_per_g}</td>
-                <td>{fg3a_per_g}</td>
-                <td>{fg3_pct || '.000'}</td>
-                <td>{fg2_per_g}</td>
-                <td>{fg2a_per_g}</td>
-                <td>{fg2_pct || '.000'}</td>
-                <td>{efg_pct}</td>
-                <td>{ft_per_g}</td>
-                <td>{fta_per_g}</td>
-                <td>{ft_pct || '.000'}</td>
-                <td>{orb_per_g}</td>
-                <td>{drb_per_g}</td>
-                <td>{trb_per_g}</td>
-                <td>{ast_per_g}</td>
-                <td>{stl_per_g}</td>
-                <td>{blk_per_g}</td>
-                <td>{tov_per_g}</td>
-                <td>{pf_per_g}</td>
-                <td>{pts_per_g}</td>
-            </tr>
+                </Table.Cell>
+                <Table.Cell>{position}</Table.Cell>
+                <Table.Cell>{age}</Table.Cell>
+                <Table.Cell>{this.props.playerSeason.team.code}</Table.Cell>
+                <Table.Cell>{gp}</Table.Cell>
+                <Table.Cell>{mp_per_g}</Table.Cell>
+                <Table.Cell>{fg_per_g}</Table.Cell>
+                <Table.Cell>{fga_per_g}</Table.Cell>
+                <Table.Cell>{fg_pct}</Table.Cell>
+                <Table.Cell>{fg3_per_g}</Table.Cell>
+                <Table.Cell>{fg3a_per_g}</Table.Cell>
+                <Table.Cell>{fg3_pct || '.000'}</Table.Cell>
+                <Table.Cell>{fg2_per_g}</Table.Cell>
+                <Table.Cell>{fg2a_per_g}</Table.Cell>
+                <Table.Cell>{fg2_pct || '.000'}</Table.Cell>
+                <Table.Cell>{efg_pct}</Table.Cell>
+                <Table.Cell>{ft_per_g}</Table.Cell>
+                <Table.Cell>{fta_per_g}</Table.Cell>
+                <Table.Cell>{ft_pct || '.000'}</Table.Cell>
+                <Table.Cell>{orb_per_g}</Table.Cell>
+                <Table.Cell>{drb_per_g}</Table.Cell>
+                <Table.Cell>{trb_per_g}</Table.Cell>
+                <Table.Cell>{ast_per_g}</Table.Cell>
+                <Table.Cell>{stl_per_g}</Table.Cell>
+                <Table.Cell>{blk_per_g}</Table.Cell>
+                <Table.Cell>{tov_per_g}</Table.Cell>
+                <Table.Cell>{pf_per_g}</Table.Cell>
+                <Table.Cell>{pts_per_g}</Table.Cell>
+            </Table.Row>
         )
     }
 }

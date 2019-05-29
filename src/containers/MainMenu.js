@@ -18,13 +18,13 @@ const abrines = [{ "id": 356256, "player_season_id": 9885, "mp": "13:47", "fg": 
 class MainMenu extends React.Component {
     render() {
         return (
-            <div className='ui container'>
+            <div className='ui container center aligned'>
 
                 {this.props.seasons.map((season, idx) => {
                     let year = season.year
                     return (
                         <Link to={`/seasonhome/${year}`}>
-                            <div className='ui card' key={idx} onClick={() => this.props.setSeason(year)} >
+                            <div className='ui centered card' key={idx} onClick={() => this.props.setSeason(year)} >
                                 <div className="image">
                                     <img src={season.image} alt='' />
                                     {`${year - 1}-${year} Season`}

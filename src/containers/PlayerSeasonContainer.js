@@ -24,11 +24,8 @@ class PlayerSeasonContainer extends React.Component {
         })
         return (
             <div className="ui container center aligned">
-                {/* <div className='ui container center aligned'> */}
                 <SearchBar className='ui segment' onSearchChange={this.onSearchChange} />
-                {/* </div> */}
-
-                <PlayerSeasonTable className='ui segment' playerSeasons={filteredPlayers} />
+                <PlayerSeasonTable className='ui centered segment' playerSeasons={filteredPlayers} />
 
             </div>
         )
