@@ -93,6 +93,7 @@ class PlayerStatsVictory extends React.Component {
                                 flyoutStyle={{
                                     stroke: "tomato"
                                 }} />}
+
                         interpolation="natural"
                         style={{
                             data: { stroke: '#266ee2' },
@@ -120,7 +121,7 @@ class PlayerStatsVictory extends React.Component {
                         style={{
                             axis: { stroke: "#bac2d1" },
                             axisLabel: { padding: 200 },
-                            tickLabels: { fontSize: 20, padding: 1, angle: -50, verticalAnchor: 'middle', textAnchor: 'start' }
+                            ticks: { stroke: "grey", size: 5 }
 
                         }}
                     />

@@ -14,15 +14,16 @@ class PlayerDisplay extends React.Component {
 
     getRelaventGames = () => {
         let currPlayerSeasonGames = this.props.player.data.player_seasons.find(ps => ps.year = this.props.currSeason.year).games
-        return currPlayerSeasonGames.slice(0, 10)
+        let sorted = currPlayerSeasonGames.sort((a, b) => {
+            return parseInt(b.date) - parseInt(a.date)
+        })
+        return sorted.slice(0, 10)
     }
 
     render() {
-        //get the relavent games here
         return (
             <div className="ui container center">
                 <h2 className="playerShowcase">{this.props.player.name}</h2>
-                <h4>Player Info Here (teams, seasons, positions, etc)</h4>
 
                 <h2>Season Averages: </h2>
                 {this.props.player.data ?
