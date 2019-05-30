@@ -12,9 +12,6 @@ import { connect } from 'react-redux'
 import PlayerDisplay from '../PlayerDisplay';
 import BigSearchBar from '../BigSearchBar';
 
-
-
-
 // export const fetchPlayer = () => {
 //     return async (dispatch, getState) => {
 //         let id = getState().currPlayer.id
@@ -99,7 +96,7 @@ class PlayerComparison extends React.Component {
         return (
             <div>
                 <div>
-                    <BigSearchBar players={this.playerNames()} />
+                    TEST
                 </div>
             </div>
 
