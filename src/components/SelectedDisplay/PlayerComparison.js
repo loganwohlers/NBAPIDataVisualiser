@@ -4,14 +4,9 @@ import { Lebron, Harden, Giannis, Durant } from '../../assets/PlayerStats'
 
 import { connect } from 'react-redux'
 import PlayerRadar from './PlayerRadar';
-import PersonalBoxTable from '../PersonalBoxTable'
 import PracticeVictory from './PracticeVictory'
 
 class PlayerComparison extends React.Component {
-
-    constructor() {
-        super()
-    }
 
     last10 = () => {
         let currYear = this.props.season.year
@@ -59,6 +54,7 @@ class PlayerComparison extends React.Component {
 
     render() {
         let title = this.props.season.year === 2018 ? "LEBRON (YELLOW) v DURANT (BLUE)" : " GIANNIS (YELLOW) v HARDEN (BLUE)"
+        let title2 = this.props.season.year === 2018 ? "LEBRON (BLUE) v DURANT (GREEN)" : " GIANNIS (BLUE) v HARDEN (GREEN)"
 
         return (
             <div className='ui container center ' >
@@ -66,6 +62,7 @@ class PlayerComparison extends React.Component {
                     <h2>{title}</h2>
                     <PlayerRadar stats={this.radarPrep()} />
                 </div>
+                <h2>{title2}</h2>
                 <PracticeVictory lines={this.last10()} />
             </div>
 

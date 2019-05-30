@@ -8,7 +8,7 @@ import harden from '../assets/harden.jpg'
 
 export default (state = [], action) => {
     return [
-        { year: 2019, image: harden },
-        { year: 2018, image: giannis }
+        { year: 2019, image: giannis },
+        { year: 2018, image: harden }
     ]
 }

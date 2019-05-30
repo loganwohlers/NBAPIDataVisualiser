@@ -58,7 +58,6 @@ class PlayerDisplay extends React.Component {
     }
 
     render() {
-        debugger
         return (
             <div className="ui container center">
                 <h2 className="playerShowcase">{this.props.player.name}</h2>

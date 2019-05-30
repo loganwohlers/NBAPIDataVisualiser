@@ -1,21 +1,21 @@
 import React from 'react'
 import { VictoryChart, VictoryGroup, VictoryArea, VictoryPolarAxis, VictoryLabel, VictoryTheme } from 'victory';
 
-let season2019 = [
-    {
-        PTS: 10.2,
-        REB: 4.1,
-        AST: 2.0,
-        STL: 0.7,
-        BLK: 0.4
-    },
-    {
-        PTS: 20.2,
-        REB: 4.1,
-        AST: 8.0,
-        STL: 3.7,
-        BLK: 1.4
-    }]
+// let season2019 = [
+//     {
+//         PTS: 10.2,
+//         REB: 4.1,
+//         AST: 2.0,
+//         STL: 0.7,
+//         BLK: 0.4
+//     },
+//     {
+//         PTS: 20.2,
+//         REB: 4.1,
+//         AST: 8.0,
+//         STL: 3.7,
+//         BLK: 1.4
+//     }]
 
 class PlayerRadar extends React.Component {
     // this.props.player.data.player_seasons
@@ -50,7 +50,7 @@ class PlayerRadar extends React.Component {
 
     render() {
         return (
-            <div className='ui container'>
+            <div className='ui container victory2'>
                 <VictoryChart polar
                     theme={VictoryTheme.material}
                     domain={{ y: [0, 1] }}
@@ -103,35 +103,3 @@ class PlayerRadar extends React.Component {
 }
 export default PlayerRadar
 
-    // componentDidMount() {
-
-    //     let season2019 = [
-    //         {
-    //             PTS: 10.2,
-    //             REB: 4.1,
-    //             AST: 2.0,
-    //             STL: 0.7,
-    //             BLK: 0.4
-    //         }]
-    //     console.log(this.props.player)
-    //     //2019 season
-
-    //     let currSeason = this.props.player.data.player_seasons[0]
-    //     let playerObj = {
-    //         PTS: parseFloat(currSeason['pts_per_g']),
-    //         REB: parseFloat(currSeason['trb_per_g']),
-    //         AST: parseFloat(currSeason['ast_per_g']),
-    //         STL: parseFloat(currSeason['stl_per_g']),
-    //         BLK: parseFloat(currSeason['blk_per_g'])
-    //     }
-
-    //     console.log(season2019)
-
-    //     season2019.push(playerObj)
-
-    //     this.setState = {
-    //         data: this.processData(season2019),
-    //         maxima: this.getMaxima(season2019)
-    //     }
-
-    // };
