@@ -69,8 +69,8 @@ class PlayerStatsVictory extends React.Component {
         console.log(this.props.lines)
         console.log(this.state)
         return (
-            <div className='ui container inverted'>
-                <div className="ui six item menu">
+            <div className='ui container '>
+                <div className="ui six item menu inverted">
                     <div onClick={(e) => this.onMenuClick(e)} className="item">PTS</div>
                     <div onClick={(e) => this.onMenuClick(e)} className="item">TRB</div>
                     <div onClick={(e) => this.onMenuClick(e)} className="item">AST</div>
@@ -81,7 +81,9 @@ class PlayerStatsVictory extends React.Component {
                 <div >
                     <h1>Last 10: {this.state.selected.toLocaleUpperCase()}</h1>
                 </div>
-                <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.grayscale}
+
+
+                <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.material}
                     containerComponent={<VictoryVoronoiContainer />}>
 
 
@@ -100,10 +102,8 @@ class PlayerStatsVictory extends React.Component {
 
                         data={this.state.mappedLines}
                     />
-                    <VictoryScatter data={this.state.mappedLines}
-                        size={5}
-                        style={{ data: { fill: "blue" } }}
-                    />
+
+
                     <VictoryAxis dependentAxis
                         style={{
                             tickLabels: { angle: 0 },
@@ -111,10 +111,11 @@ class PlayerStatsVictory extends React.Component {
                         }} />
 
                     <VictoryAxis independentAxis
+                        tickValues={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]}
                         tickFormat={() => ''}
                         style={{
                             axisLabel: { padding: 200 },
-                            tickLabels: { fontSize: 10, padding: 1, angle: 50, verticalAnchor: 'middle', textAnchor: 'start' }
+                            tickLabels: { fontSize: 20, padding: 1, angle: -50, verticalAnchor: 'middle', textAnchor: 'start' }
 
                         }}
                     />
@@ -127,6 +128,3 @@ class PlayerStatsVictory extends React.Component {
 
 }
 export default PlayerStatsVictory
-
-
-
