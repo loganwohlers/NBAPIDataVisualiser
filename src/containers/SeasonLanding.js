@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchAllSeasonDataIfNeeded } from '../actions'
 import Loader from 'react-loader-spinner'
-import { Progress } from 'semantic-ui-react'
+
 
 
 
@@ -39,9 +39,10 @@ class SeasonLanding extends React.Component {
                     </div> :
                     <div className="ui container center aligned">
                         <div className="ui item centered">
-                            <h3>Loading Season Data...</h3>
-                            <Loader type="Ball-Triangle" color="green" height={400} width={400} />
+                            <h2>Loading Season Data...</h2>
+                            <Loader type="Rings" color='#266ee2' height={400} width={400} />
                         </div>
+
                     </div>
                 }
             </div >
@@ -60,5 +61,3 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, { fetchAllSeasonDataIfNeeded })(SeasonLanding)
 
 
-    // < button className = "ui primary basic button" > 
-    //     <button className="ui primary basic button"><Link to={`/games/${yr}`}>Schedule / Boxscores</Link></button>

@@ -8,8 +8,9 @@ body {
   color: rgb(227, 224, 224);
   background-color: rgba(21, 20, 20, 0.968) !important;
 }
+
 .searchBar {
-  justify-content: center;
+  background-color: rgb(227, 224, 224);
 }
 
 .playerShowcase {

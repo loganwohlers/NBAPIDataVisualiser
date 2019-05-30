@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setSeason } from '../actions'
+import PlayerRadar from '../components/SelectedDisplay/PlayerRadar'
 
 import PracticeVictory from '../components/SelectedDisplay/PracticeVictory'
 
@@ -13,6 +14,7 @@ class MainMenu extends React.Component {
             <div className='ui container center aligned'>
                 {/* <PracticeVictory lines={lamarcus.reverse()} />
                 <PracticeVictory lines={abrines.reverse()} /> */}
+                <PlayerRadar test={5} />
 
                 {this.props.seasons.map((season, idx) => {
                     let year = season.year

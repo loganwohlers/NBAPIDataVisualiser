@@ -2,6 +2,7 @@ import React from 'react';
 import PersonalBoxTable from './PersonalBoxTable';
 import PlayerDisplayTable from './SelectedDisplay/PlayerDisplayTable'
 import PracticeVictory from './SelectedDisplay/PracticeVictory'
+import PlayerRadar from './SelectedDisplay/PlayerRadar'
 
 import { connect } from 'react-redux'
 import { fetchPlayer } from '../actions'
@@ -25,9 +26,10 @@ class PlayerDisplay extends React.Component {
             <div className="ui container center">
                 <h2 className="playerShowcase">{this.props.player.name}</h2>
 
-                <h2>Season Averages: </h2>
                 {this.props.player.data ?
                     <div>
+                        <PlayerRadar player={this.props.player} />
+                        <h2>Season Averages: </h2>
                         <PlayerDisplayTable player={this.props.player} />
                         <br></br>
                         <PracticeVictory lines={this.getRelaventGames().reverse()} />
