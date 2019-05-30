@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setSeason } from '../actions'
+import { Menu } from 'semantic-ui-react'
 
 
 import PracticeVictory from '../components/SelectedDisplay/PracticeVictory'

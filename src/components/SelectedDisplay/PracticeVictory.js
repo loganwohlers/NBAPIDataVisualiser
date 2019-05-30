@@ -25,15 +25,15 @@ class PlayerStatsVictory extends React.Component {
     mapLinestoVictory() {
         let count = 0
         let mappedLines = this.props.lines.map(g => {
-            let xx = this.readableDate(g.date)
             let yy
-            let label = this.readableDate(g.date)
+            let label = `${this.readableDate(g.date)}`
             if (g.dnp) {
                 yy = 0
                 label += ' (DNP)'
-                xx += ' (DNP)'
             } else {
-                yy = parseInt(g[this.state.selected])
+                let stat = parseInt(g[this.state.selected])
+                yy = stat
+                label += ` ${this.state.selected.toUpperCase()}: ${stat}`
             }
             count++;
             return (
@@ -67,32 +67,35 @@ class PlayerStatsVictory extends React.Component {
 
     render() {
         console.log(this.props.lines)
-        console.log(this.state)
         return (
             <div className='ui container '>
                 <div className="ui six item menu inverted">
-                    <div onClick={(e) => this.onMenuClick(e)} className="item">PTS</div>
-                    <div onClick={(e) => this.onMenuClick(e)} className="item">TRB</div>
-                    <div onClick={(e) => this.onMenuClick(e)} className="item">AST</div>
-                    <div onClick={(e) => this.onMenuClick(e)} className="item">STL</div>
-                    <div onClick={(e) => this.onMenuClick(e)} className="item">BLK</div>
-                    <div onClick={(e) => this.onMenuClick(e)} className="item">PLUS_MINUS</div>
+                    <a onClick={(e) => this.onMenuClick(e)} className="item">PTS</a>
+                    <a onClick={(e) => this.onMenuClick(e)} className="item">TRB</a>
+                    <a onClick={(e) => this.onMenuClick(e)} className="item">AST</a>
+                    <a onClick={(e) => this.onMenuClick(e)} className="item">STL</a>
+                    <a onClick={(e) => this.onMenuClick(e)} className="item">BLK</a>
+                    <a onClick={(e) => this.onMenuClick(e)} className="item">PLUS_MINUS</a>
                 </div>
                 <div >
                     <h1>Last 10: {this.state.selected.toLocaleUpperCase()}</h1>
                 </div>
 
 
-                <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.material}
+                <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.grayscale}
                     containerComponent={<VictoryVoronoiContainer />}>
 
 
                     <VictoryLine
-                        labelComponent={<VictoryTooltip />}
-                        //smooth out lines
+                        labelComponent={
+                            <VictoryTooltip
+
+                                flyoutStyle={{
+                                    stroke: "tomato"
+                                }} />}
                         interpolation="natural"
                         style={{
-                            data: { stroke: "blue" },
+                            data: { stroke: '#266ee2' },
                             parent: { border: "1px solid #ccc" }
                         }}
                         animate={{
@@ -103,17 +106,19 @@ class PlayerStatsVictory extends React.Component {
                         data={this.state.mappedLines}
                     />
 
-
                     <VictoryAxis dependentAxis
                         style={{
-                            tickLabels: { angle: 0 },
+                            axis: { stroke: "#bac2d1" },
+                            tickLabels: { stroke: "bac2d1", fontSize: 10 },
+                            ticks: { stroke: "grey", size: 5 },
                             axisLabel: { padding: 50 }
                         }} />
 
                     <VictoryAxis independentAxis
-                        tickValues={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]}
-                        tickFormat={() => ''}
+                        tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+                        tickFormat={() => '.'}
                         style={{
+                            axis: { stroke: "#bac2d1" },
                             axisLabel: { padding: 200 },
                             tickLabels: { fontSize: 20, padding: 1, angle: -50, verticalAnchor: 'middle', textAnchor: 'start' }
 
@@ -128,3 +133,5 @@ class PlayerStatsVictory extends React.Component {
 
 }
 export default PlayerStatsVictory
+
+
