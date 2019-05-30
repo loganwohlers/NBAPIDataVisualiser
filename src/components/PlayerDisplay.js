@@ -40,7 +40,6 @@ class PlayerDisplay extends React.Component {
             BLK: parseFloat(currPS['blk_per_g'])
         }
         stats.push(playerObj)
-        debugger
         return stats
     }
 
@@ -51,9 +50,14 @@ class PlayerDisplay extends React.Component {
 
                 {this.props.player.data ?
                     <div>
-                        <PlayerRadar stats={this.radarPrep()} />
                         <h2>Season Averages: </h2>
                         <PlayerDisplayTable player={this.props.player} />
+                        <div>
+                            <h2>Radar</h2>
+                            <h3>Yellow: League Avg </h3>
+                            <h3>Blue: Selected Player </h3>
+                        </div>
+                        <PlayerRadar stats={this.radarPrep()} />
                         <br></br>
                         <PracticeVictory lines={this.getRelaventGames().reverse()} />
                         <h2 className="ui item centered">Last 10 Games</h2>
