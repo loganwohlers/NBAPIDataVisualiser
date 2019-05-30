@@ -23,30 +23,64 @@ class PlayerStatsVictory extends React.Component {
     }
 
     mapLinestoVictory() {
-        let count = 0
-        let mappedLines = this.props.lines.map(g => {
-            let yy
-            let label = `${this.readableDate(g.date)}`
-            if (g.dnp) {
-                yy = 0
-                label += ' (DNP)'
-            } else if (this.state.selected === '+/-') {
-                console.log("TEST!!")
-                yy = parseInt(g['PLUS_MINUS'])
-            } else {
-                let stat = parseInt(g[this.state.selected])
-                yy = stat
-                label += ` ${this.state.selected.toUpperCase()}: ${stat}`
-            }
-            count++;
-            return (
-                {
-                    x: count,
-                    y: yy,
-                    label: label
+        // debugger
+        let count
+        let mappedLines
+        if (this.props.lines.length === 2) {
+            mappedLines = this.props.lines.map(pls => {
+                count = 0
+                let ml = pls.map(g => {
+                    let yy
+
+                    let label = `${this.readableDate(g.date)}`
+                    if (g.dnp) {
+                        yy = 0
+                        label += ' (DNP)'
+                    } else if (this.state.selected === '+/-') {
+                        yy = parseInt(g['plus_minus'])
+                    } else {
+                        let stat = parseInt(g[this.state.selected])
+                        yy = stat
+                        label += ` ${this.state.selected.toUpperCase()}: ${stat}`
+                    }
+                    count++;
+
+                    return (
+                        {
+                            x: count,
+                            y: yy,
+                            label: label
+                        }
+                    )
+                })
+                return ml
+            })
+
+        } else {
+            let count = 0
+            mappedLines = this.props.lines.map(g => {
+                let yy
+                let label = `${this.readableDate(g.date)}`
+                if (g.dnp) {
+                    yy = 0
+                    label += ' (DNP)'
+                } else if (this.state.selected === '+/-') {
+                    yy = parseInt(g['plus_minus'])
+                } else {
+                    let stat = parseInt(g[this.state.selected])
+                    yy = stat
+                    label += ` ${this.state.selected.toUpperCase()}: ${stat}`
                 }
-            )
-        })
+                count++;
+                return (
+                    {
+                        x: count,
+                        y: yy,
+                        label: label
+                    }
+                )
+            })
+        }
         this.setState({ mappedLines })
     }
 
@@ -62,10 +96,12 @@ class PlayerStatsVictory extends React.Component {
     }
 
     onMenuClick = (e) => {
+        console.log('JUST AMDE A SELECTION!!!')
         let selected = e.target.innerText.toLowerCase()
+        console.log(selected)
         if (selected === '+/-') {
             console.log('test')
-            selected = 'PLUS_MINUS'
+            selected = 'plus_minus'
         }
         this.setState({ selected }, () => {
             this.mapLinestoVictory()
@@ -73,7 +109,7 @@ class PlayerStatsVictory extends React.Component {
     }
 
     render() {
-        console.log(this.props.lines)
+        console.log(this.state.mappedLines)
         return (
             <div className='ui container '>
                 <div className="ui six item menu inverted">
@@ -111,8 +147,32 @@ class PlayerStatsVictory extends React.Component {
                             onLoad: { duration: 2000 }
                         }}
 
-                        data={this.state.mappedLines}
+                        data={this.state.mappedLines[0]}
                     />
+
+                    {this.state.mappedLines[1] ?
+                        <VictoryLine
+                            labelComponent={
+                                <VictoryTooltip
+
+                                    flyoutStyle={{
+                                        stroke: "tomato"
+                                    }} />}
+
+                            interpolation="natural"
+                            style={{
+                                data: { stroke: 'green' },
+                                parent: { border: "1px solid #ccc" }
+                            }}
+                            animate={{
+                                duration: 2000,
+                                onLoad: { duration: 2000 }
+                            }}
+
+                            data={this.state.mappedLines[1]}
+                        /> :
+                        null
+                    }
 
                     <VictoryAxis dependentAxis
                         style={{
