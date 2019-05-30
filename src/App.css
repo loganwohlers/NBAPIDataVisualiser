@@ -21,6 +21,11 @@ body {
   margin: 15%;
 }
 
+.mainCard {
+  margin-top: 2% !important;
+  color: black;
+}
+
 #test {
   width: 100% !important;
   margin: 0% 2% 0% 0% !important;

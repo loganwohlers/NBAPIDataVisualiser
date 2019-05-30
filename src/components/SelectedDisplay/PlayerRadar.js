@@ -76,8 +76,12 @@ class PlayerRadar extends React.Component {
                                     }
                                     labelPlacement="perpendicular"
                                     axisValue={i + 1} label={key}
-                                    tickFormat={(t) => Math.ceil(t * this.state.maxima[key])}
                                     tickValues={[0.25, 0.5, 0.75]}
+                                    tickFormat={(t) => {
+                                        let num = Math.ceil((t * this.state.maxima[key]))
+                                        return num > 1 ? num :
+                                            Math.round((t * this.state.maxima[key]) * 10) / 10
+                                    }}
                                 />
                             );
                         })

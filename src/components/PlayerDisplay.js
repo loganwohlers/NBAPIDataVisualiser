@@ -22,16 +22,30 @@ class PlayerDisplay extends React.Component {
     }
 
     radarPrep = () => {
-        let stats = [{
-            PTS: 10.2,
-            REB: 4.1,
-            AST: 2.0,
-            STL: 0.7,
-            BLK: 0.4
-        }]
+        let currYear = this.props.currSeason.year
+        let stats
+        if (currYear === 2019) {
+            stats = [{
+                PTS: 10.2,
+                REB: 4.1,
+                AST: 2.0,
+                STL: 0.7,
+                BLK: 0.4
+            }]
+        } else if (currYear === 2018) {
+            stats = [{
+                PTS: 10.,
+                REB: 3.8,
+                AST: 1.8,
+                STL: 0.7,
+                BLK: 0.4
+            }]
+        }
+
         let currPS = this.props.player.data.player_seasons.filter(ps => {
-            return ps.year === this.props.currSeason.year
+            return ps.year === currYear
         })[0]
+
         let playerObj = {
             PTS: parseFloat(currPS['pts_per_g']),
             REB: parseFloat(currPS['trb_per_g']),
@@ -39,6 +53,7 @@ class PlayerDisplay extends React.Component {
             STL: parseFloat(currPS['stl_per_g']),
             BLK: parseFloat(currPS['blk_per_g'])
         }
+
         stats.push(playerObj)
         return stats
     }
