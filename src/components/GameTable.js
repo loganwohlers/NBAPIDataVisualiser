@@ -8,7 +8,7 @@ class GameTable extends React.Component {
 
     render() {
         return (
-            <Table id="Games" fullWidth celled inverted selectable textAlign='center'
+            <Table id="Games" fullwidth celled inverted selectable textAlign='center'
                 style={{
                     tableLayout: 'fixed',
                     maxWidth: '100%',

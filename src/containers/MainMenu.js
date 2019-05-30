@@ -19,14 +19,18 @@ class MainMenu extends React.Component {
                 {this.props.seasons.map((season, idx) => {
                     let year = season.year
                     return (
-                        <Link key={idx} to={`/seasonhome/${year}`}>
-                            <div className='ui centered card' key={idx} onClick={() => this.props.setSeason(year)} >
-                                <div className="image">
-                                    <img src={season.image} alt='' />
-                                    {`${year - 1}-${year} Season`}
+                        <>
+                            <Link key={idx} to={`/seasonhome/${year}`}>
+                                <div className='ui centered card' key={idx} onClick={() => this.props.setSeason(year)} >
+                                    <div className="image">
+                                        <img src={season.image} alt='' />
+                                        {`${year - 1}-${year} Season`}
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
+                            </Link>
+                            <br></br>
+                            <br></br>
+                        </>
                     )
                 })}
 

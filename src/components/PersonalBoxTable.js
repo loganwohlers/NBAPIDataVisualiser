@@ -5,7 +5,7 @@ import { Table, TableBody } from 'semantic-ui-react'
 class PersonalBoxTable extends React.Component {
     render() {
         return (
-            <Table id="Games" fullWidth celled inverted selectable className="">
+            <Table id="Games" fullwidth celled inverted selectable className="">
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell>Date</Table.HeaderCell>

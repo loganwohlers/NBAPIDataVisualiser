@@ -6,7 +6,7 @@ class PlayerSeasonTable extends React.Component {
     render() {
         return (
             <div>
-                <Table fullWidth celled inverted selectable textAlign='center'
+                <Table fullwidth celled inverted selectable textAlign='center'
                     style={{
                         tableLayout: 'fixed',
                         maxWidth: '100%',

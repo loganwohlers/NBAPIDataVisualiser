@@ -4,10 +4,6 @@ import { connect } from 'react-redux'
 import { fetchAllSeasonDataIfNeeded } from '../actions'
 import Loader from 'react-loader-spinner'
 
-
-
-
-
 class SeasonLanding extends React.Component {
 
     componentDidMount() {
@@ -30,6 +26,10 @@ class SeasonLanding extends React.Component {
                             <br></br>
                             <div className='ui centered '>
                                 <button className="ui primary basic button"><Link to={`/games/${yr}`}>Schedule / Boxscores</Link></button>
+                            </div>
+                            <br></br>
+                            <div className='ui centered '>
+                                <button className="ui primary basic button"><Link to={`/comparison/${yr}`}>Player Comparison</Link></button>
                             </div>
 
 

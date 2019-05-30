@@ -30,6 +30,9 @@ class PlayerStatsVictory extends React.Component {
             if (g.dnp) {
                 yy = 0
                 label += ' (DNP)'
+            } else if (this.state.selected === '+/-') {
+                console.log("TEST!!")
+                yy = parseInt(g['PLUS_MINUS'])
             } else {
                 let stat = parseInt(g[this.state.selected])
                 yy = stat
@@ -60,6 +63,10 @@ class PlayerStatsVictory extends React.Component {
 
     onMenuClick = (e) => {
         let selected = e.target.innerText.toLowerCase()
+        if (selected === '+/-') {
+            console.log('test')
+            selected = 'PLUS_MINUS'
+        }
         this.setState({ selected }, () => {
             this.mapLinestoVictory()
         })
@@ -75,7 +82,7 @@ class PlayerStatsVictory extends React.Component {
                     <a onClick={(e) => this.onMenuClick(e)} className="item">AST</a>
                     <a onClick={(e) => this.onMenuClick(e)} className="item">STL</a>
                     <a onClick={(e) => this.onMenuClick(e)} className="item">BLK</a>
-                    <a onClick={(e) => this.onMenuClick(e)} className="item">PLUS_MINUS</a>
+                    <a onClick={(e) => this.onMenuClick(e)} className="item">+/-</a>
                 </div>
                 <div >
                     <h1>Last 10: {this.state.selected.toLocaleUpperCase()}</h1>

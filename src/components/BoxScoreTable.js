@@ -12,7 +12,7 @@ class BoxScoreTable extends React.Component {
             return bb - aa
         })
         return (
-            <Table id="Games" fullWidth celled inverted selectable >
+            <Table id="Games" fullwidth celled inverted selectable >
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell>Player</Table.HeaderCell>
