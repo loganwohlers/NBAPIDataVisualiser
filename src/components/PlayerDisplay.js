@@ -53,12 +53,12 @@ class PlayerDisplay extends React.Component {
             STL: parseFloat(currPS['stl_per_g']),
             BLK: parseFloat(currPS['blk_per_g'])
         }
-
         stats.push(playerObj)
         return stats
     }
 
     render() {
+        debugger
         return (
             <div className="ui container center">
                 <h2 className="playerShowcase">{this.props.player.name}</h2>

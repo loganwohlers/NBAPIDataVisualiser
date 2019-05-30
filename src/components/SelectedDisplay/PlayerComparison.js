@@ -8,17 +8,17 @@ import {
     VictoryVoronoiContainer
 } from 'victory';
 
+import { Lebron } from '../../assets/PlayerStats'
+
 import { connect } from 'react-redux'
 import PlayerDisplay from '../PlayerDisplay';
-import BigSearchBar from '../BigSearchBar';
 
-// export const fetchPlayer = () => {
-//     return async (dispatch, getState) => {
-//         let id = getState().currPlayer.id
-//         const response = await railsData.get('/players/' + id)
-//         dispatch({ type: 'FETCH_PLAYER', payload: response.data })
-//     }
-// }
+//get 2 players for each season
+
+let compare2018 = [{
+
+}]
+
 
 class PlayerComparison extends React.Component {
     constructor() {
@@ -84,19 +84,13 @@ class PlayerComparison extends React.Component {
     //     })
     // }
 
-    playerNames = () => {
-        let source = this.props.season.playerSeasons.data.map(ps => {
-            return ps.player.name
-        })
-        return source
-    }
 
     render() {
 
         return (
             <div>
                 <div>
-                    TEST
+
                 </div>
             </div>
 
@@ -111,65 +105,10 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(PlayerComparison)
-
-    // < div className = 'ui container ' >
-    //     <div className="ui six item menu inverted">
-    //         <a onClick={(e) => this.onMenuClick(e)} className="item">PTS</a>
-    //         <a onClick={(e) => this.onMenuClick(e)} className="item">TRB</a>
-    //         <a onClick={(e) => this.onMenuClick(e)} className="item">AST</a>
-    //         <a onClick={(e) => this.onMenuClick(e)} className="item">STL</a>
-    //         <a onClick={(e) => this.onMenuClick(e)} className="item">BLK</a>
-    //         <a onClick={(e) => this.onMenuClick(e)} className="item">+/-</a>
-    //     </div>
-    //     <div >
-    //         <h1>Last 10: {this.state.selected.toLocaleUpperCase()}</h1>
-    //     </div>
-
-
-    //     <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.grayscale}
-    //         containerComponent={<VictoryVoronoiContainer />}>
-
-
-    //         <VictoryLine
-    //             labelComponent={
-    //                 <VictoryTooltip
-
-    //                     flyoutStyle={{
-    //                         stroke: "tomato"
-    //                     }} />}
-
-    //             interpolation="natural"
-    //             style={{
-    //                 data: { stroke: '#266ee2' },
-    //                 parent: { border: "1px solid #ccc" }
-    //             }}
-    //             animate={{
-    //                 duration: 2000,
-    //                 onLoad: { duration: 2000 }
-    //             }}
-
-    //             data={this.state.mappedLines}
-    //         />
-
-    //         <VictoryAxis dependentAxis
-    //             style={{
-    //                 axis: { stroke: "#bac2d1" },
-    //                 tickLabels: { stroke: "bac2d1", fontSize: 10 },
-    //                 ticks: { stroke: "grey", size: 5 },
-    //                 axisLabel: { padding: 50 }
-    //             }} />
-
-    //         <VictoryAxis independentAxis
-    //             tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-    //             tickFormat={() => '.'}
-    //             style={{
-    //                 axis: { stroke: "#bac2d1" },
-    //                 axisLabel: { padding: 200 },
-    //                 ticks: { stroke: "grey", size: 5 }
-
-    //             }}
-    //         />
-    //     </VictoryChart >
-    //         </div >
-
+// playerNames = () => {
+//     let source = this.props.season.playerSeasons.data.map(ps => {
+//         return ps.player.name
+//     })
+//     return source
+// }
 
