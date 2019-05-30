@@ -22,8 +22,8 @@ class PlayerRadar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: this.processData(season2019),
-            maxima: this.getMaxima(season2019)
+            data: this.processData(this.props.stats),
+            maxima: this.getMaxima(this.props.stats)
         };
     }
 

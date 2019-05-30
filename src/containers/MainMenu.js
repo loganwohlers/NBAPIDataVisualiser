@@ -6,6 +6,23 @@ import PlayerRadar from '../components/SelectedDisplay/PlayerRadar'
 
 import PracticeVictory from '../components/SelectedDisplay/PracticeVictory'
 
+let season2019 = [
+    {
+        PTS: 10.2,
+        REB: 4.1,
+        AST: 2.0,
+        STL: 0.7,
+        BLK: 0.4
+    },
+    {
+        PTS: 20.2,
+        REB: 4.1,
+        AST: 8.0,
+        STL: 3.7,
+        BLK: 1.4
+    }]
+
+
 // const comparison = [lamarcus, abrines]
 
 class MainMenu extends React.Component {
@@ -14,7 +31,7 @@ class MainMenu extends React.Component {
             <div className='ui container center aligned'>
                 {/* <PracticeVictory lines={lamarcus.reverse()} />
                 <PracticeVictory lines={abrines.reverse()} /> */}
-                <PlayerRadar test={5} />
+                <PlayerRadar stats={season2019} />
 
                 {this.props.seasons.map((season, idx) => {
                     let year = season.year

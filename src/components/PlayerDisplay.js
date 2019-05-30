@@ -21,6 +21,29 @@ class PlayerDisplay extends React.Component {
         return sorted.slice(0, 10)
     }
 
+    radarPrep = () => {
+        let stats = [{
+            PTS: 10.2,
+            REB: 4.1,
+            AST: 2.0,
+            STL: 0.7,
+            BLK: 0.4
+        }]
+        let currPS = this.props.player.data.player_seasons.filter(ps => {
+            return ps.year === this.props.currSeason.year
+        })[0]
+        let playerObj = {
+            PTS: parseFloat(currPS['pts_per_g']),
+            REB: parseFloat(currPS['trb_per_g']),
+            AST: parseFloat(currPS['ast_per_g']),
+            STL: parseFloat(currPS['stl_per_g']),
+            BLK: parseFloat(currPS['blk_per_g'])
+        }
+        stats.push(playerObj)
+        debugger
+        return stats
+    }
+
     render() {
         return (
             <div className="ui container center">
@@ -28,7 +51,7 @@ class PlayerDisplay extends React.Component {
 
                 {this.props.player.data ?
                     <div>
-                        <PlayerRadar player={this.props.player} />
+                        <PlayerRadar stats={this.radarPrep()} />
                         <h2>Season Averages: </h2>
                         <PlayerDisplayTable player={this.props.player} />
                         <br></br>
