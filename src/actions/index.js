@@ -66,7 +66,7 @@ const shouldFetchData = (state) => {
     if (!ps1 || !sg1) {
         return true
     }
-    return !(ps1.season.year === year || sg1.season.year === year)
+    return !(ps1.team_season.year === year || sg1.season.year === year)
 }
 
 export const fetchAllSeasonDataIfNeeded = () => {

@@ -20,7 +20,7 @@ class PlayerSeasonRow extends React.Component {
                 </Table.Cell>
                 <Table.Cell>{position}</Table.Cell>
                 <Table.Cell>{age}</Table.Cell>
-                <Table.Cell>{this.props.playerSeason.team.code}</Table.Cell>
+                <Table.Cell>{this.props.playerSeason.team_season.code}</Table.Cell>
                 <Table.Cell>{gp}</Table.Cell>
                 <Table.Cell>{mp_per_g}</Table.Cell>
                 <Table.Cell>{fg_per_g}</Table.Cell>

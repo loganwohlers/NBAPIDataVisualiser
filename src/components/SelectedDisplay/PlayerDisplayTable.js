@@ -4,7 +4,7 @@ import { Table, TableCell } from 'semantic-ui-react'
 
 const PlayerDisplayTable = (props) => {
     return (
-        <Table id="PlayerSeason" celled inverted selectable className="">
+        <Table id="PlayerSeason" celled inverted selectable>
             <Table.Header>
                 <Table.Row>
                     <Table.HeaderCell>YR</Table.HeaderCell>

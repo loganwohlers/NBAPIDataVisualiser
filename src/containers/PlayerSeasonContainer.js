@@ -25,12 +25,10 @@ class PlayerSeasonContainer extends React.Component {
             return ps.player.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
         })
         return (
-            // <Container id="test" >
             <div>
                 <SearchBar className='ui segment' onSearchChange={this.onSearchChange} />
                 <PlayerSeasonTable id='PlayerSeason' className='ui centered segment' playerSeasons={filteredPlayers} />
             </div>
-            // </Container>
 
         )
     }
@@ -43,14 +41,3 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps)(PlayerSeasonContainer)
 
-
-//     < div className = "ui container"
-// style = {{
-//     height: '100%',
-//         width: '100%',
-//             margin: '20px',
-//                 overflowX: 'scroll',
-//                     display: 'flex',
-//                         justifyContent: 'center'
-// }}>
-//      </div >

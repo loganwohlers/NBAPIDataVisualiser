@@ -36,3 +36,7 @@ body {
 .victory2 {
   width: 60% !important;
 }
+
+#playerSeason {
+  width: 100% !important;
+}

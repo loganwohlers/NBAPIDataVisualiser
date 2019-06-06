@@ -59,15 +59,15 @@ class PlayerDisplay extends React.Component {
 
     render() {
         return (
-            <div className="ui container center">
+            <div className="ui container">
                 <h2 className="playerShowcase">{this.props.player.name}</h2>
 
                 {this.props.player.data ?
                     <div>
                         <h2>Season Averages: </h2>
-                        <PlayerDisplayTable player={this.props.player} />
+                        <PlayerDisplayTable id="playerSeasonBars" player={this.props.player} />
                         <div>
-                            <h2>Radar</h2>
+                            <h2>Radar: </h2>
                             <h3>Yellow: League Avg </h3>
                             <h3>Blue: Selected Player </h3>
                         </div>
