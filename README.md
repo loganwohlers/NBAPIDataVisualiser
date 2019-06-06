@@ -13,7 +13,8 @@ As data was scraped it is seeded into the database according to the following ER
 ![ERD](src/assets/NBAPIERD2.png)
 
 
-Some important things to note here:
+***Some important things to note here:***
+
 -Players don't belong to a team-- rather they have many player_seasons each of which belongs to a team_season
 
 -If a player is traded mid season to a different team and additional player_season is created-- thus one player can have multiple player_seasons throughout a season
@@ -23,7 +24,7 @@ Some important things to note here:
 -For readability many of the columns in the player_season and game_line tables were left out.  These both contain roughly 20 additional columns of actual stats- with player_seasons focusing on various season averages and game_lines focusing on individual game statistics
 
 
-Brief summary of the seeding process:
+***Brief summary of the seeding process:***
 
 -The current 30 NBA teams (RIP Sonics) were hard-coded and seeded into the database
 
@@ -31,9 +32,9 @@ Brief summary of the seeding process:
 
 -basketball-reference player averages table was scraped and  used to create Players and their PlayerSeasons respectively
 	
--basketball-reference season schedule was scraped and every Game for a season was created along with it's associations to it's home/away teams
+-basketball-reference season schedule was scraped and every game was created along with it's associations to the home/away teams
 	
--Every indifvidiual game (1230 total) URL was dynamically generated and box scores from both teams were scraped to create all the GameLines for the season
+-Every individiual game (1230 total) URL was dynamically generated and box scores from both teams were scraped to create all the GameLines for the season
 
 
 
