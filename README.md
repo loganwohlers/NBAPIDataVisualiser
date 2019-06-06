@@ -5,7 +5,7 @@ View all box scores and player averages for recent NBA seasons in one place-- bu
 
 ***How It Works***
 
-Data was scraped from basketball-reference.com using the Nokogiri Ruby gem.  To demonstrate proof of concept the data scraped was limited to traditional counting stats(no advanced stats), season player averages, and season schedules/box scores.  For a more detailed breakdown of idea behind this schema and it's implementation see my blog post HERE.  A single fully seeded season contains ~40k rows in the database.
+Data was scraped from basketball-reference.com using the Nokogiri Ruby gem.  To demonstrate proof of concept the data scraped was limited to traditional counting stats(no advanced stats), season player averages, and season schedules/box scores.  For a more detailed breakdown of idea behind this schema and it's implementation see my blog post HERE.  A single fully seeded season contains ~40k rows in the database and seeding multiple seasons at once can easily be doe.
 
 As data was scraped it is seeded into the database according to the following ERD diagram:
 
