@@ -43,6 +43,7 @@ Built with React and Redux and uitilizes Redux Thunk to make requests to backend
 
 
 ***Technologies Used***
+
 Ruby on Rails / Active Record / PostgreSQL
 
 React 
@@ -53,6 +54,7 @@ Formidable's Victory Library
 
 
 ***CREATED BY***
+
 Logan Wohlers
 
 Thanks!
