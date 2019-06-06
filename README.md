@@ -26,6 +26,7 @@ As data was scraped it is seeded into the database according to the following ER
 
 ***Brief summary of the seeding process:***
 
+
 -The current 30 NBA teams (RIP Sonics) were hard-coded and seeded into the database
 
 -A row for the current Season was added to the seasons table and corresponding TeamSeasons 
@@ -34,7 +35,26 @@ As data was scraped it is seeded into the database according to the following ER
 	
 -basketball-reference season schedule was scraped and every game was created along with it's associations to the home/away teams
 	
--Every individiual game (1230 total) URL was dynamically generated and box scores from both teams were scraped to create all the GameLines for the season
+-Every individual game (1230 total) URL was dynamically generated and box scores from both teams were scraped to create all the GameLines for the season
 
+
+***Front End***
+Built with React and Redux and uitilizes Redux Thunk to make requests to backend.  Serialized data is sent back and used as data to fill tables and generate Victory graphs.  A season's data is only loaded and saved the Redux store when it is clicked in the main menu and does not need to reload unless the user selects a different season.
+
+
+***Technologies Used***
+Ruby on Rails / Active Record / PostgreSQL
+
+React 
+
+Redux
+
+Formidable's Victory Library
+
+
+***CREATED BY***
+Logan Wohlers
+
+Thanks!
 
 
