@@ -49,6 +49,7 @@ class PlayerRadar extends React.Component {
     }
 
     render() {
+        console.log(this.state.data)
         return (
             <div className='ui container victory2'>
                 <VictoryChart polar
@@ -62,6 +63,7 @@ class PlayerRadar extends React.Component {
                             return <VictoryArea key={i} data={data} />;
                         })}
                     </VictoryGroup>
+
                     {
                         Object.keys(this.state.maxima).map((key, i) => {
                             return (

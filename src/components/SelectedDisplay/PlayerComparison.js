@@ -8,6 +8,7 @@ import PracticeVictory from './PracticeVictory'
 
 class PlayerComparison extends React.Component {
 
+    //only worked w/ hardcoded games
     last10 = () => {
         let currYear = this.props.season.year
         let players

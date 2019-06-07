@@ -1,6 +1,7 @@
 import _ from 'lodash'
 import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
+import PlayerRadar from './PlayerRadar';
 
 class MultiDropdown extends React.Component {
 
@@ -22,9 +23,33 @@ class MultiDropdown extends React.Component {
         } else {
             selected = value
         }
+
         this.setState({
             selected
         })
+    }
+
+    getSelectedSeasons(arr) {
+        return arr.map((id => {
+            return this.state.playerSeasons.filter(ps => ps.id === id)
+        }))
+    }
+
+    radarPrep = (seasonStats) => {
+        let stats = seasonStats.map(ps => {
+            let nums = ps[0]
+            let playerObj = {
+                PTS: parseFloat(nums['pts_per_g']),
+                REB: parseFloat(nums['trb_per_g']),
+                AST: parseFloat(nums['ast_per_g']),
+                STL: parseFloat(nums['stl_per_g']),
+                BLK: parseFloat(nums['blk_per_g'])
+            }
+
+            return playerObj
+        })
+        console.log(stats)
+        return stats
     }
 
 
@@ -49,6 +74,17 @@ class MultiDropdown extends React.Component {
                         })
                     }
                 />
+                {this.state.selected.length > 0 ?
+                    <div>
+                        <PlayerRadar
+                            stats={this.radarPrep(this.getSelectedSeasons(this.state.selected))}
+                        />
+                    </div>
+                    :
+                    <div>
+                        Select up to 3 players!!!
+                    </div>
+                }
 
             </>
         )
