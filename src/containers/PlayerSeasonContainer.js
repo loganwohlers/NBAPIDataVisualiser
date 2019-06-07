@@ -3,7 +3,6 @@ import PlayerSeasonTable from '../components/PlayerSeasonTable';
 import SearchBar from '../components/SearchBar'
 import { connect } from 'react-redux'
 
-import { Container } from 'semantic-ui-react'
 
 class PlayerSeasonContainer extends React.Component {
 

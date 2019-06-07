@@ -2,47 +2,59 @@ import _ from 'lodash'
 import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
 
+class MultiDropdown extends React.Component {
 
-
-const test = [
-    {
-        key: 1,
-        text: 'aaa',
-        value: 'aaa'
-    },
-    {
-        key: 2,
-        text: 'bbb',
-        value: 'bbb'
-    },
-    {
-        key: 2,
-        text: 'ccc',
-        value: 'ccc'
+    constructor(props) {
+        super(props)
+        this.state = {
+            playerSeasons: this.props.playerSeasons,
+            selected: []
+        }
     }
-]
+
+    //maybe some sort of find here?
+    handleChange = (e, { value }) => {
+        let selected
+        console.log(value)
+        const maxSelect = 3
+        if (value.length > maxSelect) {
+            selected = value.slice(0, 3)
+        } else {
+            selected = value
+        }
+        this.setState({
+            selected
+        })
+    }
 
 
+    render() {
+        console.log(this.state)
+        return (
+            <>
+                <Dropdown
+                    onChange={this.handleChange}
+                    placeholder='Select a Player'
+                    fluid
+                    multiple
+                    search
+                    selection
+                    options={
+                        this.state.playerSeasons.map((ps, idx) => {
+                            return ({
+                                key: idx,
+                                text: ps.player.name,
+                                value: ps.id
+                            })
+                        })
+                    }
+                />
 
-const DropdownExampleMultipleSearchSelection = ({ playerSeasons }) => {
-    console.log(playerSeasons)
-
-    return (
-        <Dropdown
-            placeholder='Select a Player'
-            fluid
-            multiple
-            search
-            selection
-            options={playerSeasons.map((ps, idx) => {
-                return ({
-                    key: idx,
-                    text: ps.player.name,
-                    value: ps.id
-                })
-            })}
-        />
-    )
+            </>
+        )
+    }
 }
 
-export default DropdownExampleMultipleSearchSelection
+
+export default MultiDropdown
+

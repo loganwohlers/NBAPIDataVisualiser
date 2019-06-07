@@ -81,7 +81,6 @@ class PlayerDisplay extends React.Component {
                     <div>
                         LOADING....
                     </div>
-
                 }
             </div >
         )
