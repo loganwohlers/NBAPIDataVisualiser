@@ -7,6 +7,7 @@ import GameBoxScore from './containers/GameBoxScore'
 import SeasonLanding from './containers/SeasonLanding'
 import PlayerDisplay from './components/PlayerDisplay'
 import PlayerComparison from './components/SelectedDisplay/PlayerComparison'
+import MultiPlayerComparison from './components/SelectedDisplay/MultiPlayerComparison'
 
 import { BrowserRouter, Route } from 'react-router-dom'
 
@@ -23,7 +24,7 @@ class App extends React.Component {
             <Route path="/games/:year" component={GamesContainer} />
             <Route path="/gamebox/:id" component={GameBoxScore} />
             <Route path="/player/:id" component={PlayerDisplay} />
-            <Route path="/comparison/:year" component={PlayerComparison} />
+            <Route path="/comparison/:year" component={MultiPlayerComparison} />
           </div>
         </BrowserRouter>
       </div>
