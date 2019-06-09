@@ -3,14 +3,6 @@ import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
 import PlayerRadar from './PlayerRadar';
 
-const TESTSTATS = {
-    PTS: 10.0,
-    REB: 3.8,
-    AST: 1.8,
-    STL: 0.7,
-    BLK: 0.4
-}
-
 class MultiDropdown extends React.Component {
 
     constructor(props) {
@@ -35,7 +27,6 @@ class MultiDropdown extends React.Component {
         this.setState({
             selected: selectedSeasons
         })
-        // , () => console.log('STATE UPDATED!!!'))
     }
 
     getSelectedSeasons(arr) {
@@ -59,15 +50,11 @@ class MultiDropdown extends React.Component {
 
             return playerObj
         })
-        stats.push(TESTSTATS)
-        console.log('sending this to RADAR: ', stats)
         return stats
     }
 
 
     render() {
-
-        console.log("rendering")
         return (
             <>
                 <Dropdown
@@ -89,6 +76,13 @@ class MultiDropdown extends React.Component {
                 />
                 {this.state.selected.length > 0 ?
                     <div>
+                        <ul>
+                            {this.state.selected.map((ps, idx) => {
+                                let ps2 = ps[0]
+                                return <li key={idx}>{ps2.player.name}</li>
+                            })}
+                        </ul>
+
                         <PlayerRadar
                             stats={this.radarPrep(this.state.selected)}
                         />

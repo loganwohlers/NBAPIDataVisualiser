@@ -2,23 +2,6 @@ import React from 'react'
 import { VictoryChart, VictoryGroup, VictoryArea, VictoryPolarAxis, VictoryLabel, VictoryTheme } from 'victory';
 
 class PlayerRadar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            stats: this.props.stats,
-            data: this.processData(this.props.stats),
-            maxima: this.getMaxima(this.props.stats)
-        };
-    }
-
-    componentDidUpdate(prevProps) {
-        console.log(this.props)
-        console.log(prevProps)
-        if (this.props.stats !== prevProps.stats) {
-
-        }
-
-    }
 
     getMaxima(data) {
         const groupedData = Object.keys(data[0]).reduce((memo, key) => {
