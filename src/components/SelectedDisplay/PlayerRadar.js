@@ -1,29 +1,23 @@
 import React from 'react'
 import { VictoryChart, VictoryGroup, VictoryArea, VictoryPolarAxis, VictoryLabel, VictoryTheme } from 'victory';
 
-// let season2019 = [
-//     {
-//         PTS: 10.2,
-//         REB: 4.1,
-//         AST: 2.0,
-//         STL: 0.7,
-//         BLK: 0.4
-//     },
-//     {
-//         PTS: 20.2,
-//         REB: 4.1,
-//         AST: 8.0,
-//         STL: 3.7,
-//         BLK: 1.4
-//     }]
-
 class PlayerRadar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            stats: this.props.stats,
             data: this.processData(this.props.stats),
             maxima: this.getMaxima(this.props.stats)
         };
+    }
+
+    componentDidUpdate(prevProps) {
+        console.log(this.props)
+        console.log(prevProps)
+        if (this.props.stats !== prevProps.stats) {
+
+        }
+
     }
 
     getMaxima(data) {
@@ -48,8 +42,8 @@ class PlayerRadar extends React.Component {
     }
 
     render() {
-        console.log("rendering radar!!!")
-        console.log('stats:', this.props.stats)
+        let statData = this.processData(this.props.stats)
+        let statMaxima = this.getMaxima(this.props.stats)
         return (
             <div className='ui container victory2'>
                 <VictoryChart polar
@@ -59,13 +53,13 @@ class PlayerRadar extends React.Component {
                     <VictoryGroup colorScale={["gold", "green", '#266ee2']}
                         style={{ data: { fillOpacity: 0.2, strokeWidth: 2 } }}
                     >
-                        {this.state.data.map((data, i) => {
+                        {statData.map((data, i) => {
                             return <VictoryArea key={i} data={data} />;
                         })}
                     </VictoryGroup>
 
                     {
-                        Object.keys(this.state.maxima).map((key, i) => {
+                        Object.keys(statMaxima).map((key, i) => {
                             return (
                                 <VictoryPolarAxis key={i} dependentAxis
                                     style={{
@@ -80,9 +74,9 @@ class PlayerRadar extends React.Component {
                                     axisValue={i + 1} label={key}
                                     tickValues={[0.25, 0.5, 0.75]}
                                     tickFormat={(t) => {
-                                        let num = Math.ceil((t * this.state.maxima[key]))
+                                        let num = Math.ceil((t * statMaxima[key]))
                                         return num > 1 ? num :
-                                            Math.round((t * this.state.maxima[key]) * 10) / 10
+                                            Math.round((t * statMaxima[key]) * 10) / 10
                                     }}
                                 />
                             );

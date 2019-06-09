@@ -21,7 +21,6 @@ class MultiDropdown extends React.Component {
         }
     }
 
-    //maybe some sort of find here?
     handleChange = (e, { value }) => {
         console.log("player selected")
         let selected
@@ -35,7 +34,8 @@ class MultiDropdown extends React.Component {
         let selectedSeasons = this.getSelectedSeasons(selected)
         this.setState({
             selected: selectedSeasons
-        }, () => console.log('STATE UPDATED!!!'))
+        })
+        // , () => console.log('STATE UPDATED!!!'))
     }
 
     getSelectedSeasons(arr) {
@@ -46,10 +46,9 @@ class MultiDropdown extends React.Component {
 
     radarPrep = () => {
         console.log('radar prep')
-        console.log(this.state.selected)
+        console.log('current state: ', this.state.selected)
         let stats = this.state.selected.map(ps => {
             let nums = ps[0]
-            console.log(nums)
             let playerObj = {
                 PTS: parseFloat(nums['pts_per_g']),
                 REB: parseFloat(nums['trb_per_g']),
@@ -61,7 +60,7 @@ class MultiDropdown extends React.Component {
             return playerObj
         })
         stats.push(TESTSTATS)
-        console.log('sending this to radar prep: ', stats)
+        console.log('sending this to RADAR: ', stats)
         return stats
     }
 
