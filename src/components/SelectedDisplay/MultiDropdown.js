@@ -56,13 +56,13 @@ class MultiDropdown extends React.Component {
         const radarStats = this.radarPrep()
         const colorsInfo = {
             colorString: ["GOLD", "GREEN", "BLUE"],
-            colorCode: ["gold", "green", 'coral']
+            colorCode: ["gold", "green", 'cornflowerblue']
         }
         let colorMap = []
         for (let i = 0; i < arr.length; i++) {
             let data = {}
             data.colorCode = colorsInfo.colorString[i]
-            data.str = (`${arr[i][0].player.name}: ${colorsInfo.colorString[i]}`)
+            data.str = (`${arr[i][0].player.name.toUpperCase()}`)
             data.stats = radarStats[i]
             colorMap.push(data)
         }
@@ -80,6 +80,7 @@ class MultiDropdown extends React.Component {
                     fluid
                     multiple
                     search
+                    inverted
                     selection
                     options={
                         this.state.playerSeasons.map((ps, idx) => {

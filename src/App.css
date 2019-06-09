@@ -40,3 +40,7 @@ body {
 #playerSeason {
   width: 100% !important;
 }
+
+#RadarTable {
+  width: 50% !important;
+}
