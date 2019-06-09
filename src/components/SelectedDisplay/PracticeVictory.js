@@ -94,9 +94,7 @@ class PlayerStatsVictory extends React.Component {
     }
 
     onMenuClick = (e) => {
-        console.log('JUST AMDE A SELECTION!!!')
         let selected = e.target.innerText.toLowerCase()
-        console.log(selected)
         if (selected === '+/-') {
             console.log('test')
             selected = 'plus_minus'
@@ -129,26 +127,17 @@ class PlayerStatsVictory extends React.Component {
         />)
     }
 
-    twoPlayer = () => {
-        // {
-        //     this.state.mappedLines.length > 2 ?
-        //     this.onePlayer()
-        //     :
-        //     null
-        // }
-    }
-
     render() {
 
         return (
             <div className='ui container '>
                 <div className="ui six item menu inverted">
-                    <a onClick={(e) => this.onMenuClick(e)} className="item">PTS</a>
-                    <a onClick={(e) => this.onMenuClick(e)} className="item">TRB</a>
-                    <a onClick={(e) => this.onMenuClick(e)} className="item">AST</a>
-                    <a onClick={(e) => this.onMenuClick(e)} className="item">STL</a>
-                    <a onClick={(e) => this.onMenuClick(e)} className="item">BLK</a>
-                    <a onClick={(e) => this.onMenuClick(e)} className="item">+/-</a>
+                    <button onClick={(e) => this.onMenuClick(e)} className="item">PTS</button>
+                    <button onClick={(e) => this.onMenuClick(e)} className="item">TRB</button>
+                    <button onClick={(e) => this.onMenuClick(e)} className="item">AST</button>
+                    <button onClick={(e) => this.onMenuClick(e)} className="item">STL</button>
+                    <button onClick={(e) => this.onMenuClick(e)} className="item">BLK</button>
+                    <button onClick={(e) => this.onMenuClick(e)} className="item">+/-</button>
                 </div>
                 <div >
                     <h1>Last 10: {this.state.selected.toLocaleUpperCase()}</h1>

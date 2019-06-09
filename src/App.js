@@ -6,7 +6,6 @@ import GamesContainer from './containers/GamesContainer'
 import GameBoxScore from './containers/GameBoxScore'
 import SeasonLanding from './containers/SeasonLanding'
 import PlayerDisplay from './components/PlayerDisplay'
-import PlayerComparison from './components/SelectedDisplay/PlayerComparison'
 import MultiPlayerComparison from './components/SelectedDisplay/MultiPlayerComparison'
 
 import { BrowserRouter, Route } from 'react-router-dom'

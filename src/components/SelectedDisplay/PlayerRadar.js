@@ -1,7 +1,6 @@
 import React from 'react'
 import {
     VictoryChart, VictoryGroup, VictoryArea, VictoryPolarAxis, VictoryLabel, VictoryTheme,
-    VictoryTooltip
 } from 'victory';
 
 class PlayerRadar extends React.Component {

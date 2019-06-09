@@ -3,8 +3,6 @@ import React from 'react'
 import { Lebron, Harden, Giannis, Durant } from '../../assets/PlayerStats'
 
 import { connect } from 'react-redux'
-import PlayerRadar from './PlayerRadar';
-import PracticeVictory from './PracticeVictory'
 import MultiDropdown from './MultiDropdown'
 
 class PlayerComparison extends React.Component {
