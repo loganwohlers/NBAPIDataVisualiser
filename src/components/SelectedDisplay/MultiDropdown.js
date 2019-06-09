@@ -2,6 +2,7 @@ import _ from 'lodash'
 import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
 import PlayerRadar from './PlayerRadar';
+import PlayerDisplayTable from './PlayerDisplayTable'
 
 class MultiDropdown extends React.Component {
 
@@ -36,7 +37,6 @@ class MultiDropdown extends React.Component {
     }
 
     radarPrep = () => {
-        console.log('radar prep')
         console.log('current state: ', this.state.selected)
         let stats = this.state.selected.map(ps => {
             let nums = ps[0]
@@ -51,6 +51,16 @@ class MultiDropdown extends React.Component {
             return playerObj
         })
         return stats
+    }
+
+    radarDisplay = (arr) => {
+        const colors = ["GOLD", "GREEN", "BLUE"]
+        let colorMap = []
+        for (let i = 0; i < arr.length; i++) {
+            colorMap.push(`${arr[i][0].player.name}: ${colors[i]}`)
+        }
+
+        return colorMap
     }
 
 
@@ -77,10 +87,10 @@ class MultiDropdown extends React.Component {
                 {this.state.selected.length > 0 ?
                     <div>
                         <ul>
-                            {this.state.selected.map((ps, idx) => {
-                                let ps2 = ps[0]
-                                return <li key={idx}>{ps2.player.name}</li>
-                            })}
+                            {this.radarDisplay(this.state.selected).map((pc, idx) => {
+                                return <li key={idx}>{pc}</li>
+                            })
+                            }
                         </ul>
 
                         <PlayerRadar
