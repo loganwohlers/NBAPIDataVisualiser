@@ -2,7 +2,7 @@ import _ from 'lodash'
 import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
 import PlayerRadar from './PlayerRadar';
-import PlayerDisplayTable from './PlayerDisplayTable'
+import RadarTable from './RadarTable'
 
 class MultiDropdown extends React.Component {
 
@@ -37,7 +37,6 @@ class MultiDropdown extends React.Component {
     }
 
     radarPrep = () => {
-        console.log('current state: ', this.state.selected)
         let stats = this.state.selected.map(ps => {
             let nums = ps[0]
             let playerObj = {
@@ -54,12 +53,20 @@ class MultiDropdown extends React.Component {
     }
 
     radarDisplay = (arr) => {
-        const colors = ["GOLD", "GREEN", "BLUE"]
+        const radarStats = this.radarPrep()
+        const colorsInfo = {
+            colorString: ["GOLD", "GREEN", "BLUE"],
+            colorCode: ["gold", "green", 'coral']
+        }
         let colorMap = []
         for (let i = 0; i < arr.length; i++) {
-            colorMap.push(`${arr[i][0].player.name}: ${colors[i]}`)
+            let data = {}
+            data.colorCode = colorsInfo.colorString[i]
+            data.str = (`${arr[i][0].player.name}: ${colorsInfo.colorString[i]}`)
+            data.stats = radarStats[i]
+            colorMap.push(data)
         }
-
+        console.log(colorMap)
         return colorMap
     }
 
@@ -88,7 +95,13 @@ class MultiDropdown extends React.Component {
                     <div>
                         <ul>
                             {this.radarDisplay(this.state.selected).map((pc, idx) => {
-                                return <li key={idx}>{pc}</li>
+                                return (
+                                    <li key={idx}>
+                                        <h3 style={{ color: pc.colorCode }}> {pc.str} </h3>
+                                        <RadarTable stats={pc.stats} />
+
+                                    </li>
+                                )
                             })
                             }
                         </ul>
@@ -99,7 +112,7 @@ class MultiDropdown extends React.Component {
                     </div>
                     :
                     <div>
-                        Select up to 3 players!!!
+                        <h1>Select Up to 3 Players!</h1>
                     </div>
                 }
 

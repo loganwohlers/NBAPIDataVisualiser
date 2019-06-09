@@ -1,5 +1,8 @@
 import React from 'react'
-import { VictoryChart, VictoryGroup, VictoryArea, VictoryPolarAxis, VictoryLabel, VictoryTheme } from 'victory';
+import {
+    VictoryChart, VictoryGroup, VictoryArea, VictoryPolarAxis, VictoryLabel, VictoryTheme,
+    VictoryTooltip
+} from 'victory';
 
 class PlayerRadar extends React.Component {
 
@@ -51,6 +54,7 @@ class PlayerRadar extends React.Component {
                                         axis: { stroke: "none" },
                                         grid: { stroke: "white", strokeWidth: 0.4, opacity: 1 }
                                     }}
+
                                     tickLabelComponent={
                                         <VictoryLabel labelPlacement="vertical" />
                                     }
