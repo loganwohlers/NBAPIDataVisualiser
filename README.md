@@ -29,13 +29,13 @@ As data was scraped it is seeded into the database according to the following ER
 
 -The current 30 NBA teams (RIP Sonics) were hard-coded and seeded into the database
 
--A row for the current Season was added to the seasons table and corresponding TeamSeasons 
+-A row for the current Season was added to the seasons table and corresponding TeamSeasons were created
 
 -basketball-reference player averages table was scraped and  used to create Players and their PlayerSeasons respectively
 	
--basketball-reference season schedule was scraped and every game was created along with it's associations to the home/away teams
+-basketball-reference season schedule was scraped and every game was created along with it's associations to the home/away Team Seasons
 	
--Every individual game (1230 total) URL was dynamically generated and box scores from both teams were scraped to create all the GameLines for the season
+-Every individual game URL (1230 total) was dynamically generated and box scores from both teams were scraped to create all the GameLines for the season
 
 
 ***Front End***
