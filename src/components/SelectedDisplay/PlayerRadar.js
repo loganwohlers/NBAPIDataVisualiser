@@ -18,7 +18,6 @@ import { VictoryChart, VictoryGroup, VictoryArea, VictoryPolarAxis, VictoryLabel
 //     }]
 
 class PlayerRadar extends React.Component {
-    // this.props.player.data.player_seasons
     constructor(props) {
         super(props);
         this.state = {
@@ -49,14 +48,15 @@ class PlayerRadar extends React.Component {
     }
 
     render() {
-        console.log(this.state.data)
+        console.log("rendering radar!!!")
+        console.log('stats:', this.props.stats)
         return (
             <div className='ui container victory2'>
                 <VictoryChart polar
                     theme={VictoryTheme.material}
                     domain={{ y: [0, 1] }}
                 >
-                    <VictoryGroup colorScale={["gold", '#266ee2', "tomato"]}
+                    <VictoryGroup colorScale={["gold", "green", '#266ee2']}
                         style={{ data: { fillOpacity: 0.2, strokeWidth: 2 } }}
                     >
                         {this.state.data.map((data, i) => {
