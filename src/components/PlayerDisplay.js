@@ -68,8 +68,9 @@ class PlayerDisplay extends React.Component {
                         <PlayerDisplayTable id="playerSeasonBars" player={this.props.player} />
                         <div>
                             <h2>Radar: </h2>
-                            <h3>Yellow: League Avg </h3>
-                            <h3>Blue: Selected Player </h3>
+                            <h3 style={{ color: 'gold' }}>League Average</h3>
+                            <h3 style={{ color: 'green' }}> {this.props.player.name}</h3>
+
                         </div>
                         <PlayerRadar stats={this.radarPrep()} />
                         <br></br>
