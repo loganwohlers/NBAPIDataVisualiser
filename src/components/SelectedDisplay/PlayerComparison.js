@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Lebron, Harden, Giannis, Durant } from '../../assets/PlayerStats'
+// import { Lebron, Harden, Giannis, Durant } from '../../assets/PlayerStats'
 
 import { connect } from 'react-redux'
 
@@ -30,13 +30,10 @@ class PlayerComparison extends React.Component {
     }
 
     render() {
-        console.log('player comp: ', this.props.playerComparison)
-        console.log(this.last10())
         return (
             <div className='ui container center ' >
                 <div className='ui item centered'>
-                    TEST
-                {/* <PracticeVictory lines={this.last10()} /> */}
+                    <PracticeVictory lines={this.last10()} />
                 </div>
             </div>
         )
