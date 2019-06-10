@@ -8,32 +8,22 @@ import {
     VictoryVoronoiContainer
 } from 'victory';
 
-
 const colorCodes = ["gold", "green", 'cornflowerblue']
 
-//re-write this to use props not state on the mappedlines
 class PlayerStatsVictory extends React.Component {
     constructor() {
         super()
         this.state = {
-            selected: 'pts',
-            mappedLines: []
+            selected: 'pts'
         }
-    }
-
-    componentDidMount() {
-        this.mapLinestoVictory()
     }
 
     mapLinestoVictory() {
         let count
-        let mappedLines
-        // debugger
-        mappedLines = this.props.lines.map(pls => {
+        return this.props.lines.map(pls => {
             count = 0
             let ml = pls.map(g => {
                 let yy
-                // console.log(g)
                 let label = `${this.readableDate(g.date)}`
                 if (g.dnp) {
                     yy = 0
@@ -46,7 +36,6 @@ class PlayerStatsVictory extends React.Component {
                     label += ` ${this.state.selected.toUpperCase()}: ${stat}`
                 }
                 count++;
-
                 return (
                     {
                         x: count,
@@ -57,8 +46,6 @@ class PlayerStatsVictory extends React.Component {
             })
             return ml
         })
-
-        this.setState({ mappedLines })
     }
 
     //not used right now
@@ -78,36 +65,11 @@ class PlayerStatsVictory extends React.Component {
         if (selected === '+/-') {
             selected = 'plus_minus'
         }
-        this.setState({ selected }, () => {
-            this.mapLinestoVictory()
-        })
-    }
-
-    onePlayer = () => {
-        return (<VictoryLine
-            labelComponent={
-                <VictoryTooltip
-                    flyoutStyle={{
-                        stroke: "tomato"
-                    }} />}
-
-            interpolation="natural"
-            style={{
-                data: { stroke: '#266ee2' },
-                parent: { border: "1px solid #ccc" }
-            }}
-            animate={{
-                duration: 2000,
-                onLoad: { duration: 2000 }
-            }}
-
-            data={this.state.mappedLines}
-        />)
+        this.setState({ selected })
     }
 
     render() {
-        console.log(this.state.mappedLines)
-        console.log('length: ', this.state.mappedLines.length)
+        let mappedLines = this.mapLinestoVictory()
 
         return (
             <div className='ui container '>
@@ -128,7 +90,7 @@ class PlayerStatsVictory extends React.Component {
                     <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.grayscale}
                         containerComponent={<VictoryVoronoiContainer />}>
 
-                        {this.state.mappedLines.map((lines, idx) => {
+                        {mappedLines.map((lines, idx) => {
                             return (
                                 <VictoryLine
                                     key={idx}
@@ -173,9 +135,6 @@ class PlayerStatsVictory extends React.Component {
                             }}
                         />
                     </VictoryChart >
-
-
-                    }
                 </div>
             </div >
         )
@@ -185,70 +144,3 @@ class PlayerStatsVictory extends React.Component {
 
 }
 export default PlayerStatsVictory
-
-// {
-//     this.state.mappedLines.length === 2 ?
-//     <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.grayscale}
-//         containerComponent={<VictoryVoronoiContainer />}>
-
-//         <VictoryLine
-//             labelComponent={
-//                 <VictoryTooltip
-
-//                     flyoutStyle={{
-//                         stroke: "tomato"
-//                     }} />}
-
-//             interpolation="natural"
-//             style={{
-//                 data: { stroke: '#266ee2' },
-//                 parent: { border: "1px solid #ccc" }
-//             }}
-//             animate={{
-//                 duration: 2000,
-//                 onLoad: { duration: 2000 }
-//             }}
-
-//             data={this.state.mappedLines[0]}
-//         />
-//         <VictoryLine
-//             labelComponent={
-//                 <VictoryTooltip
-
-//                     flyoutStyle={{
-//                         stroke: "tomato"
-//                     }} />}
-
-//             interpolation="natural"
-//             style={{
-//                 data: { stroke: 'green' },
-//                 parent: { border: "1px solid #ccc" }
-//             }}
-//             animate={{
-//                 duration: 2000,
-//                 onLoad: { duration: 2000 }
-//             }}
-
-//             data={this.state.mappedLines[1]} />
-//         <VictoryAxis dependentAxis
-//             style={{
-//                 axis: { stroke: "#bac2d1" },
-//                 tickLabels: { stroke: "bac2d1", fontSize: 10 },
-//                 ticks: { stroke: "grey", size: 5 },
-//                 axisLabel: { padding: 50 }
-//             }} />
-
-//         <VictoryAxis independentAxis
-//             tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-//             tickFormat={() => '.'}
-//             style={{
-//                 axis: { stroke: "#bac2d1" },
-//                 axisLabel: { padding: 200 },
-//                 ticks: { stroke: "grey", size: 5 }
-
-//             }}
-//         />
-//     </VictoryChart >
-//     :
-
-
