@@ -4,8 +4,9 @@ import { Lebron, Harden, Giannis, Durant } from '../../assets/PlayerStats'
 
 import { connect } from 'react-redux'
 import MultiDropdown from './MultiDropdown'
+import PlayerComparison from './PlayerComparison'
 
-class PlayerComparison extends React.Component {
+class MultiPlayerComparison extends React.Component {
 
     last10 = () => {
         let currYear = this.props.season.year
@@ -52,23 +53,33 @@ class PlayerComparison extends React.Component {
     }
 
     render() {
+        console.log(this.props.playerComparison.playerSeasons)
+        // playerSeasons.length)
         return (
             <div>
                 <MultiDropdown playerSeasons={this.props.season.playerSeasons.data} />
+
+                {this.props.playerComparison.playerSeasons ?
+                    <PlayerComparison />
+                    :
+                    null
+                }
             </div>
 
 
         )
 
     }
-
-
 }
+
 const mapStateToProps = (state) => {
-    return { season: state.currSeason }
+    return ({
+        season: state.currSeason,
+        playerComparison: state.playerComparison
+    })
 }
 
-export default connect(mapStateToProps)(PlayerComparison)
+export default connect(mapStateToProps)(MultiPlayerComparison)
 
     // < PracticeVictory lines = { this.getRelaventGames().reverse() } />
     //     <h2 className="ui item centered">Last 10 Games</h2>

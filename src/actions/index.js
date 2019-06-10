@@ -113,7 +113,7 @@ export const fetchComparison = () => {
         //loop thru them here and save response to an array?
         let id = getState().currPlayer.id
         const response = await railsData.get('/players/' + id)
-        dispatch({ type: 'FETCH_PLAYER', payload: response.data })
+        dispatch({ type: 'FETCH_COMPARISON', payload: response.data })
     }
 }
 
