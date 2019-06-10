@@ -8,6 +8,9 @@ import {
     VictoryVoronoiContainer
 } from 'victory';
 
+
+const colorCodes = ["gold", "green", 'cornflowerblue']
+
 //re-write this to use props not state on the mappedlines
 class PlayerStatsVictory extends React.Component {
     constructor() {
@@ -124,27 +127,32 @@ class PlayerStatsVictory extends React.Component {
 
                     <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.grayscale}
                         containerComponent={<VictoryVoronoiContainer />}>
-                        <VictoryLine
-                            labelComponent={
-                                <VictoryTooltip
 
-                                    flyoutStyle={{
-                                        stroke: "tomato"
-                                    }} />}
+                        {this.state.mappedLines.map((lines, idx) => {
+                            return (
+                                <VictoryLine
+                                    key={idx}
+                                    labelComponent={
+                                        <VictoryTooltip
 
-                            interpolation="natural"
-                            style={{
-                                data: { stroke: '#266ee2' },
-                                parent: { border: "1px solid #ccc" }
-                            }}
-                            animate={{
-                                duration: 2000,
-                                onLoad: { duration: 2000 }
-                            }}
+                                            flyoutStyle={{
+                                                stroke: "tomato"
+                                            }} />}
 
-                            //data of them needs to be the index**
-                            data={this.state.mappedLines[0]}
-                        />
+                                    interpolation="natural"
+                                    style={{
+                                        data: { stroke: colorCodes[idx] },
+                                        parent: { border: "1px solid #ccc" }
+                                    }}
+                                    animate={{
+                                        duration: 2000,
+                                        onLoad: { duration: 2000 }
+                                    }}
+
+                                    //data of them needs to be the index**
+                                    data={lines}
+                                />)
+                        })}
 
                         <VictoryAxis dependentAxis
                             style={{

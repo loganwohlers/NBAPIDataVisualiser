@@ -53,8 +53,6 @@ class MultiPlayerComparison extends React.Component {
     }
 
     render() {
-        console.log(this.props.playerComparison.playerSeasons)
-        // playerSeasons.length)
         return (
             <div>
                 <MultiDropdown playerSeasons={this.props.season.playerSeasons.data} />
