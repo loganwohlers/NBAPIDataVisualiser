@@ -52,12 +52,3 @@ export default (state = {
     }
 }
 
-        // case 'REQUEST_PLAYER_SEASONS':
-        //     return {
-        //         ...state,
-        //         [action.year]: {
-        //             ...state[action.year],
-        //             isFetching: true
-        //         }
-        //     }
-

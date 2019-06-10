@@ -17,6 +17,14 @@ export const setPlayer = (player) => {
         }
     )
 }
+export const setPlayerComparison = (playersArr) => {
+    return (
+        {
+            type: 'SET_COMPARISON',
+            payload: playersArr
+        }
+    )
+}
 
 export const setGame = (game) => {
     return (

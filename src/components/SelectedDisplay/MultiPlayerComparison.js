@@ -52,8 +52,6 @@ class PlayerComparison extends React.Component {
     }
 
     render() {
-        console.log(this.props)
-
         return (
             <div>
                 <MultiDropdown playerSeasons={this.props.season.playerSeasons.data} />
@@ -72,14 +70,9 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps)(PlayerComparison)
 
-    // < div className = 'ui container center ' >
-    //     <div className='ui item centered'>
-    //         <h2>{title}</h2>
-    //         <PlayerRadar stats={this.radarPrep()} />
-    //     </div>
-    //     <h2>{title2}</h2>
-    //     <PracticeVictory lines={this.last10()} />
-    //         </div >
+    // < PracticeVictory lines = { this.getRelaventGames().reverse() } />
+    //     <h2 className="ui item centered">Last 10 Games</h2>
+    //     <PersonalBoxTable lines={this.getRelaventGames()} />
 
 
 

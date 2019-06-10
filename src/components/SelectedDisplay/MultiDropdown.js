@@ -5,6 +5,8 @@ import RadarTable from './RadarTable'
 
 class MultiDropdown extends React.Component {
 
+    //set player compare method
+
     constructor(props) {
         super(props)
         this.state = {
@@ -14,7 +16,6 @@ class MultiDropdown extends React.Component {
     }
 
     handleChange = (e, { value }) => {
-        console.log("player selected")
         let selected
         const maxSelect = 3
         if (value.length > maxSelect) {
@@ -65,12 +66,12 @@ class MultiDropdown extends React.Component {
             data.stats = radarStats[i]
             colorMap.push(data)
         }
-        console.log(colorMap)
         return colorMap
     }
 
 
     render() {
+        console.log(this.props)
         return (
             <>
                 <Dropdown
