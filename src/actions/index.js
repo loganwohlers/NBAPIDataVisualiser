@@ -18,7 +18,6 @@ export const setPlayer = (player) => {
     )
 }
 export const setComparison = (playersArr) => {
-
     let results = {}
     results.playerSeasons = playersArr
     let multi = playersArr.map(ps => {
@@ -30,7 +29,6 @@ export const setComparison = (playersArr) => {
             return response.data
         }))
         results.data = data
-        console.log('RESULTS: ', results)
         dispatch({ type: 'SET_COMPARISON', payload: results })
 
     }

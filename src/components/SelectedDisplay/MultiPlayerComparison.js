@@ -59,7 +59,7 @@ class MultiPlayerComparison extends React.Component {
             <div>
                 <MultiDropdown playerSeasons={this.props.season.playerSeasons.data} />
 
-                {this.props.playerComparison.playerSeasons ?
+                {this.props.playerComparison.results ?
                     <PlayerComparison />
                     :
                     null

@@ -8,6 +8,7 @@ import {
     VictoryVoronoiContainer
 } from 'victory';
 
+//re-write this to use props not state on the mappedlines
 class PlayerStatsVictory extends React.Component {
     constructor() {
         super()

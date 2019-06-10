@@ -11,11 +11,10 @@ class PlayerComparison extends React.Component {
     //only worked w/ hardcoded games
     last10 = () => {
         let currYear = this.props.season.year
-        let players
+        let players = this.props.playerComparison.results.data
+        console.log('players', players)
 
-        currYear === 2018 ? players = [Lebron, Durant] : players = [Giannis, Harden]
-
-        let twoPlayers = players.map(pl => {
+        let selectedPlayers = players.map(pl => {
             let currPlayerSeasonGames = pl.player_seasons.find(ps => {
                 return ps.year === currYear
             }).games
@@ -26,26 +25,29 @@ class PlayerComparison extends React.Component {
 
             return sorted.slice(0, 10)
         })
-        return twoPlayers
+        console.log('selected players lines: ', selectedPlayers)
+        return selectedPlayers
     }
 
     render() {
-
+        console.log('player comp: ', this.props.playerComparison)
+        console.log(this.last10())
         return (
             <div className='ui container center ' >
                 <div className='ui item centered'>
                     TEST
-                </div>
                 {/* <PracticeVictory lines={this.last10()} /> */}
+                </div>
             </div>
         )
 
     }
-
-
 }
 const mapStateToProps = (state) => {
-    return { season: state.currSeason }
+    return {
+        season: state.currSeason,
+        playerComparison: state.playerComparison
+    }
 }
 
 export default connect(mapStateToProps)(PlayerComparison)
