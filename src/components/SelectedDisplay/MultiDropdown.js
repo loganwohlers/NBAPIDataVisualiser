@@ -81,7 +81,6 @@ class MultiDropdown extends React.Component {
                     fluid
                     multiple
                     search
-                    inverted
                     selection
                     options={
                         this.state.playerSeasons.map((ps, idx) => {
