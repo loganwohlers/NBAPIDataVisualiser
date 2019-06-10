@@ -2,10 +2,10 @@ import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
 import PlayerRadar from './PlayerRadar';
 import RadarTable from './RadarTable'
+import { connect } from 'react-redux'
+import { setComparison } from '../../actions'
 
 class MultiDropdown extends React.Component {
-
-    //set player compare method
 
     constructor(props) {
         super(props)
@@ -27,6 +27,8 @@ class MultiDropdown extends React.Component {
         let selectedSeasons = this.getSelectedSeasons(selected)
         this.setState({
             selected: selectedSeasons
+        }, () => {
+            this.props.setComparison(selectedSeasons)
         })
     }
 
@@ -71,7 +73,6 @@ class MultiDropdown extends React.Component {
 
 
     render() {
-        console.log(this.props)
         return (
             <>
                 <Dropdown
@@ -123,5 +124,15 @@ class MultiDropdown extends React.Component {
 }
 
 
-export default MultiDropdown
+const mapStateToProps = (state, ownProps) => {
+    console.log('STATE: ', state)
+    return {
+        playerComparison: state.playerComparison
+
+    }
+}
+
+
+
+export default connect(mapStateToProps, { setComparison })(MultiDropdown)
 

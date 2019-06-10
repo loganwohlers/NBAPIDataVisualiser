@@ -17,7 +17,7 @@ export const setPlayer = (player) => {
         }
     )
 }
-export const setPlayerComparison = (playersArr) => {
+export const setComparison = (playersArr) => {
     return (
         {
             type: 'SET_COMPARISON',
@@ -101,6 +101,16 @@ export const receivedSeasonGames = (data) => {
 
 export const fetchPlayer = () => {
     return async (dispatch, getState) => {
+        let id = getState().currPlayer.id
+        const response = await railsData.get('/players/' + id)
+        dispatch({ type: 'FETCH_PLAYER', payload: response.data })
+    }
+}
+export const fetchComparison = () => {
+    return async (dispatch, getState) => {
+        debugger
+        let multi = []
+        //loop thru them here and save response to an array?
         let id = getState().currPlayer.id
         const response = await railsData.get('/players/' + id)
         dispatch({ type: 'FETCH_PLAYER', payload: response.data })
