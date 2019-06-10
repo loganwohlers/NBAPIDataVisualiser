@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { Lebron, Harden, Giannis, Durant } from '../../assets/PlayerStats'
-
 import { connect } from 'react-redux'
 import MultiDropdown from './MultiDropdown'
 import PlayerComparison from './PlayerComparison'
@@ -11,8 +9,6 @@ class MultiPlayerComparison extends React.Component {
     last10 = () => {
         let currYear = this.props.season.year
         let players
-
-        currYear === 2018 ? players = [Lebron, Durant] : players = [Giannis, Harden]
 
         let twoPlayers = players.map(pl => {
             let currPlayerSeasonGames = pl.player_seasons.find(ps => {
@@ -31,8 +27,6 @@ class MultiPlayerComparison extends React.Component {
     radarPrep = () => {
         let currYear = this.props.season.year
         let players
-
-        currYear === 2018 ? players = [Lebron, Durant] : players = [Giannis, Harden]
 
         let stats = players.map(pl => {
             let currPS = pl.player_seasons.filter(ps => {
@@ -78,10 +72,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(MultiPlayerComparison)
-
-    // < PracticeVictory lines = { this.getRelaventGames().reverse() } />
-    //     <h2 className="ui item centered">Last 10 Games</h2>
-    //     <PersonalBoxTable lines={this.getRelaventGames()} />
-
-
-

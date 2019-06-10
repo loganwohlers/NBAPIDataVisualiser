@@ -3,7 +3,6 @@ import React from 'react'
 import { Table, TableCell } from 'semantic-ui-react'
 
 const RadarTable = ({ stats }) => {
-    console.log(stats)
     return (
         <Table id="RadarTable" celled inverted selectable>
             <Table.Header>

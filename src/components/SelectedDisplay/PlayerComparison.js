@@ -4,7 +4,7 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import PracticeVictory from './PracticeVictory'
+import PlayerStatsVictory from './PlayerStatsVictory'
 
 class PlayerComparison extends React.Component {
 
@@ -12,7 +12,6 @@ class PlayerComparison extends React.Component {
     last10 = () => {
         let currYear = this.props.season.year
         let players = this.props.playerComparison.results.data
-        console.log('players', players)
 
         let selectedPlayers = players.map(pl => {
             let currPlayerSeasonGames = pl.player_seasons.find(ps => {
@@ -25,7 +24,6 @@ class PlayerComparison extends React.Component {
 
             return sorted.slice(0, 10)
         })
-        console.log('selected players lines: ', selectedPlayers)
         return selectedPlayers
     }
 
@@ -33,13 +31,13 @@ class PlayerComparison extends React.Component {
         return (
             <div className='ui container center ' >
                 <div className='ui item centered'>
-                    <PracticeVictory lines={this.last10()} />
+                    <PlayerStatsVictory lines={this.last10()} />
                 </div>
             </div>
         )
-
     }
 }
+
 const mapStateToProps = (state) => {
     return {
         season: state.currSeason,

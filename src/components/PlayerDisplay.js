@@ -1,7 +1,7 @@
 import React from 'react';
 import PersonalBoxTable from './PersonalBoxTable';
 import PlayerDisplayTable from './SelectedDisplay/PlayerDisplayTable'
-import PracticeVictory from './SelectedDisplay/PracticeVictory'
+import PlayerStatsVictory from './SelectedDisplay/PlayerStatsVictory'
 import PlayerRadar from './SelectedDisplay/PlayerRadar'
 
 import { connect } from 'react-redux'
@@ -74,7 +74,7 @@ class PlayerDisplay extends React.Component {
                         </div>
                         <PlayerRadar stats={this.radarPrep()} />
                         <br></br>
-                        <PracticeVictory lines={this.getRelaventGames().reverse()} />
+                        <PlayerStatsVictory lines={this.getRelaventGames().reverse()} />
                         <h2 className="ui item centered">Last 10 Games</h2>
                         <PersonalBoxTable lines={this.getRelaventGames()} />
                     </div>

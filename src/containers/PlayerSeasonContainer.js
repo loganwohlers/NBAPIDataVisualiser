@@ -34,7 +34,6 @@ class PlayerSeasonContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return { season: state.currSeason }
 }
 

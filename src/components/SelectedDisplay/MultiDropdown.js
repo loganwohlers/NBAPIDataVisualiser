@@ -125,7 +125,6 @@ class MultiDropdown extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => {
-    console.log('STATE: ', state)
     return {
         playerComparison: state.playerComparison
 

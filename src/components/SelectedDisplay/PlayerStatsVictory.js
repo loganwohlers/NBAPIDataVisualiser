@@ -20,9 +20,11 @@ class PlayerStatsVictory extends React.Component {
 
     mapLinestoVictory() {
         let count
-        return this.props.lines.map(pls => {
+        if (this.props.lines.length === 10) {
+            console.log(this.props.lines)
+            let result = []
             count = 0
-            let ml = pls.map(g => {
+            result.push(this.props.lines.map(g => {
                 let yy
                 let label = `${this.readableDate(g.date)}`
                 if (g.dnp) {
@@ -43,9 +45,36 @@ class PlayerStatsVictory extends React.Component {
                         label: label
                     }
                 )
+            }))
+            return result
+        } else {
+            return this.props.lines.map(pls => {
+                count = 0
+                let ml = pls.map(g => {
+                    let yy
+                    let label = `${this.readableDate(g.date)}`
+                    if (g.dnp) {
+                        yy = 0
+                        label += ' (DNP)'
+                    } else if (this.state.selected === '+/-') {
+                        yy = parseInt(g['plus_minus'])
+                    } else {
+                        let stat = parseInt(g[this.state.selected])
+                        yy = stat
+                        label += ` ${this.state.selected.toUpperCase()}: ${stat}`
+                    }
+                    count++;
+                    return (
+                        {
+                            x: count,
+                            y: yy,
+                            label: label
+                        }
+                    )
+                })
+                return ml
             })
-            return ml
-        })
+        }
     }
 
     //not used right now
@@ -70,6 +99,7 @@ class PlayerStatsVictory extends React.Component {
 
     render() {
         let mappedLines = this.mapLinestoVictory()
+        console.log(mappedLines)
 
         return (
             <div className='ui container '>
@@ -138,9 +168,7 @@ class PlayerStatsVictory extends React.Component {
                 </div>
             </div >
         )
-
     }
-
-
 }
+
 export default PlayerStatsVictory
