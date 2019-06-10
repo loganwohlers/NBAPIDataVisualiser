@@ -18,13 +18,25 @@ export const setPlayer = (player) => {
     )
 }
 export const setComparison = (playersArr) => {
-    return (
-        {
-            type: 'SET_COMPARISON',
-            payload: playersArr
-        }
-    )
+
+    let results = {}
+    results.playerSeasons = playersArr
+    let multi = playersArr.map(ps => {
+        return ps[0].player.id
+    })
+    return async (dispatch, getState) => {
+        let data = await Promise.all(multi.map(async (id) => {
+            const response = await railsData.get('/players/' + id)
+            return response.data
+        }))
+        results.data = data
+        console.log('RESULTS: ', results)
+        dispatch({ type: 'SET_COMPARISON', payload: results })
+
+    }
 }
+
+
 
 export const setGame = (game) => {
     return (
@@ -106,16 +118,7 @@ export const fetchPlayer = () => {
         dispatch({ type: 'FETCH_PLAYER', payload: response.data })
     }
 }
-export const fetchComparison = () => {
-    return async (dispatch, getState) => {
-        debugger
-        let multi = []
-        //loop thru them here and save response to an array?
-        let id = getState().currPlayer.id
-        const response = await railsData.get('/players/' + id)
-        dispatch({ type: 'FETCH_COMPARISON', payload: response.data })
-    }
-}
+
 
 export const fetchGameBoxScore = () => {
     return async (dispatch, getState) => {

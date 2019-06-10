@@ -3,17 +3,10 @@ import React from 'react'
 import { Lebron, Harden, Giannis, Durant } from '../../assets/PlayerStats'
 
 import { connect } from 'react-redux'
-import { fetchComparison } from '../../actions'
 
 import PracticeVictory from './PracticeVictory'
 
 class PlayerComparison extends React.Component {
-
-
-    componentDidMount = () => {
-        this.props.fetchComparison()
-    }
-
 
     //only worked w/ hardcoded games
     last10 = () => {
@@ -55,7 +48,7 @@ const mapStateToProps = (state) => {
     return { season: state.currSeason }
 }
 
-export default connect(mapStateToProps, { fetchComparison })(PlayerComparison)
+export default connect(mapStateToProps)(PlayerComparison)
 
 
 
