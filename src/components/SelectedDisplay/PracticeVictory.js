@@ -55,33 +55,6 @@ class PlayerStatsVictory extends React.Component {
             return ml
         })
 
-        // } else {
-        //     let count
-        //     mappedLines = this.props.lines.map(pls => {
-        //         count = 0
-        //         let ml = pls.map(g => {
-        //             let yy
-        //             let label = `${this.readableDate(g.date)}`
-        //             if (g.dnp) {
-        //                 yy = 0
-        //                 label += ' (DNP)'
-        //             } else if (this.state.selected === '+/-') {
-        //                 yy = parseInt(g['plus_minus'])
-        //             } else {
-        //                 let stat = parseInt(g[this.state.selected])
-        //                 yy = stat
-        //                 label += ` ${this.state.selected.toUpperCase()}: ${stat}`
-        //             }
-        //             count++;
-        //             return (
-        //                 {
-        //                     x: count,
-        //                     y: yy,
-        //                     label: label
-        //                 }
-        //             )
-        //         })
-        //     }
         this.setState({ mappedLines })
     }
 
@@ -131,6 +104,8 @@ class PlayerStatsVictory extends React.Component {
 
     render() {
         console.log(this.state.mappedLines)
+        console.log('length: ', this.state.mappedLines.length)
+
         return (
             <div className='ui container '>
                 <div className="ui six item menu inverted">
@@ -146,110 +121,50 @@ class PlayerStatsVictory extends React.Component {
                 </div>
 
                 <div className='victory'>
-                    {this.state.mappedLines.length === 2 ?
-                        <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.grayscale}
-                            containerComponent={<VictoryVoronoiContainer />}>
 
-                            <VictoryLine
-                                labelComponent={
-                                    <VictoryTooltip
+                    <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.grayscale}
+                        containerComponent={<VictoryVoronoiContainer />}>
+                        <VictoryLine
+                            labelComponent={
+                                <VictoryTooltip
 
-                                        flyoutStyle={{
-                                            stroke: "tomato"
-                                        }} />}
+                                    flyoutStyle={{
+                                        stroke: "tomato"
+                                    }} />}
 
-                                interpolation="natural"
-                                style={{
-                                    data: { stroke: '#266ee2' },
-                                    parent: { border: "1px solid #ccc" }
-                                }}
-                                animate={{
-                                    duration: 2000,
-                                    onLoad: { duration: 2000 }
-                                }}
+                            interpolation="natural"
+                            style={{
+                                data: { stroke: '#266ee2' },
+                                parent: { border: "1px solid #ccc" }
+                            }}
+                            animate={{
+                                duration: 2000,
+                                onLoad: { duration: 2000 }
+                            }}
 
-                                data={this.state.mappedLines[0]}
-                            />
-                            <VictoryLine
-                                labelComponent={
-                                    <VictoryTooltip
+                            //data of them needs to be the index**
+                            data={this.state.mappedLines[0]}
+                        />
 
-                                        flyoutStyle={{
-                                            stroke: "tomato"
-                                        }} />}
+                        <VictoryAxis dependentAxis
+                            style={{
+                                axis: { stroke: "#bac2d1" },
+                                tickLabels: { stroke: "bac2d1", fontSize: 10 },
+                                ticks: { stroke: "grey", size: 5 },
+                                axisLabel: { padding: 50 }
+                            }} />
 
-                                interpolation="natural"
-                                style={{
-                                    data: { stroke: 'green' },
-                                    parent: { border: "1px solid #ccc" }
-                                }}
-                                animate={{
-                                    duration: 2000,
-                                    onLoad: { duration: 2000 }
-                                }}
+                        <VictoryAxis independentAxis
+                            tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+                            tickFormat={() => '.'}
+                            style={{
+                                axis: { stroke: "#bac2d1" },
+                                axisLabel: { padding: 200 },
+                                ticks: { stroke: "grey", size: 5 }
 
-                                data={this.state.mappedLines[1]} />
-                            <VictoryAxis dependentAxis
-                                style={{
-                                    axis: { stroke: "#bac2d1" },
-                                    tickLabels: { stroke: "bac2d1", fontSize: 10 },
-                                    ticks: { stroke: "grey", size: 5 },
-                                    axisLabel: { padding: 50 }
-                                }} />
-
-                            <VictoryAxis independentAxis
-                                tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-                                tickFormat={() => '.'}
-                                style={{
-                                    axis: { stroke: "#bac2d1" },
-                                    axisLabel: { padding: 200 },
-                                    ticks: { stroke: "grey", size: 5 }
-
-                                }}
-                            />
-                        </VictoryChart >
-                        :
-                        <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.grayscale}
-                            containerComponent={<VictoryVoronoiContainer />}>
-                            <VictoryLine
-                                labelComponent={
-                                    <VictoryTooltip
-
-                                        flyoutStyle={{
-                                            stroke: "tomato"
-                                        }} />}
-
-                                interpolation="natural"
-                                style={{
-                                    data: { stroke: '#266ee2' },
-                                    parent: { border: "1px solid #ccc" }
-                                }}
-                                animate={{
-                                    duration: 2000,
-                                    onLoad: { duration: 2000 }
-                                }}
-
-                                data={this.state.mappedLines}
-                            />
-                            <VictoryAxis dependentAxis
-                                style={{
-                                    axis: { stroke: "#bac2d1" },
-                                    tickLabels: { stroke: "bac2d1", fontSize: 10 },
-                                    ticks: { stroke: "grey", size: 5 },
-                                    axisLabel: { padding: 50 }
-                                }} />
-
-                            <VictoryAxis independentAxis
-                                tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-                                tickFormat={() => '.'}
-                                style={{
-                                    axis: { stroke: "#bac2d1" },
-                                    axisLabel: { padding: 200 },
-                                    ticks: { stroke: "grey", size: 5 }
-
-                                }}
-                            />
-                        </VictoryChart >
+                            }}
+                        />
+                    </VictoryChart >
 
 
                     }
@@ -262,5 +177,70 @@ class PlayerStatsVictory extends React.Component {
 
 }
 export default PlayerStatsVictory
+
+// {
+//     this.state.mappedLines.length === 2 ?
+//     <VictoryChart domainPadding={10} height={300} width={500} theme={VictoryTheme.grayscale}
+//         containerComponent={<VictoryVoronoiContainer />}>
+
+//         <VictoryLine
+//             labelComponent={
+//                 <VictoryTooltip
+
+//                     flyoutStyle={{
+//                         stroke: "tomato"
+//                     }} />}
+
+//             interpolation="natural"
+//             style={{
+//                 data: { stroke: '#266ee2' },
+//                 parent: { border: "1px solid #ccc" }
+//             }}
+//             animate={{
+//                 duration: 2000,
+//                 onLoad: { duration: 2000 }
+//             }}
+
+//             data={this.state.mappedLines[0]}
+//         />
+//         <VictoryLine
+//             labelComponent={
+//                 <VictoryTooltip
+
+//                     flyoutStyle={{
+//                         stroke: "tomato"
+//                     }} />}
+
+//             interpolation="natural"
+//             style={{
+//                 data: { stroke: 'green' },
+//                 parent: { border: "1px solid #ccc" }
+//             }}
+//             animate={{
+//                 duration: 2000,
+//                 onLoad: { duration: 2000 }
+//             }}
+
+//             data={this.state.mappedLines[1]} />
+//         <VictoryAxis dependentAxis
+//             style={{
+//                 axis: { stroke: "#bac2d1" },
+//                 tickLabels: { stroke: "bac2d1", fontSize: 10 },
+//                 ticks: { stroke: "grey", size: 5 },
+//                 axisLabel: { padding: 50 }
+//             }} />
+
+//         <VictoryAxis independentAxis
+//             tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+//             tickFormat={() => '.'}
+//             style={{
+//                 axis: { stroke: "#bac2d1" },
+//                 axisLabel: { padding: 200 },
+//                 ticks: { stroke: "grey", size: 5 }
+
+//             }}
+//         />
+//     </VictoryChart >
+//     :
 
 
