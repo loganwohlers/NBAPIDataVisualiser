@@ -100,6 +100,10 @@ class PlayerStatsVictory extends React.Component {
     render() {
         let mappedLines = this.mapLinestoVictory()
         console.log(mappedLines)
+        let title = this.state.selected.toLocaleUpperCase()
+        if (title === 'PLUS_MINUS') {
+            title = "+/-"
+        }
 
         return (
             <div className='ui container '>
@@ -112,7 +116,7 @@ class PlayerStatsVictory extends React.Component {
                     <button onClick={(e) => this.onMenuClick(e)} className="item">+/-</button>
                 </div>
                 <div >
-                    <h1>Last 10: {this.state.selected.toLocaleUpperCase()}</h1>
+                    <h1>Last 10: {title}</h1>
                 </div>
 
                 <div className='victory'>
@@ -141,7 +145,6 @@ class PlayerStatsVictory extends React.Component {
                                         onLoad: { duration: 2000 }
                                     }}
 
-                                    //data of them needs to be the index**
                                     data={lines}
                                 />)
                         })}

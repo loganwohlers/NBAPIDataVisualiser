@@ -35,7 +35,6 @@ export const setComparison = (playersArr) => {
 }
 
 
-
 export const setGame = (game) => {
     return (
         {

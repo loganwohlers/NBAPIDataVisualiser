@@ -5,7 +5,6 @@ import { Table } from 'semantic-ui-react'
 
 
 class GameTable extends React.Component {
-
     render() {
         return (
             <Table id="Games" fullwidth celled inverted selectable textAlign='center'
@@ -15,6 +14,7 @@ class GameTable extends React.Component {
                     fontSize: '75%',
                     whiteSpace: 'nowrap'
                 }}>
+
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell>Date</Table.HeaderCell>
