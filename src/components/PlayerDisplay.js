@@ -60,7 +60,7 @@ class PlayerDisplay extends React.Component {
     render() {
         return (
             <div className="ui container">
-                <h2 className="playerShowcase">{this.props.player.name}</h2>
+                <h1 className="playerShowcase">{this.props.player.name}</h1>
 
                 {this.props.player.data ?
                     <div>
