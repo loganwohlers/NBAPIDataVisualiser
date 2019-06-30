@@ -15,7 +15,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <BrowserRouter>
+        <BrowserRouter
+          basename={'https://loganwohlers.github.io/nbapi-visualizer'}>
           <div>
             <Route path="/" exact={true} component={MainMenu} />
             <Route path="/seasonhome/:year" component={SeasonLanding} />
