@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "205b3a8eed9ad84c4391ba16c4403e3a",
+    "revision": "c63f8e5ea18b1d2de3ef19b0409c0eb1",
     "url": "/nbapi-visualizer/index.html"
   },
   {
