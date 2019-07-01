@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f2c9c9077e81e925295b1c6e43483758",
+    "revision": "94f839a9598e564eb58d33551cb2a5f2",
     "url": "/nbapi-visualizer/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/nbapi-visualizer/static/css/2.5ec480d0.chunk.css"
   },
   {
-    "revision": "c1ebd86f86f9257e3c46",
+    "revision": "e5a6202d3a31c50e2fa2",
     "url": "/nbapi-visualizer/static/css/main.7930b97b.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/nbapi-visualizer/static/js/2.0329e874.chunk.js"
   },
   {
-    "revision": "c1ebd86f86f9257e3c46",
-    "url": "/nbapi-visualizer/static/js/main.3a2322b5.chunk.js"
+    "revision": "e5a6202d3a31c50e2fa2",
+    "url": "/nbapi-visualizer/static/js/main.09898ccf.chunk.js"
   },
   {
     "revision": "fad27db0df7a7198457f",
