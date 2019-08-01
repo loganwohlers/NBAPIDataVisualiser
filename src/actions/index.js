@@ -1,5 +1,6 @@
 import railsData from '../apis/railsData'
 
+//sends selected state to current season reducer
 export const setSeason = (year) => {
     return (
         {
@@ -9,6 +10,7 @@ export const setSeason = (year) => {
     )
 }
 
+//sends selected player to current player reducer
 export const setPlayer = (player) => {
     return (
         {
@@ -17,12 +19,16 @@ export const setPlayer = (player) => {
         }
     )
 }
+
+//takes an array of selected players
 export const setComparison = (playersArr) => {
     let results = {}
     results.playerSeasons = playersArr
+
     let multi = playersArr.map(ps => {
         return ps[0].player.id
     })
+
     return async (dispatch, getState) => {
         let data = await Promise.all(multi.map(async (id) => {
             const response = await railsData.get('/players/' + id)
@@ -30,11 +36,11 @@ export const setComparison = (playersArr) => {
         }))
         results.data = data
         dispatch({ type: 'SET_COMPARISON', payload: results })
-
     }
 }
 
 
+//sends selected game to current player reducer
 export const setGame = (game) => {
     return (
         {
@@ -76,6 +82,7 @@ export const fetchSeasonGames = () => {
     }
 }
 
+//checking if a season's data HAS been selected OR if the season selected is the same as the currently selected season. if data has already been loaded return false, else true
 const shouldFetchData = (state) => {
     const ps1 = state.currSeason.playerSeasons.data[0]
     const sg1 = state.currSeason.seasonGames.data[0]
@@ -86,6 +93,7 @@ const shouldFetchData = (state) => {
     return !(ps1.team_season.year === year || sg1.season.year === year)
 }
 
+//using the result of the above check-- dispatches methods to fetch all the data for a given season(player averages + games)
 export const fetchAllSeasonDataIfNeeded = () => {
     return async (dispatch, getState) => {
         if (shouldFetchData(getState())) {
@@ -108,6 +116,7 @@ export const receivedSeasonGames = (data) => {
     }
 }
 
+//uses the current seleted players id and fetches their data
 export const fetchPlayer = () => {
     return async (dispatch, getState) => {
         let id = getState().currPlayer.id

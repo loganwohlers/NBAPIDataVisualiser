@@ -13,6 +13,7 @@ class PlayerDisplay extends React.Component {
         this.props.fetchPlayer()
     }
 
+    //get all of a players games- and only return the last 10
     getRelaventGames = () => {
         let currPlayerSeasonGames = this.props.player.data.player_seasons.find(ps => ps.year = this.props.currSeason.year).games
         let sorted = currPlayerSeasonGames.sort((a, b) => {
@@ -21,6 +22,7 @@ class PlayerDisplay extends React.Component {
         return sorted.slice(0, 10)
     }
 
+    //hardcoded season averages passed into stats obj to be compared with a specific player
     radarPrep = () => {
         let currYear = this.props.currSeason.year
         let stats
